@@ -1,0 +1,4 @@
+# 如果使用了淘宝镜像,使用以下方式登录发布包
+npm login --registry http://registry.npmjs.org
+
+npm publish --registry http://registry.npmjs.org
