@@ -1,7 +1,11 @@
-import LayerFrame from '../layer/src/LayerFrame';
+import {Axios} from '../ajax/src/axios';
 
-LayerFrame.install = function (Vue) {
-  Vue.component(LayerFrame.name, LayerFrame);
+const Ajax = {
+  install(Vue, target = new Axios()) {
+    Vue.prototype.$Ajax = target;
+    Vue.prototype.$ajax = target;
+    Vue.prototype.$AJAX = target;
+  }
 };
 
-export default LayerFrame;
+export default Ajax;

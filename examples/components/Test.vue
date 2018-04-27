@@ -5,9 +5,12 @@
 </template>
 
 <script>
-
   export default {
-    name: "test"
+    name: "test",
+
+    created() {
+      this.$Ajax.get({}, [], 1)
+    }
   }
 </script>
 

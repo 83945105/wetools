@@ -38,7 +38,7 @@ const devWebpackConfig = {
     publicPath: '/'
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.ts', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('examples'),
@@ -112,6 +112,14 @@ const devWebpackConfig = {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('examples'), resolve('packages'), resolve('web'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
+      },
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options: {
+          appendTsSuffixTo: [/\.vue$/]
+        }
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

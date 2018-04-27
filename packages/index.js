@@ -1,26 +1,19 @@
-/*!
- * Title:
- * Description:
- * author: 白超
- * date: 2018/4/19
- * version: v1.0
- */
+import Ajax from "./ajax/index.js";
 
-
-const components = [
-];
+const plugins = {
+  Ajax: Ajax
+};
 
 const install = function (Vue, opts = {}) {
 
-  components.map(component => Vue.component(component.name, component));
+  for (let plugin in plugins) {
+    plugins[plugin].install(Vue, opts[plugin]);
+  }
 
 };
 
-if (typeof window !== 'undefined' && window.Vue) {
-  install(window.Vue)
-}
-
 export {
+  Ajax
 }
 
 export default install;

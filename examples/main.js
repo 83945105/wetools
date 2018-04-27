@@ -13,8 +13,10 @@ import 'weview/lib/theme-chalk/index.css';
 import 'weview/lib/web/theme-chalk/index.css';
 
 import weview from 'weview';
-
 Vue.use(weview);
+
+import wetools from '../packages/index.js';
+Vue.use(wetools);
 
 /* eslint-disable no-new */
 new Vue({
