@@ -6,7 +6,7 @@ export function isNumber(obj) {
   return Object.prototype.toString.call(obj) === "[object Number]";
 }
 
-export function isBoolean() {
+export function isBoolean(obj) {
   return Object.prototype.toString.call(obj) === "[object Boolean]";
 }
 
@@ -18,10 +18,10 @@ export function isArray(obj) {
   return Object.prototype.toString.call(obj) === "[object Array]";
 }
 
-export function isNull() {
+export function isNull(obj) {
   return Object.prototype.toString.call(obj) === "[object Null]";
 }
 
-export function isUndefined() {
+export function isUndefined(obj) {
   return Object.prototype.toString.call(obj) === "[object Undefined]";
 }

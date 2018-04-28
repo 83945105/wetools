@@ -16,7 +16,13 @@ import weview from 'weview';
 Vue.use(weview);
 
 import wetools from '../packages/index.js';
-Vue.use(wetools);
+Vue.use(wetools, {
+  Ajax: {
+    options: {
+      baseURL: 'http://192.168.0.136:8081/ssm-vue-frame'
+    }
+  }
+});
 
 /* eslint-disable no-new */
 new Vue({

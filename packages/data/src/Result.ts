@@ -1,4 +1,3 @@
-/** 结果号枚举值 */
 export enum ResultCode {
   /** 失败 */
   FAIL_CODE = 0,

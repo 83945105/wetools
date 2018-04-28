@@ -6,8 +6,8 @@ const plugins = {
 
 const install = function (Vue, opts = {}) {
 
-  for (let plugin in plugins) {
-    plugins[plugin].install(Vue, opts[plugin]);
+  for (let name in plugins) {
+    plugins[name].install(Vue, opts[name]);
   }
 
 };

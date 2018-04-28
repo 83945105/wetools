@@ -1,10 +1,12 @@
-import {Axios} from '../ajax/src/axios';
+import {Axios} from '../ajax/src/axios.js';
 
 const Ajax = {
-  install(Vue, target = new Axios()) {
-    Vue.prototype.$Ajax = target;
-    Vue.prototype.$ajax = target;
-    Vue.prototype.$AJAX = target;
+
+  install(Vue, {use = new Axios(), options} = {use: new Axios()}) {
+    use.setOptions(options);
+    Vue.prototype.$Ajax = use;
+    Vue.prototype.$ajax = use;
+    Vue.prototype.$AJAX = use;
   }
 };
 

@@ -4,13 +4,39 @@
 
 const path = require('path')
 
+
+const proxys = {
+  // '/api': ['http://192.168.0.136:8081/ssm-vue-frame']
+};
+
 module.exports = {
   dev: {
 
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      ...function () {
+        let r = {};
+        for (let i in proxys) {
+          r[i] = {
+            target: proxys[i][0],
+            changeOrigin: true,
+            pathRewrite: function () {
+              let pr = {};
+              let v = '';
+              for (let j = 1; j < proxys[i].length; j++) {
+                v += proxys[i][j];
+              }
+              pr[`^${i}`] = v;
+              return pr;
+            }()
+          }
+
+        }
+        return r;
+      }
+    },
 
     // Various Dev Server settings
     host: '192.168.0.136', // can be overwritten by process.env.HOST
