@@ -1,11 +1,17 @@
 import {isObject, isArray, isString} from '../../../src/utils/util.js';
+import ElementMessage from '../../message/src/element.js';
+import {MessageOptions} from '../../message/src/message.js';
 
 export const AjaxOptions = {
   baseURL: '',
   params: {},
   headers: {},
   timeout: 30000,
-  responseType: 'json'
+  responseType: 'json',
+  message: {
+    use: ElementMessage,
+    options: MessageOptions
+  }
 };
 
 export class Ajax {

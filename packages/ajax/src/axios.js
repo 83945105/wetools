@@ -18,9 +18,12 @@ export class Axios extends Ajax {
     let opts = Object.assign({}, this._options, options);
     url += util.getParamsToUrl(params);
     this._axios.get(url, opts).then(res => {
+
+
       console.log(res)
+
     }).catch(err => {
-      console.log()
+      // console.log()
     });
   };
 
@@ -55,3 +58,5 @@ export class Axios extends Ajax {
   };
 
 }
+
+export default new Axios();

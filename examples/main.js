@@ -19,7 +19,25 @@ import wetools from '../packages/index.js';
 Vue.use(wetools, {
   Ajax: {
     options: {
-      baseURL: 'http://192.168.0.136:8081/ssm-vue-frame'
+      baseURL: 'http://192.168.0.136:8081/ssm-vue-frame',
+      message: {
+        options: {
+          duration: 5000
+        }
+      }
+    }
+  },
+  Message: {
+    options: {
+      duration: 1000,
+      showClose: true
+    }
+  },
+  DataParser: {
+    options: {
+      successOptions: {
+        duration: 5000
+      }
     }
   }
 });

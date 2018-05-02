@@ -1,7 +1,11 @@
 import Ajax from "./ajax/index.js";
+import Message from "./message/index.js";
+import DataParser from "./data-parser/index.js";
 
 const plugins = {
-  Ajax: Ajax
+  Ajax: Ajax,
+  Message: Message,
+  DataParser: DataParser
 };
 
 const install = function (Vue, opts = {}) {
@@ -13,7 +17,9 @@ const install = function (Vue, opts = {}) {
 };
 
 export {
-  Ajax
+  Ajax,
+  Message,
+  DataParser
 }
 
 export default install;
