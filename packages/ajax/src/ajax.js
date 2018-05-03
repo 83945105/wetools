@@ -1,6 +1,8 @@
 import {isObject, isArray, isString} from '../../../src/utils/util.js';
-import ElementMessage from '../../message/src/element.js';
-import {MessageOptions} from '../../message/src/message.js';
+import {Element} from '../../message/src/element.js';
+import {Default} from "../../data-parser/src/default.js";
+import {DefaultParserOptions} from "../../data-parser/src/parser";
+import {DefaultMessageOptions} from "../../message/src/message";
 
 export const AjaxOptions = {
   baseURL: '',
@@ -8,19 +10,17 @@ export const AjaxOptions = {
   headers: {},
   timeout: 30000,
   responseType: 'json',
-  message: {
-    use: ElementMessage,
-    options: MessageOptions
+  messageOptions: {
+    use: Element,
+    options: Object.assign({}, DefaultMessageOptions)
+  },
+  dataParserOptions: {
+    use: Default,
+    options: Object.assign({}, DefaultParserOptions)
   }
 };
 
 export class Ajax {
-
-  _options = AjaxOptions;
-
-  setOptions(options = AjaxOptions) {
-    Object.assign(this._options, options)
-  }
 
   get(url, params, options) {
     if (!isString(url)) {

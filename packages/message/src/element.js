@@ -44,5 +44,3 @@ export class Element extends Message {
     this._element(opts);
   }
 }
-
-export default new Element();

@@ -1,12 +1,21 @@
-import Axios from '../ajax/src/axios.js';
+import {Axios} from '../ajax/src/axios.js';
+import {AjaxOptions} from "./src/ajax.js";
+import {deepAssign, isArray, isString} from "../../src/utils/util.js";
 
 const Ajax = {
 
-  install(Vue, {use = Axios, options} = {use: Axios}) {
-    use.setOptions(options);
-    Vue.prototype.$Ajax = use;
-    Vue.prototype.$ajax = use;
-    Vue.prototype.$AJAX = use;
+  Axios: Axios,
+
+  install(Vue, {use = Axios, alias = "$ajax", options} = {use: Axios, alias: "$ajax"}) {
+    deepAssign(AjaxOptions, options);
+    let a = new use();
+    if (isString(alias)) {
+      Vue.prototype[alias] = a;
+    } else if (isArray(alias)) {
+      for (let name of alias) {
+        Vue.prototype[name] = a;
+      }
+    }
   }
 };
 

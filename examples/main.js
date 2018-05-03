@@ -16,20 +16,30 @@ import weview from 'weview';
 Vue.use(weview);
 
 import wetools from '../packages/index.js';
+import {DataParser, Message} from '../packages/index.js';
 Vue.use(wetools, {
   Ajax: {
+    alias: ["$ajax", "$Ajax", "$AJAX"],
     options: {
       baseURL: 'http://192.168.0.136:8081/ssm-vue-frame',
-      message: {
+      messageOptions: {
         options: {
-          duration: 5000
+          duration: 3000
+        }
+      },
+      dataParserOptions: {
+        use: DataParser.DataView,
+        options: {
+          errorOptions: {
+            close:true
+          }
         }
       }
     }
   },
   Message: {
     options: {
-      duration: 1000,
+      duration: 0,
       showClose: true
     }
   },

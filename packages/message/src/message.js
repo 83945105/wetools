@@ -1,6 +1,6 @@
 import {paramsMatching} from "../../../src/utils/util";
 
-export const MessageOptions = {
+export const DefaultMessageOptions = {
   iconClass: undefined,
   html: false,
   customClass: undefined,
@@ -10,6 +10,8 @@ export const MessageOptions = {
   onClose() {
   }
 };
+
+export const MessageOptions = Object.assign({message: ''}, DefaultMessageOptions);
 
 export const MessageType = {
   /** 失败 */
@@ -32,53 +34,47 @@ export const MessageType = {
 
 export class Message {
 
-  _options = MessageOptions;
-
-  setOptions(options = MessageOptions) {
-    Object.assign(this._options, options)
-  }
-
   open(...args) {
     return paramsMatching([{
       name: 'message',
       type: 'string',
       count: 1,
-      default: ''
+      default: MessageOptions.message
     }, {
       name: 'iconClass',
       type: 'string',
       count: 3,
-      default: this._options.iconClass
+      default: MessageOptions.iconClass
     }, {
       name: 'html',
       type: 'boolean',
       count: 3,
-      default: this._options.html
+      default: MessageOptions.html
     }, {
       name: 'customClass',
       type: 'string',
       count: 2,
-      default: this._options.customClass
+      default: MessageOptions.customClass
     }, {
       name: 'duration',
       type: 'number',
       count: 1,
-      default: this._options.duration
+      default: MessageOptions.duration
     }, {
       name: 'showClose',
       type: 'boolean',
       count: 1,
-      default: this._options.showClose
+      default: MessageOptions.showClose
     }, {
       name: 'center',
       type: 'boolean',
       count: 2,
-      default: this._options.center
+      default: MessageOptions.center
     }, {
       name: 'onClose',
       type: 'function',
       count: 1,
-      default: this._options.onClose
+      default: MessageOptions.onClose
     }], args);
   };
 
@@ -87,42 +83,42 @@ export class Message {
       name: 'message',
       type: 'string',
       count: 1,
-      default: ''
+      default: MessageOptions.message
     }, {
       name: 'iconClass',
       type: 'string',
       count: 3,
-      default: this._options.iconClass
+      default: MessageOptions.iconClass
     }, {
       name: 'html',
       type: 'boolean',
       count: 3,
-      default: this._options.html
+      default: MessageOptions.html
     }, {
       name: 'customClass',
       type: 'string',
       count: 2,
-      default: this._options.customClass
+      default: MessageOptions.customClass
     }, {
       name: 'duration',
       type: 'number',
       count: 1,
-      default: this._options.duration
+      default: MessageOptions.duration
     }, {
       name: 'showClose',
       type: 'boolean',
       count: 1,
-      default: this._options.showClose
+      default: MessageOptions.showClose
     }, {
       name: 'center',
       type: 'boolean',
       count: 2,
-      default: this._options.center
+      default: MessageOptions.center
     }, {
       name: 'onClose',
       type: 'function',
       count: 1,
-      default: this._options.onClose
+      default: MessageOptions.onClose
     }], args);
   };
 
@@ -131,42 +127,42 @@ export class Message {
       name: 'message',
       type: 'string',
       count: 1,
-      default: ''
+      default: MessageOptions.message
     }, {
       name: 'iconClass',
       type: 'string',
       count: 3,
-      default: this._options.iconClass
+      default: MessageOptions.iconClass
     }, {
       name: 'html',
       type: 'boolean',
       count: 3,
-      default: this._options.html
+      default: MessageOptions.html
     }, {
       name: 'customClass',
       type: 'string',
       count: 2,
-      default: this._options.customClass
+      default: MessageOptions.customClass
     }, {
       name: 'duration',
       type: 'number',
       count: 1,
-      default: this._options.duration
+      default: MessageOptions.duration
     }, {
       name: 'showClose',
       type: 'boolean',
       count: 1,
-      default: this._options.showClose
+      default: MessageOptions.showClose
     }, {
       name: 'center',
       type: 'boolean',
       count: 2,
-      default: this._options.center
+      default: MessageOptions.center
     }, {
       name: 'onClose',
       type: 'function',
       count: 1,
-      default: this._options.onClose
+      default: MessageOptions.onClose
     }], args);
   };
 
@@ -175,42 +171,42 @@ export class Message {
       name: 'message',
       type: 'string',
       count: 1,
-      default: ''
+      default: MessageOptions.message
     }, {
       name: 'iconClass',
       type: 'string',
       count: 3,
-      default: this._options.iconClass
+      default: MessageOptions.iconClass
     }, {
       name: 'html',
       type: 'boolean',
       count: 3,
-      default: this._options.html
+      default: MessageOptions.html
     }, {
       name: 'customClass',
       type: 'string',
       count: 2,
-      default: this._options.customClass
+      default: MessageOptions.customClass
     }, {
       name: 'duration',
       type: 'number',
       count: 1,
-      default: this._options.duration
+      default: MessageOptions.duration
     }, {
       name: 'showClose',
       type: 'boolean',
       count: 1,
-      default: this._options.showClose
+      default: MessageOptions.showClose
     }, {
       name: 'center',
       type: 'boolean',
       count: 2,
-      default: this._options.center
+      default: MessageOptions.center
     }, {
       name: 'onClose',
       type: 'function',
       count: 1,
-      default: this._options.onClose
+      default: MessageOptions.onClose
     }], args);
   };
 
@@ -219,42 +215,42 @@ export class Message {
       name: 'message',
       type: 'string',
       count: 1,
-      default: ''
+      default: MessageOptions.message
     }, {
       name: 'iconClass',
       type: 'string',
       count: 3,
-      default: this._options.iconClass
+      default: MessageOptions.iconClass
     }, {
       name: 'html',
       type: 'boolean',
       count: 3,
-      default: this._options.html
+      default: MessageOptions.html
     }, {
       name: 'customClass',
       type: 'string',
       count: 2,
-      default: this._options.customClass
+      default: MessageOptions.customClass
     }, {
       name: 'duration',
       type: 'number',
       count: 1,
-      default: this._options.duration
+      default: MessageOptions.duration
     }, {
       name: 'showClose',
       type: 'boolean',
       count: 1,
-      default: this._options.showClose
+      default: MessageOptions.showClose
     }, {
       name: 'center',
       type: 'boolean',
       count: 2,
-      default: this._options.center
+      default: MessageOptions.center
     }, {
       name: 'onClose',
       type: 'function',
       count: 1,
-      default: this._options.onClose
+      default: MessageOptions.onClose
     }], args);
   };
 
@@ -263,42 +259,42 @@ export class Message {
       name: 'message',
       type: 'string',
       count: 1,
-      default: ''
+      default: MessageOptions.message
     }, {
       name: 'iconClass',
       type: 'string',
       count: 3,
-      default: this._options.iconClass
+      default: MessageOptions.iconClass
     }, {
       name: 'html',
       type: 'boolean',
       count: 3,
-      default: this._options.html
+      default: MessageOptions.html
     }, {
       name: 'customClass',
       type: 'string',
       count: 2,
-      default: this._options.customClass
+      default: MessageOptions.customClass
     }, {
       name: 'duration',
       type: 'number',
       count: 1,
-      default: this._options.duration
+      default: MessageOptions.duration
     }, {
       name: 'showClose',
       type: 'boolean',
       count: 1,
-      default: this._options.showClose
+      default: MessageOptions.showClose
     }, {
       name: 'center',
       type: 'boolean',
       count: 2,
-      default: this._options.center
+      default: MessageOptions.center
     }, {
       name: 'onClose',
       type: 'function',
       count: 1,
-      default: this._options.onClose
+      default: MessageOptions.onClose
     }], args);
   };
 
