@@ -18,7 +18,7 @@ const Message = {
       }
     }
     if (msg instanceof ElementMessage) {
-      import('element-ui/lib/theme-chalk/index.css');
+      //import('element-ui/lib/theme-chalk/index.css');
     }
   }
 };

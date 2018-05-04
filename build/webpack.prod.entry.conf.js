@@ -33,7 +33,10 @@ const webpackConfig = {
   output: {
     path: path.resolve(__dirname, '../lib'),
     filename: path.posix.join('', '[name].js'),
-    publicPath: '/'
+    publicPath: '/',
+    library: 'wetools',
+    libraryTarget: 'umd',
+    umdNamedDefine: true
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],

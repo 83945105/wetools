@@ -1,15 +1,16 @@
 {
   "name": "wetools",
-  "version": "0.0.6-dev",
+  "version": "0.0.9-dev",
   "description": "Tools based on Vue",
   "author": "wx_83945105 <18606167809@163.com>",
   "private": false,
-  "main": "packages/index.js",
+  "main": "lib/index.js",
   "files": [
     "src",
     "lib",
     "packages",
-    "examples"
+    "examples",
+    "types"
   ],
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.examples.conf.js",

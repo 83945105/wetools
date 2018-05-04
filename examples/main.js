@@ -17,6 +17,7 @@ Vue.use(weview);
 
 import wetools from '../packages/index.js';
 import {DataParser, Message} from '../packages/index.js';
+import('element-ui/lib/theme-chalk/index.css');
 Vue.use(wetools, {
   Ajax: {
     alias: ["$ajax", "$Ajax", "$AJAX"],
