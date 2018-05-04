@@ -32,6 +32,11 @@ Vue.use(wetools, {
         options: {
           errorOptions: {
             close:true
+          },
+          needLoginOptions: {
+            callback() {
+              alert(`该操作需要登陆后进行`);
+            }
           }
         }
       }

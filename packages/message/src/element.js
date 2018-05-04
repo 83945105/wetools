@@ -1,12 +1,14 @@
 import {Message} from "./message.js";
 
+const ElementMessage = require('element-ui').Message;
+
 export class Element extends Message {
 
   _element = undefined;
 
   constructor() {
     super();
-    this._element = require('element-ui').Message;
+    this._element = ElementMessage;
   }
 
   open(...args) {

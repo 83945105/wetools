@@ -3,6 +3,9 @@ import {deepAssign} from "../../../src/utils/util";
 
 const util = new AjaxUtil();
 
+const AxiosAjax = require('axios');
+const Qs = require('qs');
+
 export class Axios extends Ajax {
 
   _axios = undefined;
@@ -10,8 +13,8 @@ export class Axios extends Ajax {
 
   constructor() {
     super();
-    this._axios = require('axios');
-    this._qs = require('qs');
+    this._axios = AxiosAjax;
+    this._qs = Qs;
   }
 
   get(url, params, options) {
@@ -19,7 +22,7 @@ export class Axios extends Ajax {
     let opts = deepAssign({}, AjaxOptions, options);
     url += util.getParamsToUrl(params);
 
-    let $parser = new opts.dataParserOptions.use();
+    let $parser = new opts.dataParserOptions.use(opts.dataParserOptions.options);
     let $message = new opts.messageOptions.use();
 
     this._axios.get(url, opts).then(res => {
@@ -27,6 +30,7 @@ export class Axios extends Ajax {
       $parser.parse(res.data, res);
 
     }).catch(err => {
+      console.log(err);
       console.log(JSON.parse(JSON.stringify(err)));
       $message.open(Object.assign({}, opts.messageOptions.options, {
         message: `请求出错`

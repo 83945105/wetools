@@ -1,6 +1,7 @@
 import {paramsMatching} from "../../../src/utils/util.js";
 import {Element} from "../../message/src/element.js";
 import {DefaultMessageOptions} from "../../message/src/message";
+import {deepAssign} from "../../../src/utils/util";
 
 export const DefaultParserOptions = {
   successOptions: Object.assign({
@@ -29,12 +30,27 @@ export const DefaultParserOptions = {
     }
   }, DefaultMessageOptions),
   notSuccessOptions: Object.assign({
-    close: false,
+    close: true,
     callback() {
     }
   }, DefaultMessageOptions),
   finallyOptions: Object.assign({
-    close: false,
+    close: true,
+    callback() {
+    }
+  }, DefaultMessageOptions),
+  needLoginOptions: Object.assign({
+    close: true,
+    callback() {
+    }
+  }, DefaultMessageOptions),
+  noAuthorityOptions: Object.assign({
+    close: true,
+    callback() {
+    }
+  }, DefaultMessageOptions),
+  notFoundOptions: Object.assign({
+    close: true,
     callback() {
     }
   }, DefaultMessageOptions),
@@ -71,12 +87,27 @@ export const ParserOptions = {
     }
   }, DefaultMessageOptions),
   notSuccessOptions: Object.assign({
-    close: false,
+    close: true,
     callback() {
     }
   }, DefaultMessageOptions),
   finallyOptions: Object.assign({
-    close: false,
+    close: true,
+    callback() {
+    }
+  }, DefaultMessageOptions),
+  needLoginOptions: Object.assign({
+    close: true,
+    callback() {
+    }
+  }, DefaultMessageOptions),
+  noAuthorityOptions: Object.assign({
+    close: true,
+    callback() {
+    }
+  }, DefaultMessageOptions),
+  notFoundOptions: Object.assign({
+    close: true,
     callback() {
     }
   }, DefaultMessageOptions),
@@ -92,8 +123,8 @@ export class Parser {
 
   _options = undefined;
 
-  constructor() {
-    this._options = merge({}, ParserOptions);
+  constructor(options = {}) {
+    this._options = deepAssign({}, ParserOptions, options);
   }
 
   new() {
@@ -110,13 +141,11 @@ export class Parser {
     let opts = paramsMatching([{
       name: 'close',
       type: 'boolean',
-      count: 1,
-      default: ParserOptions.successOptions.close
+      count: 1
     }, {
       name: 'callback',
       type: 'function',
-      count: 1,
-      default: ParserOptions.successOptions.callback
+      count: 1
     }, {
       name: 'message',
       type: 'string',
@@ -125,40 +154,33 @@ export class Parser {
     }, {
       name: 'iconClass',
       type: 'string',
-      count: 3,
-      default: ParserOptions.successOptions.iconClass
+      count: 3
     }, {
       name: 'html',
       type: 'boolean',
-      count: 4,
-      default: ParserOptions.successOptions.html
+      count: 4
     }, {
       name: 'customClass',
       type: 'string',
-      count: 2,
-      default: ParserOptions.successOptions.customClass
+      count: 2
     }, {
       name: 'duration',
       type: 'number',
-      count: 1,
-      default: ParserOptions.successOptions.duration
+      count: 1
     }, {
       name: 'showClose',
       type: 'boolean',
-      count: 2,
-      default: ParserOptions.successOptions.showClose
+      count: 2
     }, {
       name: 'center',
       type: 'boolean',
-      count: 3,
-      default: ParserOptions.successOptions.center
+      count: 3
     }, {
       name: 'onClose',
       type: 'function',
-      count: 2,
-      default: ParserOptions.successOptions.onClose
+      count: 2
     }], args);
-    Object.assign(this._options.successOptions, opts);
+    this._options.successOptions = merge(this._options.successOptions, opts);
     return this;
   };
 
@@ -166,13 +188,11 @@ export class Parser {
     let opts = paramsMatching([{
       name: 'close',
       type: 'boolean',
-      count: 1,
-      default: ParserOptions.failOptions.close
+      count: 1
     }, {
       name: 'callback',
       type: 'function',
-      count: 1,
-      default: ParserOptions.failOptions.callback
+      count: 1
     }, {
       name: 'message',
       type: 'string',
@@ -181,40 +201,33 @@ export class Parser {
     }, {
       name: 'iconClass',
       type: 'string',
-      count: 3,
-      default: ParserOptions.failOptions.iconClass
+      count: 3
     }, {
       name: 'html',
       type: 'boolean',
-      count: 4,
-      default: ParserOptions.failOptions.html
+      count: 4
     }, {
       name: 'customClass',
       type: 'string',
-      count: 2,
-      default: ParserOptions.failOptions.customClass
+      count: 2
     }, {
       name: 'duration',
       type: 'number',
-      count: 1,
-      default: ParserOptions.failOptions.duration
+      count: 1
     }, {
       name: 'showClose',
       type: 'boolean',
-      count: 2,
-      default: ParserOptions.failOptions.showClose
+      count: 2
     }, {
       name: 'center',
       type: 'boolean',
-      count: 3,
-      default: ParserOptions.failOptions.center
+      count: 3
     }, {
       name: 'onClose',
       type: 'function',
-      count: 2,
-      default: ParserOptions.failOptions.onClose
+      count: 2
     }], args);
-    Object.assign(this._options.failOptions, opts);
+    this._options.failOptions = merge(this._options.failOptions, opts);
     return this;
   };
 
@@ -222,13 +235,11 @@ export class Parser {
     let opts = paramsMatching([{
       name: 'close',
       type: 'boolean',
-      count: 1,
-      default: ParserOptions.errorOptions.close
+      count: 1
     }, {
       name: 'callback',
       type: 'function',
-      count: 1,
-      default: ParserOptions.errorOptions.callback
+      count: 1
     }, {
       name: 'message',
       type: 'string',
@@ -237,40 +248,33 @@ export class Parser {
     }, {
       name: 'iconClass',
       type: 'string',
-      count: 3,
-      default: ParserOptions.errorOptions.iconClass
+      count: 3
     }, {
       name: 'html',
       type: 'boolean',
-      count: 4,
-      default: ParserOptions.errorOptions.html
+      count: 4
     }, {
       name: 'customClass',
       type: 'string',
-      count: 2,
-      default: ParserOptions.errorOptions.customClass
+      count: 2
     }, {
       name: 'duration',
       type: 'number',
-      count: 1,
-      default: ParserOptions.errorOptions.duration
+      count: 1
     }, {
       name: 'showClose',
       type: 'boolean',
-      count: 2,
-      default: ParserOptions.errorOptions.showClose
+      count: 2
     }, {
       name: 'center',
       type: 'boolean',
-      count: 3,
-      default: ParserOptions.errorOptions.center
+      count: 3
     }, {
       name: 'onClose',
       type: 'function',
-      count: 2,
-      default: ParserOptions.errorOptions.onClose
+      count: 2
     }], args);
-    Object.assign(this._options.errorOptions, opts);
+    this._options.errorOptions = merge(this._options.errorOptions, opts);
     return this;
   };
 
@@ -278,13 +282,11 @@ export class Parser {
     let opts = paramsMatching([{
       name: 'close',
       type: 'boolean',
-      count: 1,
-      default: ParserOptions.infoOptions.close
+      count: 1
     }, {
       name: 'callback',
       type: 'function',
-      count: 1,
-      default: ParserOptions.infoOptions.callback
+      count: 1
     }, {
       name: 'message',
       type: 'string',
@@ -293,40 +295,33 @@ export class Parser {
     }, {
       name: 'iconClass',
       type: 'string',
-      count: 3,
-      default: ParserOptions.infoOptions.iconClass
+      count: 3
     }, {
       name: 'html',
       type: 'boolean',
-      count: 4,
-      default: ParserOptions.infoOptions.html
+      count: 4
     }, {
       name: 'customClass',
       type: 'string',
-      count: 2,
-      default: ParserOptions.infoOptions.customClass
+      count: 2
     }, {
       name: 'duration',
       type: 'number',
-      count: 1,
-      default: ParserOptions.infoOptions.duration
+      count: 1
     }, {
       name: 'showClose',
       type: 'boolean',
-      count: 2,
-      default: ParserOptions.infoOptions.showClose
+      count: 2
     }, {
       name: 'center',
       type: 'boolean',
-      count: 3,
-      default: ParserOptions.infoOptions.center
+      count: 3
     }, {
       name: 'onClose',
       type: 'function',
-      count: 2,
-      default: ParserOptions.infoOptions.onClose
+      count: 2
     }], args);
-    Object.assign(this._options.infoOptions, opts);
+    this._options.infoOptions = merge(this._options.infoOptions, opts);
     return this;
   };
 
@@ -334,13 +329,11 @@ export class Parser {
     let opts = paramsMatching([{
       name: 'close',
       type: 'boolean',
-      count: 1,
-      default: ParserOptions.warnOptions.close
+      count: 1
     }, {
       name: 'callback',
       type: 'function',
-      count: 1,
-      default: ParserOptions.warnOptions.callback
+      count: 1
     }, {
       name: 'message',
       type: 'string',
@@ -349,40 +342,33 @@ export class Parser {
     }, {
       name: 'iconClass',
       type: 'string',
-      count: 3,
-      default: ParserOptions.warnOptions.iconClass
+      count: 3
     }, {
       name: 'html',
       type: 'boolean',
-      count: 4,
-      default: ParserOptions.warnOptions.html
+      count: 4
     }, {
       name: 'customClass',
       type: 'string',
-      count: 2,
-      default: ParserOptions.warnOptions.customClass
+      count: 2
     }, {
       name: 'duration',
       type: 'number',
-      count: 1,
-      default: ParserOptions.warnOptions.duration
+      count: 1
     }, {
       name: 'showClose',
       type: 'boolean',
-      count: 2,
-      default: ParserOptions.warnOptions.showClose
+      count: 2
     }, {
       name: 'center',
       type: 'boolean',
-      count: 3,
-      default: ParserOptions.warnOptions.center
+      count: 3
     }, {
       name: 'onClose',
       type: 'function',
-      count: 2,
-      default: ParserOptions.warnOptions.onClose
+      count: 2
     }], args);
-    Object.assign(this._options.warnOptions, opts);
+    this._options.warnOptions = merge(this._options.warnOptions, opts);
     return this;
   };
 
@@ -390,13 +376,11 @@ export class Parser {
     let opts = paramsMatching([{
       name: 'close',
       type: 'boolean',
-      count: 1,
-      default: true
+      count: 1
     }, {
       name: 'callback',
       type: 'function',
-      count: 1,
-      default: ParserOptions.notSuccessOptions.callback
+      count: 1
     }, {
       name: 'message',
       type: 'string',
@@ -405,40 +389,33 @@ export class Parser {
     }, {
       name: 'iconClass',
       type: 'string',
-      count: 3,
-      default: ParserOptions.notSuccessOptions.iconClass
+      count: 3
     }, {
       name: 'html',
       type: 'boolean',
-      count: 4,
-      default: ParserOptions.notSuccessOptions.html
+      count: 4
     }, {
       name: 'customClass',
       type: 'string',
-      count: 2,
-      default: ParserOptions.notSuccessOptions.customClass
+      count: 2
     }, {
       name: 'duration',
       type: 'number',
-      count: 1,
-      default: ParserOptions.notSuccessOptions.duration
+      count: 1
     }, {
       name: 'showClose',
       type: 'boolean',
-      count: 2,
-      default: ParserOptions.notSuccessOptions.showClose
+      count: 2
     }, {
       name: 'center',
       type: 'boolean',
-      count: 3,
-      default: ParserOptions.notSuccessOptions.center
+      count: 3
     }, {
       name: 'onClose',
       type: 'function',
-      count: 2,
-      default: ParserOptions.notSuccessOptions.onClose
+      count: 2
     }], args);
-    Object.assign(this._options.notSuccessOptions, opts);
+    this._options.notSuccessOptions = merge(this._options.notSuccessOptions, opts);
     return this;
   };
 
@@ -446,13 +423,11 @@ export class Parser {
     let opts = paramsMatching([{
       name: 'close',
       type: 'boolean',
-      count: 1,
-      default: true
+      count: 1
     }, {
       name: 'callback',
       type: 'function',
-      count: 1,
-      default: ParserOptions.finallyOptions.callback
+      count: 1
     }, {
       name: 'message',
       type: 'string',
@@ -461,40 +436,174 @@ export class Parser {
     }, {
       name: 'iconClass',
       type: 'string',
-      count: 3,
-      default: ParserOptions.finallyOptions.iconClass
+      count: 3
     }, {
       name: 'html',
       type: 'boolean',
-      count: 4,
-      default: ParserOptions.finallyOptions.html
+      count: 4
     }, {
       name: 'customClass',
       type: 'string',
-      count: 2,
-      default: ParserOptions.finallyOptions.customClass
+      count: 2
     }, {
       name: 'duration',
       type: 'number',
-      count: 1,
-      default: ParserOptions.finallyOptions.duration
+      count: 1
     }, {
       name: 'showClose',
       type: 'boolean',
-      count: 2,
-      default: ParserOptions.finallyOptions.showClose
+      count: 2
     }, {
       name: 'center',
       type: 'boolean',
-      count: 3,
-      default: ParserOptions.finallyOptions.center
+      count: 3
     }, {
       name: 'onClose',
       type: 'function',
-      count: 2,
-      default: ParserOptions.finallyOptions.onClose
+      count: 2
     }], args);
-    Object.assign(this._options.finallyOptions, opts);
+    this._options.finallyOptions = merge(this._options.finallyOptions, opts);
+    return this;
+  };
+
+  needLogin(...args) {
+    let opts = paramsMatching([{
+      name: 'close',
+      type: 'boolean',
+      count: 1
+    }, {
+      name: 'callback',
+      type: 'function',
+      count: 1
+    }, {
+      name: 'message',
+      type: 'string',
+      count: 1,
+      default: 'needLogin'
+    }, {
+      name: 'iconClass',
+      type: 'string',
+      count: 3
+    }, {
+      name: 'html',
+      type: 'boolean',
+      count: 4
+    }, {
+      name: 'customClass',
+      type: 'string',
+      count: 2
+    }, {
+      name: 'duration',
+      type: 'number',
+      count: 1
+    }, {
+      name: 'showClose',
+      type: 'boolean',
+      count: 2
+    }, {
+      name: 'center',
+      type: 'boolean',
+      count: 3
+    }, {
+      name: 'onClose',
+      type: 'function',
+      count: 2
+    }], args);
+    this._options.needLoginOptions = merge(this._options.needLoginOptions, opts);
+    return this;
+  };
+
+  noAuthority(...args) {
+    let opts = paramsMatching([{
+      name: 'close',
+      type: 'boolean',
+      count: 1
+    }, {
+      name: 'callback',
+      type: 'function',
+      count: 1
+    }, {
+      name: 'message',
+      type: 'string',
+      count: 1,
+      default: 'noAuthority'
+    }, {
+      name: 'iconClass',
+      type: 'string',
+      count: 3
+    }, {
+      name: 'html',
+      type: 'boolean',
+      count: 4
+    }, {
+      name: 'customClass',
+      type: 'string',
+      count: 2
+    }, {
+      name: 'duration',
+      type: 'number',
+      count: 1
+    }, {
+      name: 'showClose',
+      type: 'boolean',
+      count: 2
+    }, {
+      name: 'center',
+      type: 'boolean',
+      count: 3
+    }, {
+      name: 'onClose',
+      type: 'function',
+      count: 2
+    }], args);
+    this._options.noAuthorityOptions = merge(this._options.noAuthorityOptions, opts);
+    return this;
+  };
+
+  notFound(...args) {
+    let opts = paramsMatching([{
+      name: 'close',
+      type: 'boolean',
+      count: 1
+    }, {
+      name: 'callback',
+      type: 'function',
+      count: 1
+    }, {
+      name: 'message',
+      type: 'string',
+      count: 1,
+      default: '404'
+    }, {
+      name: 'iconClass',
+      type: 'string',
+      count: 3
+    }, {
+      name: 'html',
+      type: 'boolean',
+      count: 4
+    }, {
+      name: 'customClass',
+      type: 'string',
+      count: 2
+    }, {
+      name: 'duration',
+      type: 'number',
+      count: 1
+    }, {
+      name: 'showClose',
+      type: 'boolean',
+      count: 2
+    }, {
+      name: 'center',
+      type: 'boolean',
+      count: 3
+    }, {
+      name: 'onClose',
+      type: 'function',
+      count: 2
+    }], args);
+    this._options.notFoundOptions = merge(this._options.notFoundOptions, opts);
     return this;
   };
 

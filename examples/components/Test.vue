@@ -18,9 +18,19 @@
     methods: {
       get() {
         this.$ajax.get('demo/query', {name: 1}, {duration: 0})
-          .success(0, {showClose: true}, data => {
+          .success(1000, false, '666', {showClose: true}, data => {
             console.log(data)
-          });
+          })
+          .fail('这是前端覆盖的错误', (data, res) => {
+            console.log(data)
+          })
+          .finally(() => {
+            console.log(56464)
+          })
+          .notSuccess(() => {
+            console.log(111)
+          })
+          .error();
       }
     },
 
