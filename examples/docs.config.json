@@ -3,6 +3,44 @@
     "desc": "开发指南",
     "name": "DevHelp",
     "path": "/devHelp",
-    "items": []
+    "items": [
+      {
+        "desc": "更新日志",
+        "name": "UpdateLog",
+        "path": "/updateLog"
+      },
+      {
+        "desc": "安装",
+        "name": "Install",
+        "path": "/install"
+      },
+      {
+        "desc": "快速上手",
+        "name": "QuickHand",
+        "path": "/quickHand"
+      },
+      {
+        "desc": "国际化",
+        "name": "Internationalization",
+        "path": "/internationalization"
+      },
+      {
+        "desc": "自定义主题",
+        "name": "CustomTheme",
+        "path": "/customTheme"
+      }
+    ]
+  },
+  {
+    "desc": "插件",
+    "name": "Plugins",
+    "path": "/plugins",
+    "items": [
+      {
+        "desc": "消息插件",
+        "name": "Message",
+        "path": "/message"
+      }
+    ]
   }
 ]

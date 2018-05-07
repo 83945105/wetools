@@ -4,10 +4,6 @@
 
 <script>
   export default {
-    name: "dev-help"
+    name: "other"
   }
 </script>
-
-<style scoped>
-
-</style>

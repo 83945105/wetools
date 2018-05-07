@@ -9,7 +9,7 @@ Vue.config.productionTip = false;
 import DemoBlock from './components/demo-block';
 Vue.component(DemoBlock.name, DemoBlock);
 
-import 'weview/lib/theme-chalk/index.css';
+import 'weview/lib/theme-chalk/we-index.css';
 import 'weview/lib/web/theme-chalk/index.css';
 
 import weview from 'weview';
@@ -45,7 +45,7 @@ Vue.use(wetools, {
   },
   Message: {
     options: {
-      duration: 0,
+      duration: 1000,
       showClose: true
     }
   },

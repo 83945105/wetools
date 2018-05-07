@@ -3,5 +3,17 @@
     "desc": "网站测试",
     "name": "WebTest",
     "path": "/webTest"
+  },
+  {
+    "desc": "插件测试",
+    "name": "PluginsTest",
+    "path": "/pluginsTest",
+    "items": [
+      {
+        "desc": "消息插件",
+        "name": "MessageTest",
+        "path": "/messageTest"
+      }
+    ]
   }
 ]

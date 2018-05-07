@@ -8,8 +8,9 @@ import testConf from '../test.config';
 
 //文档路由
 let DocRoutes = {
-  path: '/docs',
-  name: "Docs",
+  path: '/',
+  name: "Doc",
+  redirect: {name: 'Install'},
   component: r => require.ensure([], () => r(require(`../components/Docs.vue`))),
   children: []
 };
@@ -18,6 +19,7 @@ let DocRoutes = {
 let TestRoutes = {
   path: '/test',
   name: "Test",
+  redirect: {name: 'MessageTest'},
   component: r => require.ensure([], () => r(require(`../components/Test.vue`))),
   children: []
 };
@@ -25,17 +27,10 @@ let TestRoutes = {
 let initRouter = (routers = [], parent, folder, suffix) => {
   routers.forEach(router => {
     if (router.items) {
-      let r = {
-        path: router.path,
-        name: router.name,
-        component: r => require.ensure([], () => r(require(`../components/${router.name}.vue`))),
-        children: []
-      };
-      initRouter(router.items, r, folder, suffix);
-      parent.children.push(r);
+      initRouter(router.items, parent, folder, suffix);
     } else {
       parent.children.push({
-        path: router.path,
+        path: router.path.replace("/", ""),
         name: router.name,
         component: r => require.ensure([], () => r(require(`../${folder}/${router.name}.${suffix}`)))
       });
@@ -49,6 +44,19 @@ initRouter(testConf, TestRoutes, "test", "vue");
 export default new Router({
   routes: [{
     path: "/",
-    redirect: "Docs",
-  }, DocRoutes, TestRoutes]
+    redirect: {name: 'Plugins'},
+  }, {
+    path: "/plugins",
+    name: "Plugins",
+    redirect: {name: 'Doc'},
+    component: r => require.ensure([], () => r(require(`../components/Component.vue`))),
+    children: [DocRoutes]
+  }, {
+    path: "/",
+    name: "Other",
+    redirect: {name: 'Test'},
+    component: r => require.ensure([], () => r(require(`../components/Other.vue`))),
+    children: [TestRoutes]
+  }]
 });
+

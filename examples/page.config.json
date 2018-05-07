@@ -1,0 +1,12 @@
+[
+  {
+    "desc": "组件",
+    "name": "Plugins",
+    "path": "/plugins"
+  },
+  {
+    "desc": "测试",
+    "name": "Test",
+    "path": "/test"
+  }
+]
