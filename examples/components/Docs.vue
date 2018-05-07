@@ -4,7 +4,7 @@
     :logo-src="logoSrc"
     :left-data="docs"
     :header-data="pages"
-    page-name="Component"
+    page-name="Plugins"
     @click-logo="$message.open('首页还没做好...')"
   ></we-web-template-doc>
 </template>

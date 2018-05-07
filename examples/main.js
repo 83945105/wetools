@@ -44,9 +44,9 @@ Vue.use(wetools, {
     }
   },
   Message: {
+    // use: Message.Element,
     options: {
-      duration: 1000,
-      showClose: true
+      duration: 1000
     }
   },
   DataParser: {

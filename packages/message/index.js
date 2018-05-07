@@ -1,5 +1,5 @@
 import {Element} from '../message/src/element.js';
-import {Element as ElementMessage} from '../message/src/element.js';
+import {WeView} from '../message/src/weview.js';
 import {MessageOptions} from "./src/message";
 import {isArray, isString} from "../../src/utils/util";
 
@@ -7,7 +7,9 @@ const Message = {
 
   Element: Element,
 
-  install(Vue, {use = Element, alias = "$message", options} = {use: Element, alias: "$message"}) {
+  WeView: WeView,
+
+  install(Vue, {use = WeView, alias = "$message", options} = {use: WeView, alias: "$message"}) {
     Object.assign(MessageOptions, options);
     let msg = new use();
     if (isString(alias)) {
@@ -16,9 +18,6 @@ const Message = {
       for (let name of alias) {
         Vue.prototype[name] = msg;
       }
-    }
-    if (msg instanceof ElementMessage) {
-      //import('element-ui/lib/theme-chalk/index.css');
     }
   }
 };
