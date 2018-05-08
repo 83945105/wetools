@@ -1,6 +1,6 @@
 {
   "name": "wetools",
-  "version": "0.0.9-dev",
+  "version": "0.1.5-dev",
   "description": "Tools based on Vue",
   "author": "wx_83945105 <18606167809@163.com>",
   "private": false,
@@ -21,9 +21,7 @@
     "build:examples": "node build/build-examples.js",
     "build:file": "node build/build-entry.js",
     "build:theme": "node build/build-theme.js",
-    "build:web-file": "node build/build-web-entry.js",
-    "build:web-theme": "node build/build-web-theme.js",
-    "build:all": "npm run build:file && npm run build:theme && npm run build:web-file && npm run build:web-theme"
+    "build:all": "npm run build:file"
   },
   "repository": {
     "type": "git",
@@ -52,7 +50,7 @@
     "vue": "2.5.9"
   },
   "devDependencies": {
-    "weview": "0.1.4-dev",
+    "weview": "0.1.5-dev",
     "element-ui": "2.3.7",
     "autoprefixer": "7.1.2",
     "axios": "0.16.2",

@@ -22,7 +22,7 @@ Vue.use(wetools, {
   Ajax: {
     alias: ["$ajax", "$Ajax", "$AJAX"],
     options: {
-      baseURL: 'http://192.168.0.136:8081/ssm-vue-frame',
+      baseURL: 'http://192.168.0.136:8080/ssm-vue-frame',
       messageOptions: {
         options: {
           duration: 3000
@@ -36,7 +36,7 @@ Vue.use(wetools, {
           },
           needLoginOptions: {
             callback() {
-              alert(`该操作需要登陆后进行`);
+              //TODO
             }
           }
         }

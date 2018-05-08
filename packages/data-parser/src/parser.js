@@ -1,5 +1,5 @@
 import {paramsMatching} from "../../../src/utils/util.js";
-import {Element} from "../../message/src/element.js";
+import {WeView} from "../../message/src/weview.js";
 import {DefaultMessageOptions} from "../../message/src/message";
 import {deepAssign} from "../../../src/utils/util";
 
@@ -55,7 +55,7 @@ export const DefaultParserOptions = {
     }
   }, DefaultMessageOptions),
   messageOptions: {
-    use: Element,
+    use: WeView,
     options: Object.assign({}, DefaultMessageOptions)
   }
 };
@@ -112,7 +112,7 @@ export const ParserOptions = {
     }
   }, DefaultMessageOptions),
   messageOptions: {
-    use: Element,
+    use: WeView,
     options: Object.assign({}, DefaultMessageOptions)
   }
 };
@@ -149,8 +149,7 @@ export class Parser {
     }, {
       name: 'message',
       type: 'string',
-      count: 1,
-      default: 'success'
+      count: 1
     }, {
       name: 'iconClass',
       type: 'string',
@@ -196,8 +195,7 @@ export class Parser {
     }, {
       name: 'message',
       type: 'string',
-      count: 1,
-      default: 'fail'
+      count: 1
     }, {
       name: 'iconClass',
       type: 'string',
@@ -243,8 +241,7 @@ export class Parser {
     }, {
       name: 'message',
       type: 'string',
-      count: 1,
-      default: 'error'
+      count: 1
     }, {
       name: 'iconClass',
       type: 'string',
@@ -290,8 +287,7 @@ export class Parser {
     }, {
       name: 'message',
       type: 'string',
-      count: 1,
-      default: 'info'
+      count: 1
     }, {
       name: 'iconClass',
       type: 'string',
@@ -337,8 +333,7 @@ export class Parser {
     }, {
       name: 'message',
       type: 'string',
-      count: 1,
-      default: 'warn'
+      count: 1
     }, {
       name: 'iconClass',
       type: 'string',
@@ -384,8 +379,7 @@ export class Parser {
     }, {
       name: 'message',
       type: 'string',
-      count: 1,
-      default: 'notSuccess'
+      count: 1
     }, {
       name: 'iconClass',
       type: 'string',
@@ -431,8 +425,7 @@ export class Parser {
     }, {
       name: 'message',
       type: 'string',
-      count: 1,
-      default: 'finally'
+      count: 1
     }, {
       name: 'iconClass',
       type: 'string',
@@ -478,8 +471,7 @@ export class Parser {
     }, {
       name: 'message',
       type: 'string',
-      count: 1,
-      default: 'needLogin'
+      count: 1
     }, {
       name: 'iconClass',
       type: 'string',
@@ -525,8 +517,7 @@ export class Parser {
     }, {
       name: 'message',
       type: 'string',
-      count: 1,
-      default: 'noAuthority'
+      count: 1
     }, {
       name: 'iconClass',
       type: 'string',
@@ -572,8 +563,7 @@ export class Parser {
     }, {
       name: 'message',
       type: 'string',
-      count: 1,
-      default: '404'
+      count: 1
     }, {
       name: 'iconClass',
       type: 'string',

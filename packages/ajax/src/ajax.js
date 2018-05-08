@@ -1,5 +1,5 @@
 import {isObject, isArray, isString} from '../../../src/utils/util.js';
-import {Element} from '../../message/src/element.js';
+import {WeView} from '../../message/src/weview.js';
 import {Default} from "../../data-parser/src/default.js";
 import {DefaultParserOptions} from "../../data-parser/src/parser";
 import {DefaultMessageOptions} from "../../message/src/message";
@@ -11,7 +11,7 @@ export const AjaxOptions = {
   timeout: 30000,
   responseType: 'json',
   messageOptions: {
-    use: Element,
+    use: WeView,
     options: Object.assign({}, DefaultMessageOptions)
   },
   dataParserOptions: {
@@ -58,9 +58,12 @@ export class Ajax {
     }
   };
 
-  delete(url, options) {
+  delete(url, params, options) {
     if (!isString(url)) {
       throw new Error(`Ajax delete(): url必须为string类型`);
+    }
+    if (params && !isObject(params)) {
+      throw new Error(`Ajax delete(): params必须为Object类型`);
     }
     if (options && !isObject(options)) {
       throw new Error(`Ajax delete(): options必须为Object类型`);
@@ -84,5 +87,40 @@ export class AjaxUtil {
       return url;
     }
     return url;
-  }
+  };
+
+  replaceUrlParams(url = '', params = []) {
+    if (isObject(params) && Object.getOwnPropertyNames(params).length > 0) {
+      let idx = url.indexOf("?");
+      if (idx === -1) {
+        url += '?';
+      } else if (idx !== url.length - 1) {
+        url += '&';
+      }
+      for (let name in params) {
+        url += `${name}=${params[name]}&`;
+      }
+      return url.substring(0, url.length - 1);
+    } else if (isArray(params)) {
+      let i = 0;
+      url = url.replace(/\{[^\}]+\}*/g, (val, start, res) => {
+        return params[i++];
+      });
+      return url;
+    } else {
+      return url;
+    }
+  };
+
+  nameReplaceUrlParams(url = '', params = {}) {
+    if (isObject(params)) {
+      url = url.replace(/\{[^\}]+\}*/g, (val, start, res) => {
+        return params[val.match(/^\{(\S*)+\}$/)[1]];
+      });
+      return url;
+    } else {
+      return url;
+    }
+  };
+
 }

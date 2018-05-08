@@ -20,7 +20,7 @@ export class Axios extends Ajax {
   get(url, params, options) {
     super.get(url, params, options);
     let opts = deepAssign({}, AjaxOptions, options);
-    url += util.getParamsToUrl(params);
+    url = util.replaceUrlParams(url, params);
 
     let $parser = new opts.dataParserOptions.use(opts.dataParserOptions.options);
     let $message = new opts.messageOptions.use();
@@ -43,31 +43,74 @@ export class Axios extends Ajax {
   post(url, params, options) {
     super.post(url, params, options);
     let opts = Object.assign({}, AjaxOptions, options);
+
+    let $parser = new opts.dataParserOptions.use(opts.dataParserOptions.options);
+    let $message = new opts.messageOptions.use();
+
+    url = util.nameReplaceUrlParams(url, params);
+
     this._axios.post(url, this._qs.stringify(params), opts).then(res => {
-      console.log(res)
+
+      $parser.parse(res.data, res);
+
     }).catch(err => {
-      console.log(err)
+      console.log(err);
+      console.log(JSON.parse(JSON.stringify(err)));
+      $message.open(Object.assign({}, opts.messageOptions.options, {
+        message: `请求出错`
+      }));
     });
+
+    return $parser;
   };
 
   put(url, params, options) {
     super.put(url, params, options);
     let opts = Object.assign({}, AjaxOptions, options);
+
+    let $parser = new opts.dataParserOptions.use(opts.dataParserOptions.options);
+    let $message = new opts.messageOptions.use();
+
+    url = util.nameReplaceUrlParams(url, params);
+
     this._axios.put(url, this._qs.stringify(params), opts).then(res => {
-      console.log(res)
+
+      $parser.parse(res.data, res);
+
     }).catch(err => {
-      console.log()
+      console.log(err);
+      console.log(JSON.parse(JSON.stringify(err)));
+      $message.open(Object.assign({}, opts.messageOptions.options, {
+        message: `请求出错`
+      }));
     });
+
+    return $parser;
   };
 
-  delete(url, options) {
-    super.delete(url, options);
+  delete(url, params, options) {
+    super.delete(url, params, options);
     let opts = Object.assign({}, AjaxOptions, options);
+
+    let $parser = new opts.dataParserOptions.use(opts.dataParserOptions.options);
+    let $message = new opts.messageOptions.use();
+
+    url = util.nameReplaceUrlParams(url, params);
+    Object.assign(opts.params, params);
+
     this._axios.delete(url, opts).then(res => {
-      console.log(res)
+
+      $parser.parse(res.data, res);
+
     }).catch(err => {
-      console.log()
+      console.log(err);
+      console.log(JSON.parse(JSON.stringify(err)));
+      $message.open(Object.assign({}, opts.messageOptions.options, {
+        message: `请求出错`
+      }));
     });
+
+    return $parser;
   };
 
 }
