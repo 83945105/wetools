@@ -1,7 +1,6 @@
 import {paramsMatching} from "../../../src/utils/util";
 
 export const DefaultMessageOptions = {
-  iconClass: undefined,
   html: false,
   customClass: undefined,
   duration: 3000,
@@ -40,11 +39,6 @@ export class Message {
       type: 'string',
       count: 1,
       default: MessageOptions.message
-    }, {
-      name: 'iconClass',
-      type: 'string',
-      count: 3,
-      default: MessageOptions.iconClass
     }, {
       name: 'html',
       type: 'boolean',
@@ -85,11 +79,6 @@ export class Message {
       count: 1,
       default: MessageOptions.message
     }, {
-      name: 'iconClass',
-      type: 'string',
-      count: 3,
-      default: MessageOptions.iconClass
-    }, {
       name: 'html',
       type: 'boolean',
       count: 3,
@@ -128,11 +117,6 @@ export class Message {
       type: 'string',
       count: 1,
       default: MessageOptions.message
-    }, {
-      name: 'iconClass',
-      type: 'string',
-      count: 3,
-      default: MessageOptions.iconClass
     }, {
       name: 'html',
       type: 'boolean',
@@ -173,11 +157,6 @@ export class Message {
       count: 1,
       default: MessageOptions.message
     }, {
-      name: 'iconClass',
-      type: 'string',
-      count: 3,
-      default: MessageOptions.iconClass
-    }, {
       name: 'html',
       type: 'boolean',
       count: 3,
@@ -217,11 +196,6 @@ export class Message {
       count: 1,
       default: MessageOptions.message
     }, {
-      name: 'iconClass',
-      type: 'string',
-      count: 3,
-      default: MessageOptions.iconClass
-    }, {
       name: 'html',
       type: 'boolean',
       count: 3,
@@ -260,11 +234,6 @@ export class Message {
       type: 'string',
       count: 1,
       default: MessageOptions.message
-    }, {
-      name: 'iconClass',
-      type: 'string',
-      count: 3,
-      default: MessageOptions.iconClass
     }, {
       name: 'html',
       type: 'boolean',

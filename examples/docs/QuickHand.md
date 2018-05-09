@@ -22,7 +22,6 @@ import Vue from 'vue';
 import App from './App.vue';
 
 import wetools from 'wetools';//引入weview
-import 'wetools/lib/theme-chalk/index.css';//引入css
 Vue.use(wetools);//注册到Vue
 
 new Vue({
@@ -35,20 +34,18 @@ new Vue({
 
 #### 按需引入
 
-如果你只希望引入部分组件，比如 LayerFrame 和 LayerFrameTop，那么需要在 main.js 中写入以下内容：
+如果你只希望引入部分插件，比如 Ajax，那么需要在 main.js 中写入以下内容：
 
 ```javascript
 import App from './App.vue';
 import Vue from 'vue';
 
-import { LayerFrame, LayerFrameTop } from 'wetools';//导出所需组件
+import { Ajax } from 'wetools';//导出所需插件
 
-Vue.component(LayerFrame.name, LayerFrame);//注册
-Vue.component(LayerFrameTop.name, LayerFrameTop);
+Vue.component(Ajax.name, Ajax);//注册
 
 //或者
-Vue.use(LayerFrame);
-Vue.use(LayerFrameTop);
+Vue.use(Ajax);
 
 new Vue({
   el: '#app',
@@ -56,29 +53,34 @@ new Vue({
 });
 ```
 
-### 全局配置(暂未生效)
+### 全局配置
 
-在引入 wetools 时，可以传入一个全局配置对象。该对象目前仅支持 `size` 字段，用于改变组件的默认尺寸。按照引入 wetools 的方式，具体操作如下：
+在引入 wetools 时，可以传入一个全局配置对象。按照引入 wetools 的方式，具体操作如下：
 
 完整引入 wetools：
 
 ```js
 import Vue from 'vue';
 import wetools from 'wetools';
-Vue.use(wetools, { size: 'small' });
+Vue.use(wetools, {
+  Ajax: {
+    //TODO 自定义Ajax配置
+  }
+});
 ```
 
 按需引入 wetools：
 
 ```js
 import Vue from 'vue';
-import { Button } from 'wetools';
+import { Ajax } from 'wetools';
 
-Vue.prototype.$WEVIEW = { size: 'small' };
-Vue.use(Button);
+Vue.use(Ajax, {
+  //TODO 自定义Ajax配置
+});
 ```
 
-按照以上设置，项目中所有拥有 `size` 属性的组件的默认尺寸均为 'small'。
+详细的全局配置请参考接下来的完整全局配置章节
 
 ### 开始使用
 

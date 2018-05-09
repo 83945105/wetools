@@ -1,5 +1,10 @@
 [
   {
+    "desc": "项目介绍",
+    "name": "ProjectIntroduction",
+    "path": "/projectIntroduction"
+  },
+  {
     "desc": "开发指南",
     "name": "DevHelp",
     "path": "/devHelp",
@@ -20,14 +25,14 @@
         "path": "/quickHand"
       },
       {
-        "desc": "国际化",
-        "name": "Internationalization",
-        "path": "/internationalization"
+        "desc": "全局配置",
+        "name": "GlobalOptions",
+        "path": "/globalOptions"
       },
       {
-        "desc": "自定义主题",
-        "name": "CustomTheme",
-        "path": "/customTheme"
+        "desc": "关于简化传参功能",
+        "name": "SimplifyParams",
+        "path": "/simplifyParams"
       }
     ]
   },
@@ -37,9 +42,29 @@
     "path": "/plugins",
     "items": [
       {
-        "desc": "消息插件",
+        "desc": "加载特效",
+        "name": "Loading",
+        "path": "/loading"
+      },
+      {
+        "desc": "消息提示",
         "name": "Message",
         "path": "/message"
+      },
+      {
+        "desc": "询问框",
+        "name": "Confirm",
+        "path": "/confirm"
+      },
+      {
+        "desc": "警告框",
+        "name": "Alert",
+        "path": "/alert"
+      },
+      {
+        "desc": "Ajax请求",
+        "name": "Ajax",
+        "path": "/ajax"
       }
     ]
   }

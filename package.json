@@ -50,7 +50,7 @@
     "vue": "2.5.9"
   },
   "devDependencies": {
-    "weview": "0.1.5-dev",
+    "weview": "0.1.7-dev",
     "element-ui": "2.3.7",
     "autoprefixer": "7.1.2",
     "axios": "0.16.2",

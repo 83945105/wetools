@@ -1,18 +1,6 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
-import Index from './Index'
-import router from './router'
+# 完整的全局配置列表如下:
 
-Vue.config.productionTip = false;
-
-import DemoBlock from './components/demo-block';
-Vue.component(DemoBlock.name, DemoBlock);
-
-import 'weview/lib/web/theme-chalk/index.css';
-
-import weview from 'weview';
-Vue.use(weview);
+```javascript
 
 import wetools from '../packages/index.js';
 import {Ajax, DataParser, Message} from '../packages/index.js';
@@ -21,8 +9,10 @@ import('element-ui/lib/theme-chalk/index.css');//引入element-ui组件库的样
 Vue.use(wetools, {
   Message: {//消息提示
     use: Message.Element,//使用element-ui的消息提示组件
+    alias: "$message",//调用别名,支持字符串和数组
     options: {
-      html: false,//是否将message作为HTML片段处理
+      iconClass: undefined,//自定义图标样式
+      html: false,//是否将文本内容转义为html
       customClass: undefined,//自定义样式名
       duration: 3000,//持续时间，设置0不自动关闭
       showClose: false,//是否显示关闭按钮
@@ -46,6 +36,7 @@ Vue.use(wetools, {
   },
   DataParser: {
     use: DataParser.DataView,//使用DataView解析器,该解析器需要后台数据格式支持
+    alias: "$dataParser",//调用别名,支持字符串和数组
     options: {
       messageOptions: {//消息配置
         use: Message.WeView,//使用WeView组件库进行消息提示
@@ -107,10 +98,4 @@ Vue.use(wetools, {
   }
 });
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#index',
-  router,
-  components: {Index},
-  template: '<Index/>'
-});
+```
