@@ -9,8 +9,7 @@ export class Default extends Parser {
   parse(data, res) {
     let {callback: successCallback} = this._options.successOptions;
     successCallback(data, res);
-    let {callback: finallyCallback} = this._options.finallyOptions;
-    finallyCallback(data, res);
+    this.executeFinally(data, res);
   };
 
 }

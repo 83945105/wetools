@@ -131,10 +131,14 @@ export class Parser {
     alert(`未配置DataParser`);
   };
 
-
   parse(data, res) {
     alert(`没有设置使用的DataParser`);
     return this;
+  };
+
+  executeFinally(data, res) {
+    let {callback: finallyCallback} = this._options.finallyOptions;
+    finallyCallback(data, res);
   };
 
   success(...args) {

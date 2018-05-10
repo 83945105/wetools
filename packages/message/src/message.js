@@ -267,5 +267,9 @@ export class Message {
     }], args);
   };
 
+  close(instance) {
+  };
 
+  closeAll() {
+  };
 }

@@ -8,7 +8,10 @@ export const AjaxOptions = {
   baseURL: '',
   params: {},
   headers: {},
-  timeout: 30000,
+  timeout: 60000,
+  showWaitPrompt: true,
+  waitPromptTime: 10000,
+  waitPromptText: '您的网速貌似不太给力...',
   responseType: 'json',
   messageOptions: {
     use: WeView,

@@ -25,18 +25,36 @@ export class Axios extends Ajax {
     let $parser = new opts.dataParserOptions.use(opts.dataParserOptions.options);
     let $message = new opts.messageOptions.use();
 
+    let waitId;
+    let instance;
+    let status = 'pending';
+    if (opts.showWaitPrompt) {
+      setTimeout(() => {
+        if(status === 'pending') {
+          instance = $message.open(opts.waitPromptText);
+        }
+      }, opts.waitPromptTime);
+    }
     this._axios.get(url, opts).then(res => {
-
+      status = 'resolved';
+      if (opts.showWaitPrompt) {
+        clearTimeout(waitId);
+        $message.close(instance);
+      }
       $parser.parse(res.data, res);
-
     }).catch(err => {
+      status = 'rejected';
+      if (opts.showWaitPrompt) {
+        clearTimeout(waitId);
+        $message.close(instance);
+      }
       console.log(err);
       console.log(JSON.parse(JSON.stringify(err)));
       $message.open(Object.assign({}, opts.messageOptions.options, {
         message: `请求出错`
       }));
+      $parser.executeFinally(null, err);
     });
-
     return $parser;
   };
 
@@ -49,18 +67,36 @@ export class Axios extends Ajax {
 
     url = util.nameReplaceUrlParams(url, params);
 
+    let waitId;
+    let instance;
+    let status = 'pending';
+    if (opts.showWaitPrompt) {
+      setTimeout(() => {
+        if(status === 'pending') {
+          instance = $message.open(opts.waitPromptText);
+        }
+      }, opts.waitPromptTime);
+    }
     this._axios.post(url, this._qs.stringify(params), opts).then(res => {
-
+      status = 'resolved';
+      if (opts.showWaitPrompt) {
+        clearTimeout(waitId);
+        $message.close(instance);
+      }
       $parser.parse(res.data, res);
-
     }).catch(err => {
+      status = 'rejected';
+      if (opts.showWaitPrompt) {
+        clearTimeout(waitId);
+        $message.close(instance);
+      }
       console.log(err);
       console.log(JSON.parse(JSON.stringify(err)));
       $message.open(Object.assign({}, opts.messageOptions.options, {
         message: `请求出错`
       }));
+      $parser.executeFinally(null, err);
     });
-
     return $parser;
   };
 
@@ -73,18 +109,36 @@ export class Axios extends Ajax {
 
     url = util.nameReplaceUrlParams(url, params);
 
+    let waitId;
+    let instance;
+    let status = 'pending';
+    if (opts.showWaitPrompt) {
+      setTimeout(() => {
+        if(status === 'pending') {
+          instance = $message.open(opts.waitPromptText);
+        }
+      }, opts.waitPromptTime);
+    }
     this._axios.put(url, this._qs.stringify(params), opts).then(res => {
-
+      status = 'resolved';
+      if (opts.showWaitPrompt) {
+        clearTimeout(waitId);
+        $message.close(instance);
+      }
       $parser.parse(res.data, res);
-
     }).catch(err => {
+      status = 'rejected';
+      if (opts.showWaitPrompt) {
+        clearTimeout(waitId);
+        $message.close(instance);
+      }
       console.log(err);
       console.log(JSON.parse(JSON.stringify(err)));
       $message.open(Object.assign({}, opts.messageOptions.options, {
         message: `请求出错`
       }));
+      $parser.executeFinally(null, err);
     });
-
     return $parser;
   };
 
@@ -98,18 +152,36 @@ export class Axios extends Ajax {
     url = util.nameReplaceUrlParams(url, params);
     Object.assign(opts.params, params);
 
+    let waitId;
+    let instance;
+    let status = 'pending';
+    if (opts.showWaitPrompt) {
+      setTimeout(() => {
+        if(status === 'pending') {
+          instance = $message.open(opts.waitPromptText);
+        }
+      }, opts.waitPromptTime);
+    }
     this._axios.delete(url, opts).then(res => {
-
+      status = 'resolved';
+      if (opts.showWaitPrompt) {
+        clearTimeout(waitId);
+        $message.close(instance);
+      }
       $parser.parse(res.data, res);
-
     }).catch(err => {
+      status = 'rejected';
+      if (opts.showWaitPrompt) {
+        clearTimeout(waitId);
+        $message.close(instance);
+      }
       console.log(err);
       console.log(JSON.parse(JSON.stringify(err)));
       $message.open(Object.assign({}, opts.messageOptions.options, {
         message: `请求出错`
       }));
+      $parser.executeFinally(null, err);
     });
-
     return $parser;
   };
 

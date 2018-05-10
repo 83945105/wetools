@@ -1,4 +1,5 @@
 import {Message} from "./message.js";
+import {isObject} from "../../../src/utils/util";
 
 const ElementMessage = require('element-ui').Message;
 
@@ -13,36 +14,52 @@ export class Element extends Message {
 
   open(...args) {
     let opts = super.open(...args);
-    this._element(opts);
+    opts.dangerouslyUseHTMLString = opts.html;
+    return this._element(opts);
   }
 
   success(...args) {
     let opts = super.success(...args);
     opts.type = 'success';
-    this._element(opts);
+    opts.dangerouslyUseHTMLString = opts.html;
+    return this._element(opts);
   }
 
   fail(...args) {
     let opts = super.fail(...args);
     opts.type = 'error';
-    this._element(opts);
+    opts.dangerouslyUseHTMLString = opts.html;
+    return this._element(opts);
   }
 
   error(...args) {
     let opts = super.error(...args);
     opts.type = 'error';
-    this._element(opts);
+    opts.dangerouslyUseHTMLString = opts.html;
+    return this._element(opts);
   }
 
   warn(...args) {
     let opts = super.warn(...args);
     opts.type = 'warning';
-    this._element(opts);
+    opts.dangerouslyUseHTMLString = opts.html;
+    return this._element(opts);
   }
 
   info(...args) {
     let opts = super.info(...args);
     opts.type = 'info';
-    this._element(opts);
+    opts.dangerouslyUseHTMLString = opts.html;
+    return this._element(opts);
   }
+
+  close(instance) {
+    if (isObject(instance)) {
+      instance.close();
+    }
+  };
+
+  closeAll() {
+    this._element.closeAll();
+  };
 }

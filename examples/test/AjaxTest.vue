@@ -1,0 +1,144 @@
+<template>
+  <div style="margin: 10px 10px 10px 10px">
+    <div style="font-size: 20px;margin: 10px 0px 10px 0px;font-weight: bold">请求示例</div>
+    <div style="margin-top: 20px">
+      <span style="margin-left: 20px">
+        id:
+        <input v-model="id" placeholder="请输入id" size="small" style="width: 150px;">
+      </span>
+      <span style="margin-left: 20px">
+        name:
+        <input v-model="name" placeholder="请输入name" size="small" style="width: 150px;">
+      </span>
+      <span style="margin-left: 20px">
+        age:
+        <input v-model="age" placeholder="请输入age" size="small" style="width: 150px;">
+      </span>
+    </div>
+    <div style="margin-top: 10px">
+      <we-button type="danger" @click="getTest">查询唯一一条记录</we-button>
+      <we-button type="danger" @click="getTestList">查询多条记录</we-button>
+    </div>
+    <div style="margin-top: 10px">
+      <we-button type="danger" @click="postTest">新增一条数据</we-button>
+      <we-button type="danger" @click="postTestList">批量新增数据</we-button>
+    </div>
+    <div style="margin-top: 10px">
+      <we-button type="danger" @click="putTest">更新唯一一条记录</we-button>
+      <we-button type="danger" @click="putTestList">更新多条记录</we-button>
+    </div>
+    <div style="margin-top: 10px">
+      <we-button type="danger" @click="deleteTest">删除唯一一条记录</we-button>
+      <we-button type="danger" @click="deleteTestList">删除多条记录</we-button>
+    </div>
+    <div style="margin-top: 10px">
+      请求持续时间:<input v-model="timeout" placeholder="请输入请求持续时间" size="small" style="width: 150px;">
+      等待提示时间:<input v-model="waitPromptTime" placeholder="请输入等待提示时间" size="small" style="width: 150px;">
+      <we-button type="danger" @click="getDelay" :loading="loading">请求时间测试</we-button>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: "ajax-test",
+
+    data() {
+      return {
+        id: '',
+        name: '',
+        age: '',
+        timeout: 5000,
+        waitPromptTime: 3000,
+        loading: false
+      };
+    },
+
+    methods: {
+      getTest() {
+        if (this.id.trim() == '') {
+          this.$message.fail(`请在文本框输入id`);
+          return;
+        }
+        //实际访问的url:demo/get/test/xx
+        this.$ajax.get('demo/get/test/{id}', [this.id])
+          .success({
+            duration: 0,
+            showClose: true,
+            onClose: () => {
+              this.$message.info(`详情请参考后端代码`, true, 0);
+            }
+          });
+      },
+      getTestList() {
+        //实际访问的url:demo/get/testList?name:xx&age=xx
+        this.$ajax.get('demo/get/testList', {name: this.name, age: this.age})
+          .finally((data, res) => {
+            alert(`无论如何都会触发的操作`);
+          });
+      },
+      postTest() {
+        this.$ajax.post('demo/post/test', {id: this.id, name: this.name, age: this.age});
+      },
+      postTestList() {
+        let params = [
+          {
+            id: this.id,
+            name: this.name,
+            age: this.age
+          },
+          {
+            id: this.id,
+            name: this.name,
+            age: this.age
+          }
+        ];
+        this.$ajax.post('demo/post/testList', {json: JSON.stringify(params)});
+      },
+      putTest() {
+        if (this.id.trim() == '') {
+          this.$message.fail(`请在文本框输入id`);
+          return;
+        }
+        this.$ajax.put('demo/put/test/{id}', {id: this.id, name: this.name, age: this.age});
+      },
+      putTestList() {
+        let params = [
+          {
+            id: this.id,
+            name: this.name,
+            age: this.age
+          },
+          {
+            id: this.id,
+            name: this.name,
+            age: this.age
+          }
+        ];
+        this.$ajax.put('demo/put/testList', {json: JSON.stringify(params)});
+      },
+      deleteTest() {
+        if (this.id.trim() == '') {
+          this.$message.fail(`请在文本框输入id`);
+          return;
+        }
+        this.$ajax.delete('demo/delete/test/{id}', {id: this.id});
+      },
+      deleteTestList() {
+        this.$ajax.delete('demo/delete/testList', {ids: [1, 2, 3].toString()});
+      },
+      getDelay() {
+        this.loading = true;
+        this.$ajax.get('demo/get/delay/{timeout}', [this.timeout], {waitPromptTime: this.waitPromptTime, timeout: 60000})
+          .finally((data, res) => {
+            this.loading = false;
+            console.log(res)
+          });
+      }
+    }
+  }
+</script>
+
+<style scoped>
+
+</style>

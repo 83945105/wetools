@@ -26,6 +26,13 @@ Vue.use(wetools, {
     alias: ["$ajax", "$Ajax", "$AJAX"],//调用别名,支持字符串和数组
     options: {
       baseURL: 'http://192.168.0.136:8080/ssm-vue-frame',//URL默认前缀
+      params: {},//请求参数
+      headers: {},//请求头信息
+      timeout: 60000,//请求持续时间
+      showWaitPrompt: true,//是否开启等待提示功能
+      waitPromptTime: 10000,//等待提示时间
+      waitPromptText: '您的网速貌似不太给力...',//等待提示内容
+      responseType: 'json',//响应类型
       messageOptions: {//相关消息提示配置
         //TODO 同Message配置
       },

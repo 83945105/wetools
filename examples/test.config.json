@@ -10,9 +10,29 @@
     "path": "/pluginsTest",
     "items": [
       {
-        "desc": "消息插件",
+        "desc": "加载特效",
+        "name": "LoadingTest",
+        "path": "/loadingTest"
+      },
+      {
+        "desc": "消息提示",
         "name": "MessageTest",
         "path": "/messageTest"
+      },
+      {
+        "desc": "询问框",
+        "name": "ConfirmTest",
+        "path": "/confirmTest"
+      },
+      {
+        "desc": "警告框",
+        "name": "AlertTest",
+        "path": "/alertTest"
+      },
+      {
+        "desc": "Ajax请求",
+        "name": "AjaxTest",
+        "path": "/ajaxTest"
       }
     ]
   }

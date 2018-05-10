@@ -45,15 +45,15 @@
   "unpkg": "lib/index.js",
   "style": "lib/theme-chalk/index.css",
   "dependencies": {
+    "weview": "0.1.7-dev",
+    "element-ui": "2.3.7",
+    "axios": "0.16.2"
   },
   "peerDependencies": {
     "vue": "2.5.9"
   },
   "devDependencies": {
-    "weview": "0.1.7-dev",
-    "element-ui": "2.3.7",
     "autoprefixer": "7.1.2",
-    "axios": "0.16.2",
     "babel-core": "6.22.1",
     "babel-eslint": "8.2.1",
     "babel-helper-vue-jsx-merge-props": "2.0.3",
