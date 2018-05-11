@@ -25,7 +25,7 @@ export class WeView extends Message {
 
   fail(...args) {
     let opts = super.fail(...args);
-    opts.type = 'error';
+    opts.type = 'fail';
     return this._weview(opts);
   }
 
@@ -37,7 +37,7 @@ export class WeView extends Message {
 
   warn(...args) {
     let opts = super.warn(...args);
-    opts.type = 'warning';
+    opts.type = 'warn';
     return this._weview(opts);
   }
 

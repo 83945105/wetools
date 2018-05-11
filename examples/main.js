@@ -20,7 +20,7 @@ import 'weview/lib/theme-chalk/we-index.css';//引入weview组件库的样式文
 import('element-ui/lib/theme-chalk/index.css');//引入element-ui组件库的样式文件
 Vue.use(wetools, {
   Message: {//消息提示
-    use: Message.Element,//使用element-ui的消息提示组件
+    //use: Message.Element,//使用element-ui的消息提示组件
     options: {
       html: false,//是否将message作为HTML片段处理
       customClass: undefined,//自定义样式名

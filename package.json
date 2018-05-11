@@ -1,6 +1,6 @@
 {
   "name": "wetools",
-  "version": "0.1.5-dev",
+  "version": "0.1.7-dev",
   "description": "Tools based on Vue",
   "author": "wx_83945105 <18606167809@163.com>",
   "private": false,
@@ -45,7 +45,7 @@
   "unpkg": "lib/index.js",
   "style": "lib/theme-chalk/index.css",
   "dependencies": {
-    "weview": "0.1.8-dev",
+    "weview": "0.2.2-dev",
     "element-ui": "2.3.7",
     "axios": "0.16.2"
   },

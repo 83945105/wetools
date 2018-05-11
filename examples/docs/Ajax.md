@@ -15,7 +15,7 @@
 
 # Ajax 异步请求
 
-- 在Vue环境中使用请使用this.$ajax调用
+- 在Vue环境中请使用this.$ajax调用
 
 # Get请求
 

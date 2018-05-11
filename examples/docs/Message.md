@@ -9,7 +9,7 @@
 # Message 消息提示
 
 - 支持简化传参功能
-- 在Vue环境中使用请使用this.$message调用
+- 在Vue环境中请使用this.$message调用
 
 ### 使用方式
 
@@ -35,7 +35,7 @@
             duration: 0,
             showClose: true
           });
-          //如果使用优先级匹配可以使用如下方式传参
+          //如果使用简化传参功能可以使用如下方式传参
           this.$message.success('这是提示内容', 0, true);
         }
       }
@@ -48,6 +48,18 @@
 
 目前支持以下组件库：weview、element-ui
 
+### Message Methods
+| 方法名     | 说明                                     | 参数          | 参数类型   | 返回值        |
+|---------- |----------------------------------------- |--------------|----------- |------------- |
+| open      | 打开一个默认消息提示                       |	参考Message Attributes |	——         | 弹层实例 |
+| success   | 打开一个成功消息提示                       |	参考Message Attributes |	——         | 弹层实例 |
+| fail      | 打开一个失败消息提示                       |	参考Message Attributes |	——         | 弹层实例 |
+| error     | 打开一个失败消息提示                       |	参考Message Attributes |	——         | 弹层实例 |
+| warn      | 打开一个警告消息提示                       |	参考Message Attributes |	——         | 弹层实例 |
+| info      | 打开一个信息消息提示                       |	参考Message Attributes |	——         | 弹层实例 |
+| close     | 关闭指定消息提示                           |	弹层实例       |	——         | —— |
+| closeAll  | 关闭所有消息提示                           |	——             |	——       | —— |
+
 ### Message Attributes
 | 参数      | 说明                                 | 类型      | 可选值       | 默认值   | 优先级 |
 |---------- |------------------------------------ |---------- |------------- |-------- |-------- |
@@ -58,15 +70,3 @@
 | showClose |	是否显示关闭按钮                      |	boolean   |	——          |	false    | 1 |
 | center    |	文本是否居中                         |	boolean   |	——          |	false    | 2 |
 | onClose   |	关闭时的回调函数                      |	function  |	——          |	——       | 1 |
-
-### Message Methods
-| 方法名     | 说明                                     | 参数          | 参数类型   | 返回值        |
-|---------- |----------------------------------------- |--------------|----------- |------------- |
-| open      | 打开一个默认消息提示                       |	参考Attributes |	——         | 弹层实例 |
-| success   | 打开一个成功消息提示                       |	参考Attributes |	——         | 弹层实例 |
-| fail      | 打开一个失败消息提示                       |	参考Attributes |	——         | 弹层实例 |
-| error     | 打开一个失败消息提示                       |	参考Attributes |	——         | 弹层实例 |
-| warn      | 打开一个警告消息提示                       |	参考Attributes |	——         | 弹层实例 |
-| info      | 打开一个信息消息提示                       |	参考Attributes |	——         | 弹层实例 |
-| close     | 关闭指定消息提示                           |	弹层实例       |	——         | —— |
-| closeAll  | 关闭所有消息提示                           |	——             |	——       | —— |
