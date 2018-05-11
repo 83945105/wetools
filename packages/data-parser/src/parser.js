@@ -155,10 +155,6 @@ export class Parser {
       type: 'string',
       count: 1
     }, {
-      name: 'iconClass',
-      type: 'string',
-      count: 3
-    }, {
       name: 'html',
       type: 'boolean',
       count: 4
@@ -200,10 +196,6 @@ export class Parser {
       name: 'message',
       type: 'string',
       count: 1
-    }, {
-      name: 'iconClass',
-      type: 'string',
-      count: 3
     }, {
       name: 'html',
       type: 'boolean',
@@ -247,10 +239,6 @@ export class Parser {
       type: 'string',
       count: 1
     }, {
-      name: 'iconClass',
-      type: 'string',
-      count: 3
-    }, {
       name: 'html',
       type: 'boolean',
       count: 4
@@ -292,10 +280,6 @@ export class Parser {
       name: 'message',
       type: 'string',
       count: 1
-    }, {
-      name: 'iconClass',
-      type: 'string',
-      count: 3
     }, {
       name: 'html',
       type: 'boolean',
@@ -339,10 +323,6 @@ export class Parser {
       type: 'string',
       count: 1
     }, {
-      name: 'iconClass',
-      type: 'string',
-      count: 3
-    }, {
       name: 'html',
       type: 'boolean',
       count: 4
@@ -384,10 +364,6 @@ export class Parser {
       name: 'message',
       type: 'string',
       count: 1
-    }, {
-      name: 'iconClass',
-      type: 'string',
-      count: 3
     }, {
       name: 'html',
       type: 'boolean',
@@ -431,10 +407,6 @@ export class Parser {
       type: 'string',
       count: 1
     }, {
-      name: 'iconClass',
-      type: 'string',
-      count: 3
-    }, {
       name: 'html',
       type: 'boolean',
       count: 4
@@ -476,10 +448,6 @@ export class Parser {
       name: 'message',
       type: 'string',
       count: 1
-    }, {
-      name: 'iconClass',
-      type: 'string',
-      count: 3
     }, {
       name: 'html',
       type: 'boolean',
@@ -523,10 +491,6 @@ export class Parser {
       type: 'string',
       count: 1
     }, {
-      name: 'iconClass',
-      type: 'string',
-      count: 3
-    }, {
       name: 'html',
       type: 'boolean',
       count: 4
@@ -568,10 +532,6 @@ export class Parser {
       name: 'message',
       type: 'string',
       count: 1
-    }, {
-      name: 'iconClass',
-      type: 'string',
-      count: 3
     }, {
       name: 'html',
       type: 'boolean',

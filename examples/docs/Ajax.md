@@ -307,7 +307,7 @@
 
 ### 请求示例，以Get方法举例
 
-- 支持参数类型优先级匹配
+- 支持简化传参功能
 
 :::demo
 
@@ -346,12 +346,20 @@
 | warn        | 服务端返回数据状态为警告时触发    |	参考DataView Methods Attributes |	—— | 当前解析器实例 |
 | info        | 服务端返回数据状态为提示时触发    |	参考DataView Methods Attributes |	—— | 当前解析器实例 |
 | needLogin   | 服务端返回数据状态为需要登录时触发 |	参考DataView Methods Attributes |	—— | 当前解析器实例 |
-| noAuthority | 服务端返回数据状态为无权限时触发  |	参考DataView Methods Attributes   |	—— | 当前解析器实例 |
+| noAuthority | 服务端返回数据状态为无权限时触发  |	  参考DataView Methods Attributes |	—— | 当前解析器实例 |
 | notFound    | 服务端返回数据状态为404时触发     |	参考DataView Methods Attributes |	—— | 当前解析器实例 |
-| notSuccess  | 服务端返回数据状态为非成功时触发  |	参考DataView Methods Attributes   |	—— | 当前解析器实例 |
+| notSuccess  | 服务端返回数据状态为非成功时触发  |  	参考DataView Methods Attributes |	—— | 当前解析器实例 |
 | finally     | 无论如何都会触发                 |	参考DataView Methods Attributes |	—— | 当前解析器实例 |
 
 ### DataView Methods Attributes
-| 参数     | 说明                         | 类型      | 接收参数        | 接收参数说明 |
-|--------- |---------------------------- |---------- |--------------- |-------- |
-| 第一个参数 |	回调函数,用于获取响应信息     |	function | data, response |	服务端返回数据, 响应信息 |
+| 参数      | 说明                                 | 类型      | 可选值       | 默认值   | 优先级 | 接收参数 | 接收参数说明 |
+|---------- |------------------------------------ |---------- |------------- |-------- |-------- |--------------- |-------- |
+| close     |	是否关闭消息提示                      |	boolean   |	除了notSuccess、finally默认false,其余默认true |	—— | 1 | —— | —— |
+| callback  |	回调函数                             |	function  |	——          |	——       | 1 | data, response |	服务端返回数据, 响应信息 |
+| message   |	提示内容                             |	string    |	——          |	——       | 1 | —— | —— |
+| html      |	是否将message作为HTML片段处理         |	boolean   |	——          |	false    | 4 | —— | —— |
+| customClass |	自定义类名                         |	string    |	——          |	——       | 2 | —— | —— |
+| duration  |	显示时间，单位：毫秒，设置0不会自动关闭 |	number    |	——          |	3000     | 1 | —— | —— |
+| showClose |	是否显示关闭按钮                      |	boolean   |	——          |	false    | 2 | —— | —— |
+| center    |	文本是否居中                         |	boolean   |	——          |	false    | 3 | —— | —— |
+| onClose   |	关闭时的回调函数                      |	function  |	——          |	——       | 2 | —— | —— |
