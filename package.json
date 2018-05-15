@@ -45,7 +45,7 @@
   "unpkg": "lib/index.js",
   "style": "lib/theme-chalk/index.css",
   "dependencies": {
-    "weview": "0.2.2-dev",
+    "weview": "0.2.3-dev",
     "element-ui": "2.3.7",
     "axios": "0.16.2"
   },

@@ -34,10 +34,10 @@ export function isExist(obj) {
   return !(isNull(obj) || isUndefined(obj));
 }
 
-function ___paramsMatching(strings, numbers, booleans, objects, arrays, funs, nulls, undefineds, param) {
+function ___paramsMatching(strings, numbers, booleans, objects, arrays, funs, nulls, undefineds, htmlElements, param) {
   if (isArray(param)) {
     for (let p of param) {
-      __paramsMatching(strings, numbers, booleans, objects, arrays, funs, nulls, undefineds, p);
+      __paramsMatching(strings, numbers, booleans, objects, arrays, funs, nulls, undefineds, htmlElements, p);
     }
   } else if (isObject(param)) {
     for (let name in param) {
@@ -46,7 +46,7 @@ function ___paramsMatching(strings, numbers, booleans, objects, arrays, funs, nu
   }
 }
 
-function __paramsMatching(strings, numbers, booleans, objects, arrays, funs, nulls, undefineds, param) {
+function __paramsMatching(strings, numbers, booleans, objects, arrays, funs, nulls, undefineds, htmlElements, param) {
   if (isString(param)) {
     strings.push(param);
   } else if (isNumber(param)) {
@@ -59,15 +59,18 @@ function __paramsMatching(strings, numbers, booleans, objects, arrays, funs, nul
     nulls.push(param);
   } else if (isUndefined(param)) {
     undefineds.push(param);
+  } else if (param instanceof HTMLElement) {
+    htmlElements.push(param);
   } else {
-    ___paramsMatching(strings, numbers, booleans, objects, arrays, funs, nulls, undefineds, param);
+    ___paramsMatching(strings, numbers, booleans, objects, arrays, funs, nulls, undefineds, htmlElements, param);
   }
 }
 
 export function paramsMatching(matches = [], params = []) {
-  let strings = [], numbers = [], booleans = [], objects = {}, arrays = [], funs = [], nulls = [], undefineds = [];
+  let strings = [], numbers = [], booleans = [], objects = {}, arrays = [], funs = [], nulls = [], undefineds = [],
+    htmlElements = [];
   for (let param of params) {
-    __paramsMatching(strings, numbers, booleans, objects, arrays, funs, nulls, undefineds, param);
+    __paramsMatching(strings, numbers, booleans, objects, arrays, funs, nulls, undefineds, htmlElements, param);
   }
 
   let opts = {};
@@ -116,6 +119,13 @@ export function paramsMatching(matches = [], params = []) {
       case 'undefined':
         if (isExist(undefineds[match.count - 1])) {
           opts[match.name] = undefineds[match.count - 1];
+        } else {
+          opts[match.name] = match.default;
+        }
+        break;
+      case 'htmlElement':
+        if (isExist(htmlElements[match.count - 1])) {
+          opts[match.name] = htmlElements[match.count - 1];
         } else {
           opts[match.name] = match.default;
         }
