@@ -13,6 +13,9 @@
       <we-button type="danger" @click="instance1.close()">自身关闭</we-button>
       <we-button type="warning" @click="$loading.closeAll()">关闭全部</we-button>
     </div>
+    <div style="margin-top: 20px">
+      <we-button @click="open">打开持续3秒的全屏loading</we-button>
+    </div>
   </div>
 </template>
 
@@ -25,6 +28,15 @@
         instance1: undefined,
         instance2: undefined
       };
+    },
+
+    methods: {
+      open() {
+        let i = this.$loading.service();
+        setTimeout(() => {
+          this.$loading.close(i);
+        }, 3000)
+      }
     }
   }
 </script>

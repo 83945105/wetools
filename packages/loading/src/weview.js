@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import {Loading} from "./loading";
 import {isString} from "../../../src/utils/util";
 
@@ -21,8 +22,8 @@ export class WeView extends Loading {
   close(target) {
     if(isString(target)) {
       WeViewLoading.close(target);
-    }else {
-      WeViewLoading.close(target.id);
+    }else if(target instanceof Vue) {
+      target.close();
     }
   }
 
