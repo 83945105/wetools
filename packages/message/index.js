@@ -12,11 +12,40 @@ const Message = {
   install(Vue, {use = WeView, alias = "$message", options} = {use: WeView, alias: "$message"}) {
     Object.assign(MessageOptions, options);
     let msg = new use();
+
+    let message = function (opts) {
+      return msg.open(opts);
+    };
+    message.open = function (opts) {
+      return msg.open(opts);
+    };
+    message.success = function (opts) {
+      return msg.success(opts);
+    };
+    message.fail = function (opts) {
+      return msg.fail(opts);
+    };
+    message.error = function (opts) {
+      return msg.error(opts);
+    };
+    message.info = function (opts) {
+      return msg.info(opts);
+    };
+    message.warn = function (opts) {
+      return msg.warn(opts);
+    };
+    message.close = function (instance) {
+      msg.close(instance);
+    };
+    message.closeAll = function () {
+      msg.closeAll();
+    };
+
     if (isString(alias)) {
-      Vue.prototype[alias] = msg;
+      Vue.prototype[alias] = message;
     } else if (isArray(alias)) {
       for (let name of alias) {
-        Vue.prototype[name] = msg;
+        Vue.prototype[name] = message;
       }
     }
   }

@@ -1,6 +1,6 @@
 {
   "name": "wetools",
-  "version": "0.1.8-dev",
+  "version": "0.2.0-dev",
   "description": "Tools based on Vue",
   "author": "wx_83945105 <18606167809@163.com>",
   "private": false,
@@ -45,14 +45,14 @@
   "unpkg": "lib/index.js",
   "style": "lib/theme-chalk/index.css",
   "dependencies": {
-    "weview": "0.2.6-dev",
-    "element-ui": "2.3.7",
-    "axios": "0.16.2"
   },
   "peerDependencies": {
     "vue": "2.5.9"
   },
   "devDependencies": {
+    "weview": "0.3.5-dev",
+    "element-ui": "2.3.7",
+    "axios": "0.16.2",
     "autoprefixer": "7.1.2",
     "babel-core": "6.22.1",
     "babel-eslint": "8.2.1",

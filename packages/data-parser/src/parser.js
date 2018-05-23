@@ -119,6 +119,46 @@ export const ParserOptions = {
 
 const merge = require('webpack-merge');
 
+function matchArgs(args) {
+  return paramsMatching([{
+    name: 'close',
+    type: 'boolean',
+    count: 1
+  }, {
+    name: 'callback',
+    type: 'function',
+    count: 1
+  }, {
+    name: 'message',
+    type: 'string',
+    count: 1
+  }, {
+    name: 'html',
+    type: 'boolean',
+    count: 4
+  }, {
+    name: 'customClass',
+    type: 'string',
+    count: 2
+  }, {
+    name: 'duration',
+    type: 'number',
+    count: 1
+  }, {
+    name: 'showClose',
+    type: 'boolean',
+    count: 2
+  }, {
+    name: 'center',
+    type: 'boolean',
+    count: 3
+  }, {
+    name: 'onClose',
+    type: 'function',
+    count: 2
+  }], args);
+}
+
 export class Parser {
 
   _options = undefined;
@@ -142,421 +182,61 @@ export class Parser {
   };
 
   success(...args) {
-    let opts = paramsMatching([{
-      name: 'close',
-      type: 'boolean',
-      count: 1
-    }, {
-      name: 'callback',
-      type: 'function',
-      count: 1
-    }, {
-      name: 'message',
-      type: 'string',
-      count: 1
-    }, {
-      name: 'html',
-      type: 'boolean',
-      count: 4
-    }, {
-      name: 'customClass',
-      type: 'string',
-      count: 2
-    }, {
-      name: 'duration',
-      type: 'number',
-      count: 1
-    }, {
-      name: 'showClose',
-      type: 'boolean',
-      count: 2
-    }, {
-      name: 'center',
-      type: 'boolean',
-      count: 3
-    }, {
-      name: 'onClose',
-      type: 'function',
-      count: 2
-    }], args);
+    let opts = matchArgs(args);
     this._options.successOptions = merge(this._options.successOptions, opts);
     return this;
   };
 
   fail(...args) {
-    let opts = paramsMatching([{
-      name: 'close',
-      type: 'boolean',
-      count: 1
-    }, {
-      name: 'callback',
-      type: 'function',
-      count: 1
-    }, {
-      name: 'message',
-      type: 'string',
-      count: 1
-    }, {
-      name: 'html',
-      type: 'boolean',
-      count: 4
-    }, {
-      name: 'customClass',
-      type: 'string',
-      count: 2
-    }, {
-      name: 'duration',
-      type: 'number',
-      count: 1
-    }, {
-      name: 'showClose',
-      type: 'boolean',
-      count: 2
-    }, {
-      name: 'center',
-      type: 'boolean',
-      count: 3
-    }, {
-      name: 'onClose',
-      type: 'function',
-      count: 2
-    }], args);
+    let opts = matchArgs(args);
     this._options.failOptions = merge(this._options.failOptions, opts);
     return this;
   };
 
   error(...args) {
-    let opts = paramsMatching([{
-      name: 'close',
-      type: 'boolean',
-      count: 1
-    }, {
-      name: 'callback',
-      type: 'function',
-      count: 1
-    }, {
-      name: 'message',
-      type: 'string',
-      count: 1
-    }, {
-      name: 'html',
-      type: 'boolean',
-      count: 4
-    }, {
-      name: 'customClass',
-      type: 'string',
-      count: 2
-    }, {
-      name: 'duration',
-      type: 'number',
-      count: 1
-    }, {
-      name: 'showClose',
-      type: 'boolean',
-      count: 2
-    }, {
-      name: 'center',
-      type: 'boolean',
-      count: 3
-    }, {
-      name: 'onClose',
-      type: 'function',
-      count: 2
-    }], args);
+    let opts = matchArgs(args);
     this._options.errorOptions = merge(this._options.errorOptions, opts);
     return this;
   };
 
   info(...args) {
-    let opts = paramsMatching([{
-      name: 'close',
-      type: 'boolean',
-      count: 1
-    }, {
-      name: 'callback',
-      type: 'function',
-      count: 1
-    }, {
-      name: 'message',
-      type: 'string',
-      count: 1
-    }, {
-      name: 'html',
-      type: 'boolean',
-      count: 4
-    }, {
-      name: 'customClass',
-      type: 'string',
-      count: 2
-    }, {
-      name: 'duration',
-      type: 'number',
-      count: 1
-    }, {
-      name: 'showClose',
-      type: 'boolean',
-      count: 2
-    }, {
-      name: 'center',
-      type: 'boolean',
-      count: 3
-    }, {
-      name: 'onClose',
-      type: 'function',
-      count: 2
-    }], args);
+    let opts = matchArgs(args);
     this._options.infoOptions = merge(this._options.infoOptions, opts);
     return this;
   };
 
   warn(...args) {
-    let opts = paramsMatching([{
-      name: 'close',
-      type: 'boolean',
-      count: 1
-    }, {
-      name: 'callback',
-      type: 'function',
-      count: 1
-    }, {
-      name: 'message',
-      type: 'string',
-      count: 1
-    }, {
-      name: 'html',
-      type: 'boolean',
-      count: 4
-    }, {
-      name: 'customClass',
-      type: 'string',
-      count: 2
-    }, {
-      name: 'duration',
-      type: 'number',
-      count: 1
-    }, {
-      name: 'showClose',
-      type: 'boolean',
-      count: 2
-    }, {
-      name: 'center',
-      type: 'boolean',
-      count: 3
-    }, {
-      name: 'onClose',
-      type: 'function',
-      count: 2
-    }], args);
+    let opts = matchArgs(args);
     this._options.warnOptions = merge(this._options.warnOptions, opts);
     return this;
   };
 
   notSuccess(...args) {
-    let opts = paramsMatching([{
-      name: 'close',
-      type: 'boolean',
-      count: 1
-    }, {
-      name: 'callback',
-      type: 'function',
-      count: 1
-    }, {
-      name: 'message',
-      type: 'string',
-      count: 1
-    }, {
-      name: 'html',
-      type: 'boolean',
-      count: 4
-    }, {
-      name: 'customClass',
-      type: 'string',
-      count: 2
-    }, {
-      name: 'duration',
-      type: 'number',
-      count: 1
-    }, {
-      name: 'showClose',
-      type: 'boolean',
-      count: 2
-    }, {
-      name: 'center',
-      type: 'boolean',
-      count: 3
-    }, {
-      name: 'onClose',
-      type: 'function',
-      count: 2
-    }], args);
+    let opts = matchArgs(args);
     this._options.notSuccessOptions = merge(this._options.notSuccessOptions, opts);
     return this;
   };
 
   finally(...args) {
-    let opts = paramsMatching([{
-      name: 'close',
-      type: 'boolean',
-      count: 1
-    }, {
-      name: 'callback',
-      type: 'function',
-      count: 1
-    }, {
-      name: 'message',
-      type: 'string',
-      count: 1
-    }, {
-      name: 'html',
-      type: 'boolean',
-      count: 4
-    }, {
-      name: 'customClass',
-      type: 'string',
-      count: 2
-    }, {
-      name: 'duration',
-      type: 'number',
-      count: 1
-    }, {
-      name: 'showClose',
-      type: 'boolean',
-      count: 2
-    }, {
-      name: 'center',
-      type: 'boolean',
-      count: 3
-    }, {
-      name: 'onClose',
-      type: 'function',
-      count: 2
-    }], args);
+    let opts = matchArgs(args);
     this._options.finallyOptions = merge(this._options.finallyOptions, opts);
     return this;
   };
 
   needLogin(...args) {
-    let opts = paramsMatching([{
-      name: 'close',
-      type: 'boolean',
-      count: 1
-    }, {
-      name: 'callback',
-      type: 'function',
-      count: 1
-    }, {
-      name: 'message',
-      type: 'string',
-      count: 1
-    }, {
-      name: 'html',
-      type: 'boolean',
-      count: 4
-    }, {
-      name: 'customClass',
-      type: 'string',
-      count: 2
-    }, {
-      name: 'duration',
-      type: 'number',
-      count: 1
-    }, {
-      name: 'showClose',
-      type: 'boolean',
-      count: 2
-    }, {
-      name: 'center',
-      type: 'boolean',
-      count: 3
-    }, {
-      name: 'onClose',
-      type: 'function',
-      count: 2
-    }], args);
+    let opts = matchArgs(args);
     this._options.needLoginOptions = merge(this._options.needLoginOptions, opts);
     return this;
   };
 
   noAuthority(...args) {
-    let opts = paramsMatching([{
-      name: 'close',
-      type: 'boolean',
-      count: 1
-    }, {
-      name: 'callback',
-      type: 'function',
-      count: 1
-    }, {
-      name: 'message',
-      type: 'string',
-      count: 1
-    }, {
-      name: 'html',
-      type: 'boolean',
-      count: 4
-    }, {
-      name: 'customClass',
-      type: 'string',
-      count: 2
-    }, {
-      name: 'duration',
-      type: 'number',
-      count: 1
-    }, {
-      name: 'showClose',
-      type: 'boolean',
-      count: 2
-    }, {
-      name: 'center',
-      type: 'boolean',
-      count: 3
-    }, {
-      name: 'onClose',
-      type: 'function',
-      count: 2
-    }], args);
+    let opts = matchArgs(args);
     this._options.noAuthorityOptions = merge(this._options.noAuthorityOptions, opts);
     return this;
   };
 
   notFound(...args) {
-    let opts = paramsMatching([{
-      name: 'close',
-      type: 'boolean',
-      count: 1
-    }, {
-      name: 'callback',
-      type: 'function',
-      count: 1
-    }, {
-      name: 'message',
-      type: 'string',
-      count: 1
-    }, {
-      name: 'html',
-      type: 'boolean',
-      count: 4
-    }, {
-      name: 'customClass',
-      type: 'string',
-      count: 2
-    }, {
-      name: 'duration',
-      type: 'number',
-      count: 1
-    }, {
-      name: 'showClose',
-      type: 'boolean',
-      count: 2
-    }, {
-      name: 'center',
-      type: 'boolean',
-      count: 3
-    }, {
-      name: 'onClose',
-      type: 'function',
-      count: 2
-    }], args);
+    let opts = matchArgs(args);
     this._options.notFoundOptions = merge(this._options.notFoundOptions, opts);
     return this;
   };

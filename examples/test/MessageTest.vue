@@ -34,6 +34,9 @@
       <we-button plain type="primary" @click="$message.close(instance)">关闭实例弹层</we-button>
       <we-button plain type="primary" @click="$message.closeAll()">关闭所有</we-button>
     </div>
+    <div style="margin-top: 20px">
+      <we-button @click="$message('函数调用')">函数调用</we-button>
+    </div>
   </div>
 </template>
 

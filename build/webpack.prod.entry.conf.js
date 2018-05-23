@@ -38,6 +38,32 @@ const webpackConfig = {
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
+  externals: {
+    vue: {
+      root: 'Vue',
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue'
+    },
+    weview: {
+      root: 'weview',
+      commonjs: 'weview',
+      commonjs2: 'weview',
+      amd: 'weview'
+    },
+    'element-ui': {
+      root: 'element-ui',
+      commonjs: 'element-ui',
+      commonjs2: 'element-ui',
+      amd: 'element-ui'
+    },
+    'axios': {
+      root: 'axios',
+      commonjs: 'axios',
+      commonjs2: 'axios',
+      amd: 'axios'
+    }
+  },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
