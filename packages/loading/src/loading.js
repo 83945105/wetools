@@ -11,7 +11,7 @@ export const LoadingOptions = Object.assign({}, DefaultLoadingOptions);
 
 export class Loading {
 
-  service(...args) {
+  service(args) {
     return paramsMatching([{
       name: 'target',
       type: 'string',

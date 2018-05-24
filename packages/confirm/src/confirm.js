@@ -70,7 +70,7 @@ function matchArgs(args) {
 
 export class Confirm {
 
-  open(...args) {
+  open(args) {
     return matchArgs(args);
   };
 

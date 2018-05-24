@@ -28,6 +28,8 @@
         showClose: true
       })">不会自动关闭
       </we-button>
+      <we-button type="primary" @click="$message.success('我是一条不会自动关闭的消息', 0, true)">不会自动关闭</we-button>
+      <we-button type="danger" @click="method01">不会自动关闭</we-button>
     </div>
     <div style="margin-top: 20px">
       <we-button plain type="primary" @click="instance = $message.open('我会设置一个实例')">我会设置一个实例</we-button>
@@ -47,6 +49,11 @@
       return {
         instance: null
       };
+    },
+    methods: {
+      method01() {
+        this.$message.success('我是一条不会自动关闭的消息', 0, true);
+      }
     }
   }
 </script>

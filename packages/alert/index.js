@@ -10,25 +10,25 @@ const Alert = {
     Object.assign(AlertOptions, options);
     let alt = new use();
 
-    let alert = function (opts) {
+    let alert = function (...opts) {
       return alt.open(opts);
     };
-    alert.open = function (opts) {
+    alert.open = function (...opts) {
       return alt.open(opts);
     };
-    alert.success = function (opts) {
+    alert.success = function (...opts) {
       return alt.success(opts);
     };
-    alert.fail = function (opts) {
+    alert.fail = function (...opts) {
       return alt.fail(opts);
     };
-    alert.error = function (opts) {
+    alert.error = function (...opts) {
       return alt.error(opts);
     };
-    alert.info = function (opts) {
+    alert.info = function (...opts) {
       return alt.info(opts);
     };
-    alert.warn = function (opts) {
+    alert.warn = function (...opts) {
       return alt.warn(opts);
     };
     alert.close = function (instance) {

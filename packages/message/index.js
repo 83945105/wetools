@@ -13,25 +13,25 @@ const Message = {
     Object.assign(MessageOptions, options);
     let msg = new use();
 
-    let message = function (opts) {
+    let message = function (...opts) {
       return msg.open(opts);
     };
-    message.open = function (opts) {
+    message.open = function (...opts) {
       return msg.open(opts);
     };
-    message.success = function (opts) {
+    message.success = function (...opts) {
       return msg.success(opts);
     };
-    message.fail = function (opts) {
+    message.fail = function (...opts) {
       return msg.fail(opts);
     };
-    message.error = function (opts) {
+    message.error = function (...opts) {
       return msg.error(opts);
     };
-    message.info = function (opts) {
+    message.info = function (...opts) {
       return msg.info(opts);
     };
-    message.warn = function (opts) {
+    message.warn = function (...opts) {
       return msg.warn(opts);
     };
     message.close = function (instance) {

@@ -12,33 +12,33 @@ export class WeView extends Alert {
     this._weview = WeViewAlert;
   }
 
-  open(...args) {
-    let opts = super.open(...args);
+  open(args) {
+    let opts = super.open(args);
     return this._weview.open(opts);
   }
 
-  success(...args) {
-    let opts = super.success(...args);
+  success(args) {
+    let opts = super.success(args);
     return this._weview.success(opts);
   }
 
-  fail(...args) {
-    let opts = super.fail(...args);
+  fail(args) {
+    let opts = super.fail(args);
     return this._weview.fail(opts);
   }
 
-  error(...args) {
-    let opts = super.error(...args);
+  error(args) {
+    let opts = super.error(args);
     return this._weview.error(opts);
   }
 
-  warn(...args) {
-    let opts = super.warn(...args);
+  warn(args) {
+    let opts = super.warn(args);
     return this._weview.warn(opts);
   }
 
-  info(...args) {
-    let opts = super.info(...args);
+  info(args) {
+    let opts = super.info(args);
     return this._weview.info(opts);
   }
 

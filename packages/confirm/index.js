@@ -10,10 +10,10 @@ const Confirm = {
     Object.assign(ConfirmOptions, options);
     let alt = new use();
 
-    let confirm = function (opts) {
+    let confirm = function (...opts) {
       return alt.open(opts);
     };
-    confirm.open = function (opts) {
+    confirm.open = function (...opts) {
       return alt.open(opts);
     };
     confirm.close = function (instance) {

@@ -52,27 +52,27 @@ function matchArgs(args) {
 
 export class Alert {
 
-  open(...args) {
+  open(args) {
     return matchArgs(args);
   };
 
-  success(...args) {
+  success(args) {
     return matchArgs(args);
   };
 
-  fail(...args) {
+  fail(args) {
     return matchArgs(args);
   };
 
-  error(...args) {
+  error(args) {
     return matchArgs(args);
   };
 
-  warn(...args) {
+  warn(args) {
     return matchArgs(args);
   };
 
-  info(...args) {
+  info(args) {
     return matchArgs(args);
   };
 

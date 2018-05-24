@@ -12,8 +12,8 @@ export class WeView extends Confirm {
     this._weview = WeViewConfirm;
   }
 
-  open(...args) {
-    let opts = super.open(...args);
+  open(args) {
+    let opts = super.open(args);
     return this._weview(opts);
   }
 
