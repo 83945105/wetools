@@ -69,6 +69,9 @@ function __paramsMatching(strings, numbers, booleans, objects, arrays, funs, nul
 export function paramsMatching(matches = [], params = []) {
   let strings = [], numbers = [], booleans = [], objects = {}, arrays = [], funs = [], nulls = [], undefineds = [],
     htmlElements = [];
+  if(isObject(params)) {
+    params = [params];
+  }
   for (let param of params) {
     __paramsMatching(strings, numbers, booleans, objects, arrays, funs, nulls, undefineds, htmlElements, param);
   }

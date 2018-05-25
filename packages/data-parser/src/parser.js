@@ -1,7 +1,7 @@
 import {paramsMatching} from "../../../src/utils/util.js";
 import {WeView} from "../../message/src/weview.js";
-import {DefaultMessageOptions} from "../../message/src/message";
-import {deepAssign} from "../../../src/utils/util";
+import {DefaultMessageOptions} from "../../message/src/message.js";
+import {deepAssign} from "../../../src/utils/util.js";
 
 export const DefaultParserOptions = {
   successOptions: Object.assign({
