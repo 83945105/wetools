@@ -1,6 +1,6 @@
 import {Default} from '../data-parser/src/default.js';
 import {DataView} from "../data-parser/src/dataview.js";
-import {deepAssign, isArray, isString} from "../../src/utils/util";
+import {deepAssign, isArray, isString} from "../src/utils/util";
 import {ParserOptions} from "./src/parser";
 
 const DataParser = {

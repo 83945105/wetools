@@ -1,6 +1,6 @@
 import {WeView} from '../alert/src/weview.js';
 import {AlertOptions} from "./src/alert.js";
-import {isArray, isString} from "../../src/utils/util.js";
+import {isArray, isString} from "../src/utils/util.js";
 
 const Alert = {
 

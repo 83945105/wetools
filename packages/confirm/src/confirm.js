@@ -1,4 +1,4 @@
-import {paramsMatching} from "../../../src/utils/util";
+import {paramsMatching} from "../../src/utils/util";
 
 export const DefaultConfirmOptions = {
   title: undefined,

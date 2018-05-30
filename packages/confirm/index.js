@@ -1,6 +1,6 @@
 import {WeView} from '../confirm/src/weview.js';
 import {ConfirmOptions} from "./src/confirm.js";
-import {isArray, isString} from "../../src/utils/util.js";
+import {isArray, isString} from "../src/utils/util.js";
 
 const Confirm = {
 

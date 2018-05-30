@@ -1,123 +1,123 @@
-import {paramsMatching} from "../../../src/utils/util.js";
+import {paramsMatching} from "../../src/utils/util.js";
 import {WeView} from "../../message/src/weview.js";
 import {DefaultMessageOptions} from "../../message/src/message.js";
-import {deepAssign} from "../../../src/utils/util.js";
+import {deepAssign} from "../../src/utils/util.js";
+
+const merge = require('webpack-merge');
 
 export const DefaultParserOptions = {
-  successOptions: Object.assign({
+  successOptions: merge({
     close: false,
     callback() {
     }
   }, DefaultMessageOptions),
-  failOptions: Object.assign({
+  failOptions: merge({
     close: false,
     callback() {
     }
   }, DefaultMessageOptions),
-  errorOptions: Object.assign({
+  errorOptions: merge({
     close: false,
     callback() {
     }
   }, DefaultMessageOptions),
-  infoOptions: Object.assign({
+  infoOptions: merge({
     close: false,
     callback() {
     }
   }, DefaultMessageOptions),
-  warnOptions: Object.assign({
+  warnOptions: merge({
     close: false,
     callback() {
     }
   }, DefaultMessageOptions),
-  notSuccessOptions: Object.assign({
+  notSuccessOptions: merge({
     close: true,
     callback() {
     }
   }, DefaultMessageOptions),
-  finallyOptions: Object.assign({
+  finallyOptions: merge({
     close: true,
     callback() {
     }
   }, DefaultMessageOptions),
-  needLoginOptions: Object.assign({
+  needLoginOptions: merge({
     close: true,
     callback() {
     }
   }, DefaultMessageOptions),
-  noAuthorityOptions: Object.assign({
+  noAuthorityOptions: merge({
     close: true,
     callback() {
     }
   }, DefaultMessageOptions),
-  notFoundOptions: Object.assign({
+  notFoundOptions: merge({
     close: true,
     callback() {
     }
   }, DefaultMessageOptions),
   messageOptions: {
     use: WeView,
-    options: Object.assign({}, DefaultMessageOptions)
+    options: merge({}, DefaultMessageOptions)
   }
 };
 
 export const ParserOptions = {
-  successOptions: Object.assign({
+  successOptions: merge({
     close: false,
     callback() {
     }
   }, DefaultMessageOptions),
-  failOptions: Object.assign({
+  failOptions: merge({
     close: false,
     callback() {
     }
   }, DefaultMessageOptions),
-  errorOptions: Object.assign({
+  errorOptions: merge({
     close: false,
     callback() {
     }
   }, DefaultMessageOptions),
-  infoOptions: Object.assign({
+  infoOptions: merge({
     close: false,
     callback() {
     }
   }, DefaultMessageOptions),
-  warnOptions: Object.assign({
+  warnOptions: merge({
     close: false,
     callback() {
     }
   }, DefaultMessageOptions),
-  notSuccessOptions: Object.assign({
+  notSuccessOptions: merge({
     close: true,
     callback() {
     }
   }, DefaultMessageOptions),
-  finallyOptions: Object.assign({
+  finallyOptions: merge({
     close: true,
     callback() {
     }
   }, DefaultMessageOptions),
-  needLoginOptions: Object.assign({
+  needLoginOptions: merge({
     close: true,
     callback() {
     }
   }, DefaultMessageOptions),
-  noAuthorityOptions: Object.assign({
+  noAuthorityOptions: merge({
     close: true,
     callback() {
     }
   }, DefaultMessageOptions),
-  notFoundOptions: Object.assign({
+  notFoundOptions: merge({
     close: true,
     callback() {
     }
   }, DefaultMessageOptions),
   messageOptions: {
     use: WeView,
-    options: Object.assign({}, DefaultMessageOptions)
+    options: merge({}, DefaultMessageOptions)
   }
 };
-
-const merge = require('webpack-merge');
 
 function matchArgs(args) {
   return paramsMatching([{

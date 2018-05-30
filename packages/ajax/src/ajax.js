@@ -1,8 +1,10 @@
-import {isObject, isArray, isString} from '../../../src/utils/util.js';
+import {isObject, isArray, isString} from '../../src/utils/util.js';
 import {WeView} from '../../message/src/weview.js';
 import {Default} from "../../data-parser/src/default.js";
-import {DefaultParserOptions} from "../../data-parser/src/parser";
-import {DefaultMessageOptions} from "../../message/src/message";
+import {DefaultParserOptions} from "../../data-parser/src/parser.js";
+import {DefaultMessageOptions} from "../../message/src/message.js";
+
+const merge = require('webpack-merge');
 
 export const AjaxOptions = {
   baseURL: '',
@@ -15,11 +17,11 @@ export const AjaxOptions = {
   responseType: 'json',
   messageOptions: {
     use: WeView,
-    options: Object.assign({}, DefaultMessageOptions)
+    options: merge({}, DefaultMessageOptions)
   },
   dataParserOptions: {
     use: Default,
-    options: Object.assign({}, DefaultParserOptions)
+    options: merge({}, DefaultParserOptions)
   }
 };
 
@@ -106,7 +108,7 @@ export class AjaxUtil {
       return url.substring(0, url.length - 1);
     } else if (isArray(params)) {
       let i = 0;
-      url = url.replace(/\{[^\}]+\}*/g, (val, start, res) => {
+      url = url.replace(/\{[^\}]+\}*!/g, (val, start, res) => {
         return params[i++];
       });
       return url;

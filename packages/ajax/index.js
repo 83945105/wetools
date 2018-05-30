@@ -1,6 +1,6 @@
-import {Axios} from '../ajax/src/axios.js';
+import {Axios} from './src/axios.js';
 import {AjaxOptions} from "./src/ajax.js";
-import {deepAssign, isArray, isString} from "../../src/utils/util.js";
+import {deepAssign, isArray, isString} from "../src/utils/util.js";
 
 const Ajax = {
 

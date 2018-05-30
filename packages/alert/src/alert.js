@@ -1,4 +1,4 @@
-import {paramsMatching} from "../../../src/utils/util";
+import {paramsMatching} from "../../src/utils/util.js";
 
 export const DefaultAlertOptions = {
   title: undefined,
@@ -9,7 +9,9 @@ export const DefaultAlertOptions = {
   showHeader: true
 };
 
-export const AlertOptions = Object.assign({message: ''}, DefaultAlertOptions);
+const merge = require('webpack-merge');
+
+export const AlertOptions = merge({message: ''}, DefaultAlertOptions);
 
 function matchArgs(args) {
   return paramsMatching([{

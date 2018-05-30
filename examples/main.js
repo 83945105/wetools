@@ -9,15 +9,15 @@ Vue.config.productionTip = false;
 import DemoBlock from './components/demo-block';
 Vue.component(DemoBlock.name, DemoBlock);
 
-import 'weview/lib/web/theme-chalk/index.css';
-
-import weview from 'weview';
-Vue.use(weview);
+// import weview from 'weview';
+// import 'weview/lib/theme-chalk/we-index.css';//引入weview组件库的样式文件
+// Vue.use(weview);
 
 import wetools from '../packages/index.js';
-import {Ajax, DataParser, Message} from '../packages/index.js';
-import 'weview/lib/theme-chalk/we-index.css';//引入weview组件库的样式文件
-import('element-ui/lib/theme-chalk/index.css');//引入element-ui组件库的样式文件
+// import {Ajax, DataParser, Message} from '../packages/index.js';
+// import('element-ui/lib/theme-chalk/index.css');//引入element-ui组件库的样式文件
+Vue.use(wetools);
+/*
 Vue.use(wetools, {
   Message: {//消息提示
     //use: Message.Element,//使用element-ui的消息提示组件
@@ -110,6 +110,7 @@ Vue.use(wetools, {
     }
   }
 });
+*/
 
 /* eslint-disable no-new */
 new Vue({

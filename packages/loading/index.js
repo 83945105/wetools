@@ -1,7 +1,7 @@
 import {Element} from '../loading/src/element.js';
 import {WeView} from '../loading/src/weview.js';
 import {LoadingOptions} from "./src/loading.js";
-import {isArray, isString} from "../../src/utils/util.js";
+import {isArray, isString} from "../src/utils/util.js";
 
 const Loading = {
 

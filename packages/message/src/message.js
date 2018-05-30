@@ -1,4 +1,4 @@
-import {paramsMatching} from "../../../src/utils/util";
+import {paramsMatching} from "../../src/utils/util.js";
 
 export const DefaultMessageOptions = {
   html: false,
@@ -10,7 +10,9 @@ export const DefaultMessageOptions = {
   }
 };
 
-export const MessageOptions = Object.assign({message: ''}, DefaultMessageOptions);
+const merge = require('webpack-merge');
+
+export const MessageOptions = merge({message: ''}, DefaultMessageOptions);
 
 export const MessageType = {
   /** 失败 */

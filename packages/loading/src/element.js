@@ -1,5 +1,5 @@
 import {Loading} from "./loading";
-import {isString} from "../../../src/utils/util";
+import {isString} from "../../src/utils/util";
 
 const ElementLoading = require('element-ui').Loading;
 

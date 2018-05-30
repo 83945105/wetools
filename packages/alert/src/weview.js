@@ -1,7 +1,8 @@
 import {Alert} from "./alert.js";
-import {isObject} from "../../../src/utils/util.js";
+import {isObject} from "../../src/utils/util.js";
 
-const WeViewAlert = require('weview').$Alert;
+//TODO 待修改
+// const WeViewAlert = require('weview').$Alert;
 
 export class WeView extends Alert {
 

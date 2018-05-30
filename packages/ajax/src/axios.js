@@ -1,5 +1,5 @@
 import {Ajax, AjaxUtil, AjaxOptions} from "./ajax.js";
-import {deepAssign} from "../../../src/utils/util";
+import {deepAssign} from "../../src/utils/util.js";
 
 const util = new AjaxUtil();
 

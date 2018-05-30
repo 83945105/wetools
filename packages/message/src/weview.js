@@ -1,7 +1,8 @@
 import {Message} from "./message.js";
-import {isObject} from "../../../src/utils/util";
+import {isObject} from "../../src/utils/util.js";
 
-const WeViewMessage = require('weview').$Message;
+//TODO 待修改
+// const WeViewMessage = require('weview').$Message;
 
 export class WeView extends Message {
 

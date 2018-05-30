@@ -1,4 +1,4 @@
-import {paramsMatching} from "../../../src/utils/util.js";
+import {paramsMatching} from "../../src/utils/util.js";
 
 export const DefaultLoadingOptions = {
   target: document.body,

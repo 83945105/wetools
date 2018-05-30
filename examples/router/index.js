@@ -41,10 +41,16 @@ let initRouter = (routers = [], parent, folder, suffix) => {
 initRouter(docsConf, DocRoutes, "docs", "md");
 initRouter(testConf, TestRoutes, "test", "vue");
 
+import Error from '../components/Error.vue';
+
 export default new Router({
   routes: [{
     path: "/",
-    redirect: {name: 'Plugins'},
+    redirect: {name: 'Error'},
+  }, {
+    path: "/error",
+    name: "Error",
+    component: Error
   }, {
     path: "/plugins",
     name: "Plugins",
