@@ -2,8 +2,7 @@ import Vue from 'vue';
 import {Loading} from "./loading";
 import {isString} from "../../src/utils/util";
 
-//TODO 待修改
-// const WeViewLoading = require('weview').$Loading;
+const WeViewLoading = require('weview').$Loading;
 
 export class WeView extends Loading {
 

@@ -1,10 +1,12 @@
-import {toUpperCase} from '../utils/util';
+import {toUpperCase, toHumpFormat} from '../utils/util.js';
 
 const projectPrefix = 'we';
 
+const prefixNameCls = toUpperCase(toHumpFormat(projectPrefix), 1);
+
 export default {
   prefixCls: projectPrefix,
-  prefixNameCls: toUpperCase(projectPrefix, 1),
+  prefixNameCls: prefixNameCls,
   data() {
     return {
       prefixCls: projectPrefix
@@ -13,7 +15,7 @@ export default {
 
   computed: {
     prefixNameCls() {
-      return toUpperCase(this.prefixCls, 1);
+      return prefixNameCls;
     }
   }
 };

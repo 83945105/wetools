@@ -1,15 +1,13 @@
 {
   "name": "wetools",
-  "version": "0.2.3-dev",
+  "version": "0.2.4-dev",
   "description": "Tools based on Vue",
   "author": "wx_83945105 <18606167809@163.com>",
   "private": false,
   "main": "lib/index.js",
   "files": [
-    "src",
     "lib",
     "packages",
-    "examples",
     "types"
   ],
   "scripts": {
@@ -54,9 +52,10 @@
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
-    "weview": "0.3.9-dev",
-    "element-ui": "2.3.7",
-    "axios": "0.16.2",
+    "weview": "^0.4.3-dev",
+    "wetemplate": "^0.0.3-dev",
+    "element-ui": "^2.3.7",
+    "axios": "^0.16.2",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^8.2.1",

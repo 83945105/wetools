@@ -46,7 +46,7 @@ import Error from '../components/Error.vue';
 export default new Router({
   routes: [{
     path: "/",
-    redirect: {name: 'Error'},
+    redirect: {name: 'Plugins'},
   }, {
     path: "/error",
     name: "Error",
@@ -55,7 +55,7 @@ export default new Router({
     path: "/plugins",
     name: "Plugins",
     redirect: {name: 'Doc'},
-    component: r => require.ensure([], () => r(require(`../components/Component.vue`))),
+    component: r => require.ensure([], () => r(require(`../components/ComponentBase.vue`))),
     children: [DocRoutes]
   }, {
     path: "/",

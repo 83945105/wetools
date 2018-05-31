@@ -1,8 +1,7 @@
 import {Confirm} from "./confirm.js";
 import {isObject} from "../../src/utils/util.js";
 
-//TODO 待修改
-// const WeViewConfirm = require('weview').$Confirm;
+const WeViewConfirm = require('weview').$Confirm;
 
 export class WeView extends Confirm {
 

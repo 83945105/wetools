@@ -7,17 +7,27 @@ import router from './router'
 Vue.config.productionTip = false;
 
 import DemoBlock from './components/demo-block';
+
 Vue.component(DemoBlock.name, DemoBlock);
 
-// import weview from 'weview';
-// import 'weview/lib/theme-chalk/we-index.css';//引入weview组件库的样式文件
-// Vue.use(weview);
+import wetemplate from 'wetemplate';
+import 'wetemplate/lib/theme-chalk/index.css';
+Vue.use(wetemplate);
 
-import wetools from '../packages/index.js';
-// import {Ajax, DataParser, Message} from '../packages/index.js';
+import weview from 'weview';
+import 'weview/lib/theme-chalk/index.css';//引入weview组件库的样式文件
+Vue.use(weview);
+
+// import ElementUI from 'element-ui';
+// Vue.use(ElementUI);
 // import('element-ui/lib/theme-chalk/index.css');//引入element-ui组件库的样式文件
-Vue.use(wetools);
-/*
+
+// import wetools from '../packages/index.js';
+// import {Ajax, DataParser, Message} from '../packages/index.js';
+
+import wetools from '../lib/index.js';
+import {Ajax, DataParser, Message} from '../lib/index.js';
+
 Vue.use(wetools, {
   Message: {//消息提示
     //use: Message.Element,//使用element-ui的消息提示组件
@@ -58,59 +68,68 @@ Vue.use(wetools, {
         }
       },
       successOptions: {//成功状态配置
-        close:false,//是否显示消息提示
-        callback(){},//回调函数
+        close: false,//是否显示消息提示
+        callback() {
+        },//回调函数
         //TODO 其余同Message配置
       },
       failOptions: {//失败状态配置
-        close:false,//是否显示消息提示
-        callback(){},//回调函数
+        close: false,//是否显示消息提示
+        callback() {
+        },//回调函数
         //TODO 其余同Message配置
       },
       errorOptions: {//错误状态配置
-        close:false,//是否显示消息提示
-        callback(){},//回调函数
+        close: false,//是否显示消息提示
+        callback() {
+        },//回调函数
         //TODO 其余同Message配置
       },
       infoOptions: {//信息提示状态配置
-        close:false,//是否显示消息提示
-        callback(){},//回调函数
+        close: false,//是否显示消息提示
+        callback() {
+        },//回调函数
         //TODO 其余同Message配置
       },
       warnOptions: {//警告状态配置
-        close:false,//是否显示消息提示
-        callback(){},//回调函数
+        close: false,//是否显示消息提示
+        callback() {
+        },//回调函数
         //TODO 其余同Message配置
       },
       notSuccessOptions: {//非成功状态配置
-        close:false,//是否显示消息提示
-        callback(){},//回调函数
+        close: false,//是否显示消息提示
+        callback() {
+        },//回调函数
         //TODO 其余同Message配置
       },
       finallyOptions: {//无论如何都会触发的配置
-        close:false,//是否显示消息提示
-        callback(){},//回调函数
+        close: false,//是否显示消息提示
+        callback() {
+        },//回调函数
         //TODO 其余同Message配置
       },
       needLoginOptions: {//需要登录状态配置
-        close:false,//是否显示消息提示
-        callback(){},//回调函数
+        close: false,//是否显示消息提示
+        callback() {
+        },//回调函数
         //TODO 其余同Message配置
       },
       noAuthorityOptions: {//无权状态配置
-        close:false,//是否显示消息提示
-        callback(){},//回调函数
+        close: false,//是否显示消息提示
+        callback() {
+        },//回调函数
         //TODO 其余同Message配置
       },
       notFoundOptions: {//404状态配置
-        close:false,//是否显示消息提示
-        callback(){},//回调函数
+        close: false,//是否显示消息提示
+        callback() {
+        },//回调函数
         //TODO 其余同Message配置
       }
     }
   }
 });
-*/
 
 /* eslint-disable no-new */
 new Vue({

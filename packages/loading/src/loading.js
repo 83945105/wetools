@@ -1,5 +1,7 @@
 import {paramsMatching} from "../../src/utils/util.js";
 
+const merge = require('webpack-merge');
+
 export const DefaultLoadingOptions = {
   target: document.body,
   text: '加载中',
@@ -7,7 +9,7 @@ export const DefaultLoadingOptions = {
   fullscreen: false
 };
 
-export const LoadingOptions = Object.assign({}, DefaultLoadingOptions);
+export const LoadingOptions = merge({}, DefaultLoadingOptions);
 
 export class Loading {
 

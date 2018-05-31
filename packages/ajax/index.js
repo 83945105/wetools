@@ -12,8 +12,8 @@ const Ajax = {
     if (isString(alias)) {
       Vue.prototype[alias] = a;
     } else if (isArray(alias)) {
-      for (let name of alias) {
-        Vue.prototype[name] = a;
+      for (let idx in alias) {
+        Vue.prototype[alias[idx]] = a;
       }
     }
   }

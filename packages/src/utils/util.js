@@ -1,3 +1,29 @@
+/**
+ * 将字符串转换为大写
+ * @param str 字符串
+ * @param len 转换长度
+ * @returns {string}
+ */
+export function toUpperCase(str = "", len) {
+  if (isNaN(len)) {
+    return str.toUpperCase();
+  }
+  len = parseInt(len);
+  return `${str.substring(0, len).toUpperCase()}${str.substring(len)}`;
+}
+
+/**
+ * 将字符串转驼峰
+ * @param str
+ */
+export function toHumpFormat(str = "") {
+  let re = /-(\w)/g;
+  str = str.replace(re, function ($0, $1) {
+    return $1.toUpperCase();
+  });
+  return str;
+}
+
 export function isString(obj) {
   return Object.prototype.toString.call(obj) === "[object String]";
 }
@@ -36,8 +62,8 @@ export function isExist(obj) {
 
 function ___paramsMatching(strings, numbers, booleans, objects, arrays, funs, nulls, undefineds, htmlElements, param) {
   if (isArray(param)) {
-    for (let p of param) {
-      __paramsMatching(strings, numbers, booleans, objects, arrays, funs, nulls, undefineds, htmlElements, p);
+    for (let idx in param) {
+      __paramsMatching(strings, numbers, booleans, objects, arrays, funs, nulls, undefineds, htmlElements, param[idx]);
     }
   } else if (isObject(param)) {
     for (let name in param) {
@@ -72,13 +98,14 @@ export function paramsMatching(matches = [], params = []) {
   if(!isArray(params)) {
     params = [params];
   }
-  for (let param of params) {
-    __paramsMatching(strings, numbers, booleans, objects, arrays, funs, nulls, undefineds, htmlElements, param);
+  for (let idx in params) {
+    __paramsMatching(strings, numbers, booleans, objects, arrays, funs, nulls, undefineds, htmlElements, params[idx]);
   }
 
   let opts = {};
 
-  for (let match of matches) {
+  for (let idx in matches) {
+    let match = matches[idx];
     if (isExist(objects[match.name])) {
       opts[match.name] = objects[match.name];
       continue;
@@ -136,7 +163,6 @@ export function paramsMatching(matches = [], params = []) {
     }
 
   }
-
   return opts;
 }
 

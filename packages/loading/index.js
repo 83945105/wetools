@@ -1,7 +1,7 @@
 import {Element} from '../loading/src/element.js';
 import {WeView} from '../loading/src/weview.js';
 import {LoadingOptions} from "./src/loading.js";
-import {isArray, isString} from "../src/utils/util.js";
+import {isArray, isString, deepAssign} from "../src/utils/util.js";
 
 const Loading = {
 
@@ -10,13 +10,13 @@ const Loading = {
   WeView: WeView,
 
   install(Vue, {use = WeView, alias = "$loading", options} = {use: WeView, alias: "$loading"}) {
-    Object.assign(LoadingOptions, options);
+    deepAssign(LoadingOptions, options);
     let loading = new use();
     if (isString(alias)) {
       Vue.prototype[alias] = loading;
     } else if (isArray(alias)) {
-      for (let name of alias) {
-        Vue.prototype[name] = loading;
+      for (let idx in alias) {
+        Vue.prototype[alias[idx]] = loading;
       }
     }
   }

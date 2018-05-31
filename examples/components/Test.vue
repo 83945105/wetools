@@ -1,12 +1,12 @@
 <template>
-  <we-web-template-test
+  <we-template-test
     logo-text="wetools"
     :logo-src="logoSrc"
     :left-data="tests"
     :header-data="pages"
     page-name="Test"
     @click-logo="$message.open('首页还没做好...')"
-  ></we-web-template-test>
+  ></we-template-test>
 </template>
 
 <script>

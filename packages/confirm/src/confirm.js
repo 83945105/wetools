@@ -1,4 +1,6 @@
-import {paramsMatching} from "../../src/utils/util";
+import {paramsMatching} from "../../src/utils/util.js";
+
+const merge = require('webpack-merge');
 
 export const DefaultConfirmOptions = {
   title: undefined,
@@ -12,7 +14,7 @@ export const DefaultConfirmOptions = {
   showHeader: true
 };
 
-export const ConfirmOptions = Object.assign({message: ''}, DefaultConfirmOptions);
+export const ConfirmOptions = merge({message: ''}, DefaultConfirmOptions);
 
 function matchArgs(args) {
   return paramsMatching([{

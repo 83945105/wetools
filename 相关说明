@@ -1,3 +1,15 @@
+# 临时使用淘宝源
+npm --registry https://registry.npm.taobao.org install node-red-contrib-composer@latest
+
+# 全局配置切换到淘宝源
+npm config set registry https://registry.npm.taobao.org
+
+# 全局配置切换到官方源
+npm config set registry http://www.npmjs.org
+
+# 检测是否切换到了淘宝源
+npm info underscore
+
 # 如果使用了淘宝镜像,使用以下方式登录发布包
 npm login --registry http://registry.npmjs.org
 

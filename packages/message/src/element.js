@@ -1,5 +1,5 @@
 import {Message} from "./message.js";
-import {isObject} from "../../src/utils/util";
+import {isObject} from "../../src/utils/util.js";
 
 const ElementMessage = require('element-ui').Message;
 

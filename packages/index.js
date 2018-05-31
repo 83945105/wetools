@@ -7,11 +7,11 @@ import Loading from "./loading/index.js";
 
 const plugins = {
   Ajax: Ajax,
-  // Message: Message,
-  // Alert: Alert,
-  // Confirm: Confirm,
+  Message: Message,
+  Alert: Alert,
+  Confirm: Confirm,
   DataParser: DataParser,
-  // Loading: Loading
+  Loading: Loading
 };
 
 const install = function (Vue, opts = {}) {

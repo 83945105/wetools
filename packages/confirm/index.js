@@ -1,13 +1,13 @@
 import {WeView} from '../confirm/src/weview.js';
 import {ConfirmOptions} from "./src/confirm.js";
-import {isArray, isString} from "../src/utils/util.js";
+import {isArray, isString, deepAssign} from "../src/utils/util.js";
 
 const Confirm = {
 
   WeView: WeView,
 
   install(Vue, {use = WeView, alias = "$confirm", options} = {use: WeView, alias: "$confirm"}) {
-    Object.assign(ConfirmOptions, options);
+    deepAssign(ConfirmOptions, options);
     let alt = new use();
 
     let confirm = function (...opts) {
@@ -26,8 +26,8 @@ const Confirm = {
     if (isString(alias)) {
       Vue.prototype[alias] = confirm;
     } else if (isArray(alias)) {
-      for (let name of alias) {
-        Vue.prototype[name] = confirm;
+      for (let idx in alias) {
+        Vue.prototype[alias[idx]] = confirm;
       }
     }
   }

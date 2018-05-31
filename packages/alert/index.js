@@ -1,13 +1,13 @@
 import {WeView} from '../alert/src/weview.js';
 import {AlertOptions} from "./src/alert.js";
-import {isArray, isString} from "../src/utils/util.js";
+import {isArray, isString, deepAssign} from "../src/utils/util.js";
 
 const Alert = {
 
   WeView: WeView,
 
   install(Vue, {use = WeView, alias = "$alert", options} = {use: WeView, alias: "$alert"}) {
-    Object.assign(AlertOptions, options);
+    deepAssign(AlertOptions, options);
     let alt = new use();
 
     let alert = function (...opts) {
@@ -41,8 +41,8 @@ const Alert = {
     if (isString(alias)) {
       Vue.prototype[alias] = alert;
     } else if (isArray(alias)) {
-      for (let name of alias) {
-        Vue.prototype[name] = alert;
+      for (let idx in alias) {
+        Vue.prototype[alias[idx]] = alert;
       }
     }
   }

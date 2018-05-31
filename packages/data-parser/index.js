@@ -15,8 +15,8 @@ const DataParser = {
     if (isString(alias)) {
       Vue.prototype[alias] = dp;
     } else if (isArray(alias)) {
-      for (let name of alias) {
-        Vue.prototype[name] = dp;
+      for (let idx in alias) {
+        Vue.prototype[alias[idx]] = dp;
       }
     }
   }

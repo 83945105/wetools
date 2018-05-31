@@ -1,6 +1,8 @@
 import {Ajax, AjaxUtil, AjaxOptions} from "./ajax.js";
 import {deepAssign} from "../../src/utils/util.js";
 
+const merge = require('webpack-merge');
+
 const util = new AjaxUtil();
 
 const AxiosAjax = require('axios');
@@ -49,8 +51,11 @@ export class Axios extends Ajax {
         $message.close(instance);
       }
       console.log(err);
-      console.log(JSON.parse(JSON.stringify(err)));
-      $message.open(Object.assign({}, opts.messageOptions.options, {
+      try {
+        console.log(JSON.parse(JSON.stringify(err)));
+      } catch (e) {
+      }
+      $message.open(merge({}, opts.messageOptions.options, {
         message: `请求出错`
       }));
       $parser.executeFinally(null, err);
@@ -60,7 +65,7 @@ export class Axios extends Ajax {
 
   post(url, params, options) {
     super.post(url, params, options);
-    let opts = Object.assign({}, AjaxOptions, options);
+    let opts = merge({}, AjaxOptions, options);
 
     let $parser = new opts.dataParserOptions.use(opts.dataParserOptions.options);
     let $message = new opts.messageOptions.use();
@@ -92,7 +97,7 @@ export class Axios extends Ajax {
       }
       console.log(err);
       console.log(JSON.parse(JSON.stringify(err)));
-      $message.open(Object.assign({}, opts.messageOptions.options, {
+      $message.open(merge({}, opts.messageOptions.options, {
         message: `请求出错`
       }));
       $parser.executeFinally(null, err);
@@ -102,7 +107,7 @@ export class Axios extends Ajax {
 
   put(url, params, options) {
     super.put(url, params, options);
-    let opts = Object.assign({}, AjaxOptions, options);
+    let opts = merge({}, AjaxOptions, options);
 
     let $parser = new opts.dataParserOptions.use(opts.dataParserOptions.options);
     let $message = new opts.messageOptions.use();
@@ -134,7 +139,7 @@ export class Axios extends Ajax {
       }
       console.log(err);
       console.log(JSON.parse(JSON.stringify(err)));
-      $message.open(Object.assign({}, opts.messageOptions.options, {
+      $message.open(merge({}, opts.messageOptions.options, {
         message: `请求出错`
       }));
       $parser.executeFinally(null, err);
@@ -144,13 +149,13 @@ export class Axios extends Ajax {
 
   delete(url, params, options) {
     super.delete(url, params, options);
-    let opts = Object.assign({}, AjaxOptions, options);
+    let opts = merge({}, AjaxOptions, options);
 
     let $parser = new opts.dataParserOptions.use(opts.dataParserOptions.options);
     let $message = new opts.messageOptions.use();
 
     url = util.nameReplaceUrlParams(url, params);
-    Object.assign(opts.params, params);
+    merge(opts.params, params);
 
     let waitId;
     let instance;
@@ -177,7 +182,7 @@ export class Axios extends Ajax {
       }
       console.log(err);
       console.log(JSON.parse(JSON.stringify(err)));
-      $message.open(Object.assign({}, opts.messageOptions.options, {
+      $message.open(merge({}, opts.messageOptions.options, {
         message: `请求出错`
       }));
       $parser.executeFinally(null, err);
