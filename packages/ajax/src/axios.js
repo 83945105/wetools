@@ -1,5 +1,5 @@
 import {Ajax, AjaxUtil, AjaxOptions} from "./ajax.js";
-import {deepAssign} from "../../src/utils/util.js";
+import {deepAssign, isObject} from "../../src/utils/util.js";
 
 const merge = require('webpack-merge');
 
@@ -36,6 +36,9 @@ export class Axios extends Ajax {
           instance = $message.open(opts.waitPromptText);
         }
       }, opts.waitPromptTime);
+    }
+    if(isObject(params)) {
+      opts.params = merge(params, opts.params);
     }
     this._axios.get(url, opts).then(res => {
       status = 'resolved';
@@ -155,7 +158,6 @@ export class Axios extends Ajax {
     let $message = new opts.messageOptions.use();
 
     url = util.nameReplaceUrlParams(url, params);
-    merge(opts.params, params);
 
     let waitId;
     let instance;
@@ -167,6 +169,7 @@ export class Axios extends Ajax {
         }
       }, opts.waitPromptTime);
     }
+    opts.params = merge(params, opts.params);
     this._axios.delete(url, opts).then(res => {
       status = 'resolved';
       if (opts.showWaitPrompt) {
