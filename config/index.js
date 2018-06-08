@@ -6,7 +6,7 @@ const path = require('path')
 
 
 const proxys = {
-  // '/api': ['http://192.168.0.136:8081/ssm-vue-frame']
+  '/api': ['http://localhost:8887/shiro']
 };
 
 module.exports = {

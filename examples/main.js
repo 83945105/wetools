@@ -22,11 +22,11 @@ Vue.use(weview);
 // Vue.use(ElementUI);
 // import('element-ui/lib/theme-chalk/index.css');//引入element-ui组件库的样式文件
 
-// import wetools from '../packages/index.js';
-// import {Ajax, DataParser, Message} from '../packages/index.js';
+import wetools from '../packages/index.js';
+import {Ajax, DataParser, Message} from '../packages/index.js';
 
-import wetools from '../lib/index.js';
-import {Ajax, DataParser, Message} from '../lib/index.js';
+// import wetools from '../lib/index.js';
+// import {Ajax, DataParser, Message} from '../lib/index.js';
 
 Vue.use(wetools, {
   Message: {//消息提示
@@ -45,7 +45,8 @@ Vue.use(wetools, {
     use: Ajax.Axios,//使用axios发送ajax
     alias: ["$ajax", "$Ajax", "$AJAX"],//调用别名,支持字符串和数组
     options: {
-      baseURL: 'http://192.168.0.136:8080/ssm-vue-frame',//URL默认前缀
+      baseURL: 'http://localhost:8887/shiro',//URL默认前缀
+      withCredentials:true,//允许跨域携带cookie
       showWaitPrompt: true,
       waitPromptTime: 3000,
       waitPromptText: '您的网速貌似不太给力...',

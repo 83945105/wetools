@@ -129,12 +129,18 @@
       },
       getDelay() {
         this.loading = true;
-        this.$ajax.get('demo/get/delay/{timeout}', [this.timeout], {waitPromptTime: this.waitPromptTime, timeout: 60000})
+        this.$ajax.get('demo/get/delay/{timeout}', [this.timeout], {
+          waitPromptTime: this.waitPromptTime,
+          timeout: 60000
+        })
           .finally((data, res) => {
             this.loading = false;
             console.log(res)
           });
       }
+    },
+
+    created() {
     }
   }
 </script>

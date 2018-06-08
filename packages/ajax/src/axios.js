@@ -1,5 +1,5 @@
 import {Ajax, AjaxUtil, AjaxOptions} from "./ajax.js";
-import {deepAssign, isObject} from "../../src/utils/util.js";
+import {isObject} from "../../src/utils/util.js";
 
 const merge = require('webpack-merge');
 
@@ -7,6 +7,12 @@ const util = new AjaxUtil();
 
 const AxiosAjax = require('axios');
 const Qs = require('qs');
+
+const Default = {
+  headers: {
+    'X-Requested-With': 'XMLHttpRequest'
+  }
+};
 
 export class Axios extends Ajax {
 
@@ -21,7 +27,7 @@ export class Axios extends Ajax {
 
   get(url, params, options) {
     super.get(url, params, options);
-    let opts = deepAssign({}, AjaxOptions, options);
+    let opts = merge(Default, AjaxOptions, options);
     url = util.replaceUrlParams(url, params);
 
     let $parser = new opts.dataParserOptions.use(opts.dataParserOptions.options);
@@ -32,12 +38,12 @@ export class Axios extends Ajax {
     let status = 'pending';
     if (opts.showWaitPrompt) {
       setTimeout(() => {
-        if(status === 'pending') {
+        if (status === 'pending') {
           instance = $message.open(opts.waitPromptText);
         }
       }, opts.waitPromptTime);
     }
-    if(isObject(params)) {
+    if (isObject(params)) {
       opts.params = merge(params, opts.params);
     }
     this._axios.get(url, opts).then(res => {
@@ -68,8 +74,8 @@ export class Axios extends Ajax {
 
   post(url, params, options) {
     super.post(url, params, options);
-    let opts = merge({}, AjaxOptions, options);
-
+    let opts = merge(Default, AjaxOptions, options);
+    console.log(opts)
     let $parser = new opts.dataParserOptions.use(opts.dataParserOptions.options);
     let $message = new opts.messageOptions.use();
 
@@ -80,7 +86,7 @@ export class Axios extends Ajax {
     let status = 'pending';
     if (opts.showWaitPrompt) {
       setTimeout(() => {
-        if(status === 'pending') {
+        if (status === 'pending') {
           instance = $message.open(opts.waitPromptText);
         }
       }, opts.waitPromptTime);
@@ -110,7 +116,7 @@ export class Axios extends Ajax {
 
   put(url, params, options) {
     super.put(url, params, options);
-    let opts = merge({}, AjaxOptions, options);
+    let opts = merge(Default, AjaxOptions, options);
 
     let $parser = new opts.dataParserOptions.use(opts.dataParserOptions.options);
     let $message = new opts.messageOptions.use();
@@ -122,7 +128,7 @@ export class Axios extends Ajax {
     let status = 'pending';
     if (opts.showWaitPrompt) {
       setTimeout(() => {
-        if(status === 'pending') {
+        if (status === 'pending') {
           instance = $message.open(opts.waitPromptText);
         }
       }, opts.waitPromptTime);
@@ -152,7 +158,7 @@ export class Axios extends Ajax {
 
   delete(url, params, options) {
     super.delete(url, params, options);
-    let opts = merge({}, AjaxOptions, options);
+    let opts = merge(Default, AjaxOptions, options);
 
     let $parser = new opts.dataParserOptions.use(opts.dataParserOptions.options);
     let $message = new opts.messageOptions.use();
@@ -164,7 +170,7 @@ export class Axios extends Ajax {
     let status = 'pending';
     if (opts.showWaitPrompt) {
       setTimeout(() => {
-        if(status === 'pending') {
+        if (status === 'pending') {
           instance = $message.open(opts.waitPromptText);
         }
       }, opts.waitPromptTime);
