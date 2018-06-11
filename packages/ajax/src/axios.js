@@ -75,7 +75,7 @@ export class Axios extends Ajax {
   post(url, params, options) {
     super.post(url, params, options);
     let opts = merge(Default, AjaxOptions, options);
-    console.log(opts)
+
     let $parser = new opts.dataParserOptions.use(opts.dataParserOptions.options);
     let $message = new opts.messageOptions.use();
 

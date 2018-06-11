@@ -29,7 +29,7 @@ import {Ajax, DataParser, Message} from '../packages/index.js';
 // import {Ajax, DataParser, Message} from '../lib/index.js';
 
 Vue.use(wetools, {
-  Message: {//消息提示
+/*  Message: {//消息提示
     //use: Message.Element,//使用element-ui的消息提示组件
     options: {
       html: false,//是否将message作为HTML片段处理
@@ -40,12 +40,11 @@ Vue.use(wetools, {
       onClose() {//点击关闭按钮时的回调
       }
     }
-  },
+  },*/
   Ajax: {
-    use: Ajax.Axios,//使用axios发送ajax
-    alias: ["$ajax", "$Ajax", "$AJAX"],//调用别名,支持字符串和数组
+    // use: Ajax.Axios,//使用axios发送ajax
     options: {
-      baseURL: 'http://localhost:8887/shiro',//URL默认前缀
+      baseURL: '/api',//URL默认前缀
       withCredentials:true,//允许跨域携带cookie
       showWaitPrompt: true,
       waitPromptTime: 3000,
@@ -59,7 +58,7 @@ Vue.use(wetools, {
       }
     }
   },
-  DataParser: {
+  /*DataParser: {
     use: DataParser.DataView,//使用DataView解析器,该解析器需要后台数据格式支持
     options: {
       messageOptions: {//消息配置
@@ -129,7 +128,7 @@ Vue.use(wetools, {
         //TODO 其余同Message配置
       }
     }
-  }
+  }*/
 });
 
 /* eslint-disable no-new */

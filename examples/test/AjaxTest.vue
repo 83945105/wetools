@@ -142,7 +142,7 @@
           });
       },
       postLogin() {
-        this.$ajax.post('post/login', {username: 'developer', password: '1024'})
+        this.$ajax.post('post/login', {username: 'developer2', password: '1024'})
           .success('登录成功', () => {
           });
       }

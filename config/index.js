@@ -4,11 +4,6 @@
 
 const path = require('path')
 
-
-const proxys = {
-  '/api': ['http://localhost:8887/shiro']
-};
-
 module.exports = {
   dev: {
 
@@ -16,28 +11,14 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      ...function () {
-        let r = {};
-        for (let i in proxys) {
-          r[i] = {
-            target: proxys[i][0],
-            changeOrigin: true,
-            pathRewrite: function () {
-              let pr = {};
-              let v = '';
-              for (let j = 1; j < proxys[i].length; j++) {
-                v += proxys[i][j];
-              }
-              pr[`^${i}`] = v;
-              return pr;
-            }()
-          }
-
+      '/api': {
+        target: 'http://localhost:8887/shiro',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
         }
-        return r;
       }
     },
-
     // Various Dev Server settings
     host: '192.168.0.136', // can be overwritten by process.env.HOST
     port: 8001, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined

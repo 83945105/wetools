@@ -62,7 +62,7 @@ const devWebpackConfig = {
       ],
     },
     hot: true,
-    contentBase: false, // since we use CopyWebpackPlugin.
+    // contentBase: false, // since we use CopyWebpackPlugin.
     compress: true,
     host: HOST || config.dev.host,
     port: PORT || config.dev.port,
@@ -75,7 +75,8 @@ const devWebpackConfig = {
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll,
-    }
+    },
+    disableHostCheck: true//允许使用外网访问
   },
   plugins: [
     new webpack.DefinePlugin({
