@@ -36,6 +36,9 @@
       等待提示时间:<input v-model="waitPromptTime" placeholder="请输入等待提示时间" size="small" style="width: 150px;">
       <we-button type="danger" @click="getDelay" :loading="loading">请求时间测试</we-button>
     </div>
+    <div style="margin-top: 10px">
+      <we-button type="danger" @click="postLogin">登录</we-button>
+    </div>
   </div>
 </template>
 
@@ -136,6 +139,11 @@
           .finally((data, res) => {
             this.loading = false;
             console.log(res)
+          });
+      },
+      postLogin() {
+        this.$ajax.post('post/login', {username: 'developer', password: '1024'})
+          .success('登录成功', () => {
           });
       }
     },
