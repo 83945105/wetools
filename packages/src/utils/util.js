@@ -40,7 +40,7 @@ export function isObject(obj) {
   return Object.prototype.toString.call(obj) === "[object Object]";
 }
 
-export function isFormData() {
+export function isFormData(obj) {
   return Object.prototype.toString.call(obj) === "[object FormData]";
 }
 

@@ -1,5 +1,6 @@
 import {Ajax, AjaxUtil, AjaxOptions} from "./ajax.js";
 import {isObject} from "../../src/utils/util.js";
+import {isFormData} from "../../src/utils/util";
 
 const merge = require('webpack-merge');
 
@@ -91,7 +92,10 @@ export class Axios extends Ajax {
         }
       }, opts.waitPromptTime);
     }
-    this._axios.post(url, this._qs.stringify(params), opts).then(res => {
+    if (isObject(params)) {
+      params = this._qs.stringify(params);
+    }
+    this._axios.post(url, params, opts).then(res => {
       status = 'resolved';
       if (opts.showWaitPrompt) {
         clearTimeout(waitId);
@@ -133,7 +137,10 @@ export class Axios extends Ajax {
         }
       }, opts.waitPromptTime);
     }
-    this._axios.put(url, this._qs.stringify(params), opts).then(res => {
+    if (isObject(params)) {
+      params = this._qs.stringify(params);
+    }
+    this._axios.put(url, params, opts).then(res => {
       status = 'resolved';
       if (opts.showWaitPrompt) {
         clearTimeout(waitId);

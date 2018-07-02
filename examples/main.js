@@ -18,9 +18,9 @@ import weview from 'weview';
 import 'weview/lib/theme-chalk/index.css';//引入weview组件库的样式文件
 Vue.use(weview);
 
-// import ElementUI from 'element-ui';
-// Vue.use(ElementUI);
-// import('element-ui/lib/theme-chalk/index.css');//引入element-ui组件库的样式文件
+import ElementUI from 'element-ui';
+Vue.use(ElementUI);
+import('element-ui/lib/theme-chalk/index.css');//引入element-ui组件库的样式文件
 
 import wetools from '../packages/index.js';
 import {Ajax, DataParser, Message} from '../packages/index.js';

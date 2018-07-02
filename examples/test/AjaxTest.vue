@@ -39,6 +39,20 @@
     <div style="margin-top: 10px">
       <we-button type="danger" @click="postLogin">登录</we-button>
     </div>
+    <div style="margin-top: 10px">
+      <el-upload
+        ref="upload"
+        action="123"
+        class="upload-demo"
+        multiple
+        with-credentials
+        :limit="1"
+        :auto-upload="true"
+        :before-upload="beforeUpload"
+      >
+        <el-button size="small" type="primary">点击上传</el-button>
+      </el-upload>
+    </div>
   </div>
 </template>
 
@@ -58,6 +72,17 @@
     },
 
     methods: {
+      beforeUpload(file) {
+        let fd = new FormData();
+        fd.append("file", file);
+
+        this.$ajax.post('zxsz-backend/zxsz-backend/basicSetting/zxCommentbank/post/commentbankUpload', fd, {
+          headers: {
+            'token': '2713e483-98cb-4a39-801b-bf129cf9c403'
+          }
+        });
+        return false;
+      },
       getTest() {
         if (this.id.trim() == '') {
           this.$message.fail(`请在文本框输入id`);
