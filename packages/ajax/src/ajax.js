@@ -3,6 +3,7 @@ import {WeView} from '../../message/src/weview.js';
 import {Default} from "../../data-parser/src/default.js";
 import {DefaultParserOptions} from "../../data-parser/src/parser.js";
 import {DefaultMessageOptions} from "../../message/src/message.js";
+import {isFormData} from "../../src/utils/util";
 
 const merge = require('webpack-merge');
 
@@ -32,7 +33,7 @@ export class Ajax {
       throw new Error(`Ajax get(): url必须为string类型`);
     }
     if (params && !isArray(params) && !isObject(params)) {
-      throw new Error(`Ajax get(): params只能为Array和Object`);
+      throw new Error(`Ajax get(): params只能为Array或Object`);
     }
     if (options && !isObject(options)) {
       throw new Error(`Ajax get(): options必须为Object类型`);
@@ -43,8 +44,8 @@ export class Ajax {
     if (!isString(url)) {
       throw new Error(`Ajax post(): url必须为string类型`);
     }
-    if (params && !isObject(params)) {
-      throw new Error(`Ajax post(): params必须为Object类型`);
+    if (params && !isObject(params) && !isFormData(params)) {
+      throw new Error(`Ajax post(): params必须为Object类型或FormData`);
     }
     if (options && !isObject(options)) {
       throw new Error(`Ajax post(): options必须为Object类型`);
@@ -55,8 +56,8 @@ export class Ajax {
     if (!isString(url)) {
       throw new Error(`Ajax put(): url必须为string类型`);
     }
-    if (params && !isObject(params)) {
-      throw new Error(`Ajax put(): params必须为Object类型`);
+    if (params && !isObject(params) && !isFormData(params)) {
+      throw new Error(`Ajax put(): params必须为Object类型或FormData`);
     }
     if (options && !isObject(options)) {
       throw new Error(`Ajax put(): options必须为Object类型`);

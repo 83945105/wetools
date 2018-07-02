@@ -40,6 +40,10 @@ export function isObject(obj) {
   return Object.prototype.toString.call(obj) === "[object Object]";
 }
 
+export function isFormData() {
+  return Object.prototype.toString.call(obj) === "[object FormData]";
+}
+
 export function isArray(obj) {
   return Object.prototype.toString.call(obj) === "[object Array]";
 }
@@ -95,7 +99,7 @@ function __paramsMatching(strings, numbers, booleans, objects, arrays, funs, nul
 export function paramsMatching(matches = [], params = []) {
   let strings = [], numbers = [], booleans = [], objects = {}, arrays = [], funs = [], nulls = [], undefineds = [],
     htmlElements = [];
-  if(!isArray(params)) {
+  if (!isArray(params)) {
     params = [params];
   }
   for (let idx in params) {
