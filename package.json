@@ -1,6 +1,6 @@
 {
   "name": "wetools",
-  "version": "0.3.0-dev",
+  "version": "0.3.2-dev",
   "description": "Tools based on Vue",
   "author": "wx_83945105 <18606167809@163.com>",
   "private": false,

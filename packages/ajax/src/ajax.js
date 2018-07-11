@@ -110,7 +110,6 @@ export class AjaxUtil {
     } else if (isArray(params)) {
       let i = 0;
       url = url.replace(/\{[^\}]+\}*/g, (val, start, res) => {
-        console.log(params)
         return params[i++];
       });
       return url;
