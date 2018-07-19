@@ -44,9 +44,6 @@ export class Axios extends Ajax {
         }
       }, opts.waitPromptTime);
     }
-    if (isObject(params)) {
-      opts.params = merge(params, opts.params);
-    }
     this._axios.get(url, opts).then(res => {
       status = 'resolved';
       if (opts.showWaitPrompt) {

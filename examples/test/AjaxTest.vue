@@ -174,6 +174,7 @@
     },
 
     created() {
+      this.$ajax.get('234234', {id: '123', moduleId: '456'});
     }
   }
 </script>
