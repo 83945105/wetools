@@ -15,6 +15,8 @@ export const AjaxOptions = {
   showWaitPrompt: true,
   waitPromptTime: 10000,
   waitPromptText: '您的网速貌似不太给力...',
+  showErrorPrompt: true,
+  errorPromptText: '请求出错',
   responseType: 'json',
   messageOptions: {
     use: WeView,

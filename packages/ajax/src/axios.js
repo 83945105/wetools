@@ -62,9 +62,11 @@ export class Axios extends Ajax {
         console.log(JSON.parse(JSON.stringify(err)));
       } catch (e) {
       }
-      $message.open(merge({}, opts.messageOptions.options, {
-        message: `请求出错`
-      }));
+      if(opts.showErrorPrompt) {
+        $message.open(merge({}, opts.messageOptions.options, {
+          message: opts.errorPromptText
+        }));
+      }
       $parser.executeFinally(null, err);
     });
     return $parser;
@@ -106,10 +108,15 @@ export class Axios extends Ajax {
         $message.close(instance);
       }
       console.log(err);
-      console.log(JSON.parse(JSON.stringify(err)));
-      $message.open(merge({}, opts.messageOptions.options, {
-        message: `请求出错`
-      }));
+      try {
+        console.log(JSON.parse(JSON.stringify(err)));
+      } catch (e) {
+      }
+      if(opts.showErrorPrompt) {
+        $message.open(merge({}, opts.messageOptions.options, {
+          message: opts.errorPromptText
+        }));
+      }
       $parser.executeFinally(null, err);
     });
     return $parser;
@@ -151,10 +158,15 @@ export class Axios extends Ajax {
         $message.close(instance);
       }
       console.log(err);
-      console.log(JSON.parse(JSON.stringify(err)));
-      $message.open(merge({}, opts.messageOptions.options, {
-        message: `请求出错`
-      }));
+      try {
+        console.log(JSON.parse(JSON.stringify(err)));
+      } catch (e) {
+      }
+      if(opts.showErrorPrompt) {
+        $message.open(merge({}, opts.messageOptions.options, {
+          message: opts.errorPromptText
+        }));
+      }
       $parser.executeFinally(null, err);
     });
     return $parser;
@@ -194,10 +206,15 @@ export class Axios extends Ajax {
         $message.close(instance);
       }
       console.log(err);
-      console.log(JSON.parse(JSON.stringify(err)));
-      $message.open(merge({}, opts.messageOptions.options, {
-        message: `请求出错`
-      }));
+      try {
+        console.log(JSON.parse(JSON.stringify(err)));
+      } catch (e) {
+      }
+      if(opts.showErrorPrompt) {
+        $message.open(merge({}, opts.messageOptions.options, {
+          message: opts.errorPromptText
+        }));
+      }
       $parser.executeFinally(null, err);
     });
     return $parser;
