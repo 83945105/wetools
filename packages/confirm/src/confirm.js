@@ -7,9 +7,9 @@ export const DefaultConfirmOptions = {
   iconName: undefined,
   showClose: true,
   confirmButtonText: '确定',
-  clickConfirm: undefined,
+  clickConfirmButton: undefined,
   cancelButtonText: '取消',
-  clickCancel: undefined,
+  clickCancelButton: undefined,
   onClose: undefined,
   showHeader: true
 };
@@ -43,20 +43,20 @@ function matchArgs(args) {
     count: 4,
     default: ConfirmOptions.confirmButtonText
   }, {
-    name: 'clickConfirm',
+    name: 'clickConfirmButton',
     type: 'function',
     count: 1,
-    default: ConfirmOptions.clickConfirm
+    default: ConfirmOptions.clickConfirmButton
   }, {
     name: 'cancelButtonText',
     type: 'string',
     count: 5,
     default: ConfirmOptions.cancelButtonText
   }, {
-    name: 'clickCancel',
+    name: 'clickCancelButton',
     type: 'function',
     count: 2,
-    default: ConfirmOptions.clickCancel
+    default: ConfirmOptions.clickCancelButton
   }, {
     name: 'onClose',
     type: 'function',

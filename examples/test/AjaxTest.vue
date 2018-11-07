@@ -76,7 +76,7 @@
         let fd = new FormData();
         fd.append("file", file);
 
-        this.$ajax.post('zxsz-backend/zxsz-backend/basicSetting/zxCommentbank/post/commentbankUpload', fd, {
+        this.$Ajax.post('zxsz-backend/zxsz-backend/basicSetting/zxCommentbank/post/commentbankUpload', fd, {
           headers: {
             'token': '2713e483-98cb-4a39-801b-bf129cf9c403'
           }
@@ -85,28 +85,28 @@
       },
       getTest() {
         if (this.id.trim() == '') {
-          this.$message.fail(`请在文本框输入id`);
+          this.$Message.fail(`请在文本框输入id`);
           return;
         }
         //实际访问的url:demo/get/test/xx
-        this.$ajax.get('demo/get/test/{id}', [this.id])
+        this.$Ajax.get('demo/get/test/{id}', [this.id])
           .success({
             duration: 0,
             showClose: true,
             onClose: () => {
-              this.$message.info(`详情请参考后端代码`, true, 0);
+              this.$Message.info(`详情请参考后端代码`, true, 0);
             }
           });
       },
       getTestList() {
         //实际访问的url:demo/get/testList?name:xx&age=xx
-        this.$ajax.get('demo/get/testList', {name: this.name, age: this.age})
+        this.$Ajax.get('demo/get/testList', {name: this.name, age: this.age})
           .finally((data, res) => {
             alert(`无论如何都会触发的操作`);
           });
       },
       postTest() {
-        this.$ajax.post('demo/post/test', {id: this.id, name: this.name, age: this.age});
+        this.$Ajax.post('demo/post/test', {id: this.id, name: this.name, age: this.age});
       },
       postTestList() {
         let params = [
@@ -121,14 +121,14 @@
             age: this.age
           }
         ];
-        this.$ajax.post('demo/post/testList', {json: JSON.stringify(params)});
+        this.$Ajax.post('demo/post/testList', {json: JSON.stringify(params)});
       },
       putTest() {
         if (this.id.trim() == '') {
-          this.$message.fail(`请在文本框输入id`);
+          this.$Message.fail(`请在文本框输入id`);
           return;
         }
-        this.$ajax.put('demo/put/test/{id}', {id: this.id, name: this.name, age: this.age});
+        this.$Ajax.put('demo/put/test/{id}', {id: this.id, name: this.name, age: this.age});
       },
       putTestList() {
         let params = [
@@ -143,21 +143,21 @@
             age: this.age
           }
         ];
-        this.$ajax.put('demo/put/testList', {json: JSON.stringify(params)});
+        this.$Ajax.put('demo/put/testList', {json: JSON.stringify(params)});
       },
       deleteTest() {
         if (this.id.trim() == '') {
-          this.$message.fail(`请在文本框输入id`);
+          this.$Message.fail(`请在文本框输入id`);
           return;
         }
-        this.$ajax.delete('demo/delete/test/{id}', {id: this.id});
+        this.$Ajax.delete('demo/delete/test/{id}', {id: this.id});
       },
       deleteTestList() {
-        this.$ajax.delete('demo/delete/testList', {ids: [1, 2, 3].toString()});
+        this.$Ajax.delete('demo/delete/testList', {ids: [1, 2, 3].toString()});
       },
       getDelay() {
         this.loading = true;
-        this.$ajax.get('demo/get/delay/{timeout}', [this.timeout], {
+        this.$Ajax.get('demo/get/delay/{timeout}', [this.timeout], {
           waitPromptTime: this.waitPromptTime,
           timeout: 60000
         })
@@ -167,13 +167,23 @@
           });
       },
       postLogin() {
-        this.$ajax.post('post/login', {username: 'developer2', password: '1024'})
+        this.$Ajax.post('post/login', {username: 'developer2', password: '1024'})
           .success('登录成功', () => {
           });
       }
     },
 
     created() {
+      this.$Ajax.get('dms/sysConfType/get/list/confType2')
+        .before(data => {
+        })
+        .success(data => {
+        })
+        .catch(err => {
+          console.log(err)
+        })
+        .finally(data => {
+        });
     }
   }
 </script>

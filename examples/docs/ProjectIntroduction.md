@@ -1,7 +1,7 @@
 # 1、wetools是什么？
 
 &nbsp;是一款基于Vue框架开发，可以根据使用者自定义配置，调用各种第三方插件、组件的插件库。
-比如，使用wetools的Message插件，你可以使用$message(默认,可配)来显示一个消息提示框，
+比如，使用wetools的Message插件，你可以使用$Message(默认,可配)来显示一个消息提示框，
 消息提示框可以根据配置在若干组件库之间进行切换，比如默认使用的是weview组件库的Message组件进行提示，
 当你在配置中配置为element-ui组件库的Message组件，你所有使用本插件展示消息提示的地方将全部切换为
 element-ui组件库的Message组件进行提示。
@@ -12,15 +12,15 @@ element-ui组件库的Message组件进行提示。
 
 # 3、使用wetools间接调用其它插件或组件有什么优势？
 
-- &nbsp;简化传参：如你可以使用$message('这是一个提示', true, 0)
-或者$message({message:'这是一个提示',duration:0,showClose:true})以及若干姿势来创建一个需要手动关闭的消息提示
+- &nbsp;简化传参：如你可以使用$Message('这是一个提示', true, 0)
+或者$Message({message:'这是一个提示',duration:0,showClose:true})以及若干姿势来创建一个需要手动关闭的消息提示
 
-- &nbsp;增强功能：如你可以使用$ajax.get('demo/get/user/{id}', [1])来发送一个Get请求，
+- &nbsp;增强功能：如你可以使用$Ajax.get('demo/get/user/{id}', [1])来发送一个Get请求，
 请求的url为demo/get/user/1，{*}为占位符，会按照顺序被数组中的参数替换，
-你也可以使用$ajax.get('demo/get/user', {name:1,age:2})来发送一个Get请求，
+你也可以使用$Ajax.get('demo/get/user', {name:1,age:2})来发送一个Get请求，
 请求的url为demo/get/user?name=1&age=2，更多增强功能请查看各个插件文档
 
-- &nbsp;扩展功能：举个例子，我们为$ajax扩展了一些功能，如当发送请求超过一定时间没有得到响应，
+- &nbsp;扩展功能：举个例子，我们为$Ajax扩展了一些功能，如当发送请求超过一定时间没有得到响应，
 会给予用户一个相应提示，比如提示'您的网速貌似不太给力...'之类的...
 当然，扩展功能是可配的，也是可关闭的
 

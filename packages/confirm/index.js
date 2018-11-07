@@ -6,7 +6,7 @@ const Confirm = {
 
   WeView: WeView,
 
-  install(Vue, {use = WeView, alias = "$confirm", options} = {use: WeView, alias: "$confirm"}) {
+  install(Vue, {use = WeView, alias = "$Confirm", options} = {use: WeView, alias: "$Confirm"}) {
     deepAssign(ConfirmOptions, options);
     let alt = new use();
 

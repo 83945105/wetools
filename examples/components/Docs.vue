@@ -5,7 +5,7 @@
     :left-data="docs"
     :header-data="pages"
     page-name="Plugins"
-    @click-logo="$message.open('首页还没做好...')"
+    @click-logo="$Message.open('首页还没做好...')"
   ></we-template-doc>
 </template>
 

@@ -9,7 +9,7 @@ const Loading = {
 
   WeView: WeView,
 
-  install(Vue, {use = WeView, alias = "$loading", options} = {use: WeView, alias: "$loading"}) {
+  install(Vue, {use = WeView, alias = "$Loading", options} = {use: WeView, alias: "$Loading"}) {
     deepAssign(LoadingOptions, options);
     let loading = new use();
     if (isString(alias)) {

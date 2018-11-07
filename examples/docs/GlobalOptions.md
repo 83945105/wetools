@@ -9,7 +9,7 @@ import('element-ui/lib/theme-chalk/index.css');//引入element-ui组件库的样
 Vue.use(wetools, {
   Message: {//消息提示
     use: Message.Element,//使用element-ui的消息提示组件
-    alias: "$message",//调用别名,支持字符串和数组
+    alias: "$Message",//调用别名,支持字符串和数组
     options: {
       iconClass: undefined,//自定义图标样式
       html: false,//是否将文本内容转义为html
@@ -23,7 +23,7 @@ Vue.use(wetools, {
   },
   Ajax: {
     use: Ajax.Axios,//使用axios发送ajax
-    alias: ["$ajax", "$Ajax", "$AJAX"],//调用别名,支持字符串和数组
+    alias: ["$Ajax", "$AJAX"],//调用别名,支持字符串和数组
     options: {
       baseURL: 'http://192.168.0.136:8080/ssm-vue-frame',//URL默认前缀
       params: {},//请求参数
@@ -43,7 +43,7 @@ Vue.use(wetools, {
   },
   DataParser: {
     use: DataParser.DataView,//使用DataView解析器,该解析器需要后台数据格式支持
-    alias: "$dataParser",//调用别名,支持字符串和数组
+    alias: "$DataParser",//调用别名,支持字符串和数组
     options: {
       messageOptions: {//消息配置
         use: Message.WeView,//使用WeView组件库进行消息提示

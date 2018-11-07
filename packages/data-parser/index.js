@@ -9,7 +9,7 @@ const DataParser = {
 
   DataView: DataView,
 
-  install(Vue, {use = Default, alias = "$dataParser", options} = {use: Default, alias: "$dataParser"}) {
+  install(Vue, {use = Default, alias = "$DataParser", options} = {use: Default, alias: "$DataParser"}) {
     deepAssign(ParserOptions, options);
     let dp = new use();
     if (isString(alias)) {

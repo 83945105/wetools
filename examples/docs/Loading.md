@@ -10,7 +10,7 @@
 # Loading 加载特效
 
 - 支持简化传参功能
-- 在Vue环境中请使用this.$loading调用
+- 在Vue环境中请使用this.$Loading调用
 
 ### 使用示例
 
@@ -22,9 +22,9 @@
     加载区域
   </div>
   
-  <we-button @click="instance = $loading.service({target: '#loadingArea'})">开启</we-button>
-  <we-button @click="$loading.close(instance)">关闭</we-button>
-  <we-button @click="$loading.closeAll()">关闭全部</we-button>
+  <we-button @click="instance = $Loading.service({target: '#loadingArea'})">开启</we-button>
+  <we-button @click="$Loading.close(instance)">关闭</we-button>
+  <we-button @click="$Loading.closeAll()">关闭全部</we-button>
     
   <script>
     export default {
@@ -47,9 +47,9 @@
 
 ```html
 
-  <we-button @click="instance = $loading.service({fullscreen: true})">开启</we-button>
-  <we-button @click="$loading.close(instance)">关闭</we-button>
-  <we-button @click="$loading.closeAll()">关闭全部</we-button>
+  <we-button @click="instance = $Loading.service({fullscreen: true})">开启</we-button>
+  <we-button @click="$Loading.close(instance)">关闭</we-button>
+  <we-button @click="$Loading.closeAll()">关闭全部</we-button>
     
   <script>
     export default {

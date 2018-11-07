@@ -6,7 +6,7 @@ const Alert = {
 
   WeView: WeView,
 
-  install(Vue, {use = WeView, alias = "$alert", options} = {use: WeView, alias: "$alert"}) {
+  install(Vue, {use = WeView, alias = "$Alert", options} = {use: WeView, alias: "$Alert"}) {
     deepAssign(AlertOptions, options);
     let alt = new use();
 

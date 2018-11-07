@@ -15,7 +15,7 @@
 
 # Ajax 异步请求
 
-- 在Vue环境中请使用this.$ajax调用
+- 在Vue环境中请使用this.$Ajax调用
 
 # Get请求
 
@@ -34,14 +34,14 @@
     export default {
       methods: {
         getUserInfo() {
-          this.$ajax.get('demo/get/userInfo/{id}', [1], {
+          this.$Ajax.get('demo/get/userInfo/{id}', [1], {
             params: {name: 2, age: 3}
           }); 
           
           //该方式将向URL: demo/get/userInfo/1 发送一个Get请求,携带参数name=2,age=3
         },
         getUserInfoList() {
-          this.$ajax.get('demo/get/userInfo', {name: 2, age: 3});
+          this.$Ajax.get('demo/get/userInfo', {name: 2, age: 3});
           
           //该方式将向URL: demo/get/userInfo?name=2&age=1 发送一个Get请求
         }
@@ -74,7 +74,7 @@
       },
       methods: {
         postUserInfo() {
-          this.$ajax.get('demo/post/userInfo', {
+          this.$Ajax.get('demo/post/userInfo', {
             name: this.name,
             age: this.age
           }); 
@@ -91,7 +91,7 @@
             age: this.age
           }];
           
-          this.$ajax.get('demo/post/userInfo', {json: JSON.stringify(params)});
+          this.$Ajax.get('demo/post/userInfo', {json: JSON.stringify(params)});
           
           //该方式将向URL: demo/post/userInfo 发送一个Post请求,携带一条json数据
         }
@@ -124,7 +124,7 @@
       },
       methods: {
         putUserInfo() {
-          this.$ajax.put('demo/put/userInfo/{id}', {
+          this.$Ajax.put('demo/put/userInfo/{id}', {
             id: 1,
             name: this.name,
             age: this.age
@@ -144,7 +144,7 @@
             age: this.age
           }];
           
-          this.$ajax.put('demo/put/userInfo', {json: JSON.stringify(params)});
+          this.$Ajax.put('demo/put/userInfo', {json: JSON.stringify(params)});
           
           //该方式将向URL: demo/put/userInfo 发送一个put请求,携带一条json数据
         }
@@ -171,7 +171,7 @@
     export default {
       methods: {
         deleteUserInfo() {
-          this.$ajax.delete('demo/delete/userInfo/{id}', {id: 1}); 
+          this.$Ajax.delete('demo/delete/userInfo/{id}', {id: 1}); 
           
           //该方式将向URL: demo/delete/userInfo/1 发送一个delete请求
         },
@@ -179,7 +179,7 @@
         
           let ids = [1,2,3];
           
-          this.$ajax.delete('demo/delete/userInfo', {ids: ids.toString());
+          this.$Ajax.delete('demo/delete/userInfo', {ids: ids.toString());
           
           //该方式将向URL: demo/delete/userInfo 发送一个delete请求,携带一组id参数
         }
@@ -240,7 +240,7 @@
     export default {
       methods: {
         get() {
-          this.$ajax.get('demo/delete/userInfo/{id}', {id: 1})
+          this.$Ajax.get('demo/delete/userInfo/{id}', {id: 1})
             .success((data, res) => {})//当获取数据成功时触发
             .finally((data, res) => {});//无论如何都会触发 
           
@@ -317,7 +317,7 @@
     export default {
       methods: {
         get() {
-          this.$ajax.get('demo/get/test/{id}', {id: 1})
+          this.$Ajax.get('demo/get/test/{id}', {id: 1})
             .success(true, (data, res) => {})//当获取数据状态为成功时触发
             .fail('覆盖掉后台消息提示', (data, res) => {})//当获取数据状态为失败时触发
             .error({showClose: true}, (data, res) => {})//当获取数据状态为错误时触发

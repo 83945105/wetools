@@ -7,7 +7,7 @@
 # Confirm 消息提示
 
 - 支持简化传参功能
-- 在Vue环境中请使用this.$confirm调用
+- 在Vue环境中请使用this.$Confirm调用
 
 ### 使用方式
 
@@ -16,8 +16,8 @@
 ```html
 
   <template>
-    <we-button @click="$confirm('普通的询问框')">普通的询问框</we-button>
-    <we-button @click="$confirm({message: '......',clickConfirm(e, close) {close()}})">点击确认按钮关闭</we-button>
+    <we-button @click="$Confirm('普通的询问框')">普通的询问框</we-button>
+    <we-button @click="$Confirm({message: '......',clickConfirm(e, close) {close()}})">点击确认按钮关闭</we-button>
   </template>
 
 ```

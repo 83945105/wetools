@@ -1,6 +1,5 @@
 import {Ajax, AjaxUtil, AjaxOptions} from "./ajax.js";
 import {isObject} from "../../src/utils/util.js";
-import {isFormData} from "../../src/utils/util";
 
 const merge = require('webpack-merge');
 
@@ -32,7 +31,7 @@ export class Axios extends Ajax {
     url = util.replaceUrlParams(url, params);
 
     let $parser = new opts.dataParserOptions.use(opts.dataParserOptions.options);
-    let $message = new opts.messageOptions.use();
+    let $Message = new opts.messageOptions.use();
 
     let waitId;
     let instance;
@@ -40,7 +39,7 @@ export class Axios extends Ajax {
     if (opts.showWaitPrompt) {
       setTimeout(() => {
         if (status === 'pending') {
-          instance = $message.open(opts.waitPromptText);
+          instance = $Message.open(opts.waitPromptText);
         }
       }, opts.waitPromptTime);
     }
@@ -48,22 +47,24 @@ export class Axios extends Ajax {
       status = 'resolved';
       if (opts.showWaitPrompt) {
         clearTimeout(waitId);
-        $message.close(instance);
+        $Message.close(instance);
       }
       $parser.parse(res.data, res);
     }).catch(err => {
+      $parser.executeCatch(err);
+      $parser.executeBefore(null, err);
       status = 'rejected';
       if (opts.showWaitPrompt) {
         clearTimeout(waitId);
-        $message.close(instance);
+        $Message.close(instance);
       }
       console.log(err);
       try {
         console.log(JSON.parse(JSON.stringify(err)));
       } catch (e) {
       }
-      if(opts.showErrorPrompt) {
-        $message.open(merge({}, opts.messageOptions.options, {
+      if (opts.showErrorPrompt) {
+        $Message.open(merge({}, opts.messageOptions.options, {
           message: opts.errorPromptText
         }));
       }
@@ -77,7 +78,7 @@ export class Axios extends Ajax {
     let opts = merge(Default, AjaxOptions, options);
 
     let $parser = new opts.dataParserOptions.use(opts.dataParserOptions.options);
-    let $message = new opts.messageOptions.use();
+    let $Message = new opts.messageOptions.use();
 
     url = util.nameReplaceUrlParams(url, params);
 
@@ -87,7 +88,7 @@ export class Axios extends Ajax {
     if (opts.showWaitPrompt) {
       setTimeout(() => {
         if (status === 'pending') {
-          instance = $message.open(opts.waitPromptText);
+          instance = $Message.open(opts.waitPromptText);
         }
       }, opts.waitPromptTime);
     }
@@ -98,22 +99,24 @@ export class Axios extends Ajax {
       status = 'resolved';
       if (opts.showWaitPrompt) {
         clearTimeout(waitId);
-        $message.close(instance);
+        $Message.close(instance);
       }
       $parser.parse(res.data, res);
     }).catch(err => {
+      $parser.executeCatch(err);
+      $parser.executeBefore(null, err);
       status = 'rejected';
       if (opts.showWaitPrompt) {
         clearTimeout(waitId);
-        $message.close(instance);
+        $Message.close(instance);
       }
       console.log(err);
       try {
         console.log(JSON.parse(JSON.stringify(err)));
       } catch (e) {
       }
-      if(opts.showErrorPrompt) {
-        $message.open(merge({}, opts.messageOptions.options, {
+      if (opts.showErrorPrompt) {
+        $Message.open(merge({}, opts.messageOptions.options, {
           message: opts.errorPromptText
         }));
       }
@@ -127,7 +130,7 @@ export class Axios extends Ajax {
     let opts = merge(Default, AjaxOptions, options);
 
     let $parser = new opts.dataParserOptions.use(opts.dataParserOptions.options);
-    let $message = new opts.messageOptions.use();
+    let $Message = new opts.messageOptions.use();
 
     url = util.nameReplaceUrlParams(url, params);
 
@@ -137,7 +140,7 @@ export class Axios extends Ajax {
     if (opts.showWaitPrompt) {
       setTimeout(() => {
         if (status === 'pending') {
-          instance = $message.open(opts.waitPromptText);
+          instance = $Message.open(opts.waitPromptText);
         }
       }, opts.waitPromptTime);
     }
@@ -148,22 +151,24 @@ export class Axios extends Ajax {
       status = 'resolved';
       if (opts.showWaitPrompt) {
         clearTimeout(waitId);
-        $message.close(instance);
+        $Message.close(instance);
       }
       $parser.parse(res.data, res);
     }).catch(err => {
+      $parser.executeCatch(err);
+      $parser.executeBefore(null, err);
       status = 'rejected';
       if (opts.showWaitPrompt) {
         clearTimeout(waitId);
-        $message.close(instance);
+        $Message.close(instance);
       }
       console.log(err);
       try {
         console.log(JSON.parse(JSON.stringify(err)));
       } catch (e) {
       }
-      if(opts.showErrorPrompt) {
-        $message.open(merge({}, opts.messageOptions.options, {
+      if (opts.showErrorPrompt) {
+        $Message.open(merge({}, opts.messageOptions.options, {
           message: opts.errorPromptText
         }));
       }
@@ -177,7 +182,7 @@ export class Axios extends Ajax {
     let opts = merge(Default, AjaxOptions, options);
 
     let $parser = new opts.dataParserOptions.use(opts.dataParserOptions.options);
-    let $message = new opts.messageOptions.use();
+    let $Message = new opts.messageOptions.use();
 
     url = util.nameReplaceUrlParams(url, params);
 
@@ -187,7 +192,7 @@ export class Axios extends Ajax {
     if (opts.showWaitPrompt) {
       setTimeout(() => {
         if (status === 'pending') {
-          instance = $message.open(opts.waitPromptText);
+          instance = $Message.open(opts.waitPromptText);
         }
       }, opts.waitPromptTime);
     }
@@ -196,22 +201,24 @@ export class Axios extends Ajax {
       status = 'resolved';
       if (opts.showWaitPrompt) {
         clearTimeout(waitId);
-        $message.close(instance);
+        $Message.close(instance);
       }
       $parser.parse(res.data, res);
     }).catch(err => {
+      $parser.executeCatch(err);
+      $parser.executeBefore(null, err);
       status = 'rejected';
       if (opts.showWaitPrompt) {
         clearTimeout(waitId);
-        $message.close(instance);
+        $Message.close(instance);
       }
       console.log(err);
       try {
         console.log(JSON.parse(JSON.stringify(err)));
       } catch (e) {
       }
-      if(opts.showErrorPrompt) {
-        $message.open(merge({}, opts.messageOptions.options, {
+      if (opts.showErrorPrompt) {
+        $Message.open(merge({}, opts.messageOptions.options, {
           message: opts.errorPromptText
         }));
       }

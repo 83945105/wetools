@@ -9,7 +9,7 @@
 # Message 消息提示
 
 - 支持简化传参功能
-- 在Vue环境中请使用this.$message调用
+- 在Vue环境中请使用this.$Message调用
 
 ### 使用方式
 
@@ -18,7 +18,7 @@
 ```html
 
   <template>
-    <we-button @click="$message.open('这是提示内容')">默认提示A</we-button>
+    <we-button @click="$Message.open('这是提示内容')">默认提示A</we-button>
     <we-button @click="open">默认提示B</we-button>
     <we-button @click="success">成功提示</we-button>
   </template>
@@ -27,16 +27,16 @@
     export default {
       methods: {
         open() {
-          this.$message.open('这是提示内容');
+          this.$Message.open('这是提示内容');
         },
         success() {
-          this.$message.success({
+          this.$Message.success({
             message: '这是提示内容',
             duration: 0,
             showClose: true
           });
           //如果使用简化传参功能可以使用如下方式传参
-          this.$message.success('这是提示内容', 0, true);
+          this.$Message.success('这是提示内容', 0, true);
         }
       }
     }

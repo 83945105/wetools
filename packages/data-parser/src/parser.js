@@ -36,6 +36,16 @@ export const DefaultParserOptions = {
     callback() {
     }
   }, DefaultMessageOptions),
+  beforeOptions: merge({
+    close: true,
+    callback() {
+    }
+  }, DefaultMessageOptions),
+  catchOptions: merge({
+    close: true,
+    callback() {
+    }
+  }, DefaultMessageOptions),
   finallyOptions: merge({
     close: true,
     callback() {
@@ -89,6 +99,16 @@ export const ParserOptions = {
     }
   }, DefaultMessageOptions),
   notSuccessOptions: merge({
+    close: true,
+    callback() {
+    }
+  }, DefaultMessageOptions),
+  beforeOptions: merge({
+    close: true,
+    callback() {
+    }
+  }, DefaultMessageOptions),
+  catchOptions: merge({
     close: true,
     callback() {
     }
@@ -176,6 +196,16 @@ export class Parser {
     return this;
   };
 
+  executeBefore(data, res) {
+    let {callback: beforeCallback} = this._options.beforeOptions;
+    beforeCallback(data, res);
+  };
+
+  executeCatch(err) {
+    let {callback: catchCallback} = this._options.catchOptions;
+    catchCallback(err);
+  };
+
   executeFinally(data, res) {
     let {callback: finallyCallback} = this._options.finallyOptions;
     finallyCallback(data, res);
@@ -214,6 +244,18 @@ export class Parser {
   notSuccess(...args) {
     let opts = matchArgs(args);
     this._options.notSuccessOptions = merge(this._options.notSuccessOptions, opts);
+    return this;
+  };
+
+  before(...args) {
+    let opts = matchArgs(args);
+    this._options.beforeOptions = merge(this._options.beforeOptions, opts);
+    return this;
+  };
+
+  catch(...args) {
+    let opts = matchArgs(args);
+    this._options.catchOptions = merge(this._options.catchOptions, opts);
     return this;
   };
 

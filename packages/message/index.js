@@ -9,7 +9,7 @@ const Message = {
 
   WeView: WeView,
 
-  install(Vue, {use = WeView, alias = "$message", options} = {use: WeView, alias: "$message"}) {
+  install(Vue, {use = WeView, alias = "$Message", options} = {use: WeView, alias: "$Message"}) {
     deepAssign(MessageOptions, options);
     let msg = new use();
 

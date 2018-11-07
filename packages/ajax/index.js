@@ -6,7 +6,7 @@ const Ajax = {
 
   Axios: Axios,
 
-  install(Vue, {use = Axios, alias = "$ajax", options} = {use: Axios, alias: "$ajax"}) {
+  install(Vue, {use = Axios, alias = "$Ajax", options} = {use: Axios, alias: "$Ajax"}) {
     deepAssign(AjaxOptions, options);
     let a = new use();
     if (isString(alias)) {

@@ -2,7 +2,7 @@
 ### 比如我们使用
 
 ```javascript
-  $message.open({
+  $Message.open({
     message: '这是一个消息',
     duration: 3000,
     showClose: true,
@@ -14,11 +14,11 @@
 ### 来打开一个消息提示，根据Message文档参数说明中的优先级描述，我们可以使用以下方式之一实现同样功能
 
 ```javascript
-  $message.open('这是一个消息', 3000, true, true, false);
-  $message.open(true, true, false, '这是一个消息', 3000);
-  $message.open(true, true, '这是一个消息', false, 3000);
-  $message.open(3000, true, true, '这是一个消息', false);
-  $message.open(3000, '这是一个消息', {
+  $Message.open('这是一个消息', 3000, true, true, false);
+  $Message.open(true, true, false, '这是一个消息', 3000);
+  $Message.open(true, true, '这是一个消息', false, 3000);
+  $Message.open(3000, true, true, '这是一个消息', false);
+  $Message.open(3000, '这是一个消息', {
     showClose: true,
     html: false,
     center: true

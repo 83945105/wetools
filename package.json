@@ -1,6 +1,6 @@
 {
   "name": "wetools",
-  "version": "0.3.5-dev",
+  "version": "0.3.6-dev",
   "description": "Tools based on Vue",
   "author": "wx_83945105 <18606167809@163.com>",
   "private": false,
@@ -52,7 +52,7 @@
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
-    "weview": "^0.4.3-dev",
+    "weview": "^0.8.3-dev",
     "wetemplate": "^0.0.3-dev",
     "element-ui": "^2.3.7",
     "axios": "^0.16.2",
