@@ -17,7 +17,7 @@ export const AjaxOptions = {
   headers: {},
   timeout: 60000,
   showWaitPrompt: true,
-  waitPromptTime: 10000,
+  waitPromptTimeout: 10000,
   waitPromptText: '您的网速貌似不太给力...',
   showErrorPrompt: true,
   errorPromptText: '请求出错',
@@ -35,7 +35,6 @@ export const AjaxOptions = {
 export class Ajax {
 
   mock(mockData) {
-    console.log(mockData)
     this.mockData = mockData;
     return this;
   };

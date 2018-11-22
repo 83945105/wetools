@@ -49,7 +49,7 @@ Vue.use(wetools, {
       baseURL: '/api',//URL默认前缀
       withCredentials:true,//允许跨域携带cookie
       showWaitPrompt: true,
-      waitPromptTime: 3000,
+      waitPromptTimeout: 3000,
       waitPromptText: '您的网速貌似不太给力...',
       messageOptions: {//相关消息提示配置
         //TODO 同Message配置

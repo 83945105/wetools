@@ -33,22 +33,22 @@ export class Axios extends Ajax {
     let $parser = new opts.dataParserOptions.use(opts.dataParserOptions.options);
     let $Message = new opts.messageOptions.use();
 
-    let waitId;
-    let instance;
+    let waitId = undefined;
+    let instance = undefined;
     let status = 'pending';
     if (opts.showWaitPrompt) {
-      setTimeout(() => {
+      waitId = setTimeout(() => {
         if (status === 'pending') {
           instance = $Message.open(opts.waitPromptText);
         }
-      }, opts.waitPromptTime);
+      }, opts.waitPromptTimeout);
     }
     /*模拟开始*/
     if (opts.mock === true) {
       setTimeout(() => {
         if (opts.showWaitPrompt) {
-          clearTimeout(waitId);
-          $Message.close(instance);
+          waitId && clearTimeout(waitId);
+          instance && $Message.close(instance);
         }
         $parser.parse(this.mockData);
       }, opts.mockTimeout);
@@ -58,8 +58,8 @@ export class Axios extends Ajax {
     this._axios.get(url, opts).then(res => {
       status = 'resolved';
       if (opts.showWaitPrompt) {
-        clearTimeout(waitId);
-        $Message.close(instance);
+        waitId && clearTimeout(waitId);
+        instance && $Message.close(instance);
       }
       $parser.parse(res.data, res);
     }).catch(err => {
@@ -67,8 +67,8 @@ export class Axios extends Ajax {
       $parser.executeBefore(null, err);
       status = 'rejected';
       if (opts.showWaitPrompt) {
-        clearTimeout(waitId);
-        $Message.close(instance);
+        waitId && clearTimeout(waitId);
+        instance && $Message.close(instance);
       }
       console.log(err);
       try {
@@ -94,15 +94,15 @@ export class Axios extends Ajax {
 
     url = util.nameReplaceUrlParams(url, params);
 
-    let waitId;
-    let instance;
+    let waitId = undefined;
+    let instance = undefined;
     let status = 'pending';
     if (opts.showWaitPrompt) {
-      setTimeout(() => {
+      waitId = setTimeout(() => {
         if (status === 'pending') {
           instance = $Message.open(opts.waitPromptText);
         }
-      }, opts.waitPromptTime);
+      }, opts.waitPromptTimeout);
     }
     if (isObject(params)) {
       params = this._qs.stringify(params);
@@ -111,8 +111,8 @@ export class Axios extends Ajax {
     if (opts.mock === true) {
       setTimeout(() => {
         if (opts.showWaitPrompt) {
-          clearTimeout(waitId);
-          $Message.close(instance);
+          waitId && clearTimeout(waitId);
+          instance && $Message.close(instance);
         }
         $parser.parse(this.mockData);
       }, opts.mockTimeout);
@@ -122,8 +122,8 @@ export class Axios extends Ajax {
     this._axios.post(url, params, opts).then(res => {
       status = 'resolved';
       if (opts.showWaitPrompt) {
-        clearTimeout(waitId);
-        $Message.close(instance);
+        waitId && clearTimeout(waitId);
+        instance && $Message.close(instance);
       }
       $parser.parse(res.data, res);
     }).catch(err => {
@@ -131,8 +131,8 @@ export class Axios extends Ajax {
       $parser.executeBefore(null, err);
       status = 'rejected';
       if (opts.showWaitPrompt) {
-        clearTimeout(waitId);
-        $Message.close(instance);
+        waitId && clearTimeout(waitId);
+        instance && $Message.close(instance);
       }
       console.log(err);
       try {
@@ -158,15 +158,15 @@ export class Axios extends Ajax {
 
     url = util.nameReplaceUrlParams(url, params);
 
-    let waitId;
-    let instance;
+    let waitId = undefined;
+    let instance = undefined;
     let status = 'pending';
     if (opts.showWaitPrompt) {
-      setTimeout(() => {
+      waitId = setTimeout(() => {
         if (status === 'pending') {
           instance = $Message.open(opts.waitPromptText);
         }
-      }, opts.waitPromptTime);
+      }, opts.waitPromptTimeout);
     }
     if (isObject(params)) {
       params = this._qs.stringify(params);
@@ -175,8 +175,8 @@ export class Axios extends Ajax {
     if (opts.mock === true) {
       setTimeout(() => {
         if (opts.showWaitPrompt) {
-          clearTimeout(waitId);
-          $Message.close(instance);
+          waitId && clearTimeout(waitId);
+          instance && $Message.close(instance);
         }
         $parser.parse(this.mockData);
       }, opts.mockTimeout);
@@ -186,8 +186,8 @@ export class Axios extends Ajax {
     this._axios.put(url, params, opts).then(res => {
       status = 'resolved';
       if (opts.showWaitPrompt) {
-        clearTimeout(waitId);
-        $Message.close(instance);
+        waitId && clearTimeout(waitId);
+        instance && $Message.close(instance);
       }
       $parser.parse(res.data, res);
     }).catch(err => {
@@ -195,8 +195,8 @@ export class Axios extends Ajax {
       $parser.executeBefore(null, err);
       status = 'rejected';
       if (opts.showWaitPrompt) {
-        clearTimeout(waitId);
-        $Message.close(instance);
+        waitId && clearTimeout(waitId);
+        instance && $Message.close(instance);
       }
       console.log(err);
       try {
@@ -222,23 +222,23 @@ export class Axios extends Ajax {
 
     url = util.nameReplaceUrlParams(url, params);
 
-    let waitId;
-    let instance;
+    let waitId = undefined;
+    let instance = undefined;
     let status = 'pending';
     if (opts.showWaitPrompt) {
-      setTimeout(() => {
+      waitId = setTimeout(() => {
         if (status === 'pending') {
           instance = $Message.open(opts.waitPromptText);
         }
-      }, opts.waitPromptTime);
+      }, opts.waitPromptTimeout);
     }
     opts.params = merge(params, opts.params);
     /*模拟开始*/
     if (opts.mock === true) {
       setTimeout(() => {
         if (opts.showWaitPrompt) {
-          clearTimeout(waitId);
-          $Message.close(instance);
+          waitId && clearTimeout(waitId);
+          instance && $Message.close(instance);
         }
         $parser.parse(this.mockData);
       }, opts.mockTimeout);
@@ -248,8 +248,8 @@ export class Axios extends Ajax {
     this._axios.delete(url, opts).then(res => {
       status = 'resolved';
       if (opts.showWaitPrompt) {
-        clearTimeout(waitId);
-        $Message.close(instance);
+        waitId && clearTimeout(waitId);
+        instance && $Message.close(instance);
       }
       $parser.parse(res.data, res);
     }).catch(err => {
@@ -257,8 +257,8 @@ export class Axios extends Ajax {
       $parser.executeBefore(null, err);
       status = 'rejected';
       if (opts.showWaitPrompt) {
-        clearTimeout(waitId);
-        $Message.close(instance);
+        waitId && clearTimeout(waitId);
+        instance && $Message.close(instance);
       }
       console.log(err);
       try {
