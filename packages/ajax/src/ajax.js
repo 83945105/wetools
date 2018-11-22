@@ -8,6 +8,10 @@ import {isFormData} from "../../src/utils/util";
 const merge = require('webpack-merge');
 
 export const AjaxOptions = {
+  //模拟开关
+  mock: false,
+  //模拟时间
+  mockTimeout: 0,
   baseURL: '',
   params: {},
   headers: {},
@@ -29,6 +33,11 @@ export const AjaxOptions = {
 };
 
 export class Ajax {
+
+  mock(mockData) {
+    this.mockData = mockData;
+    return this;
+  };
 
   get(url, params, options) {
     if (!isString(url)) {
@@ -77,6 +86,7 @@ export class Ajax {
       throw new Error(`Ajax delete(): options必须为Object类型`);
     }
   };
+
 }
 
 export class AjaxUtil {

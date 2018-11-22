@@ -43,6 +43,14 @@ export class Axios extends Ajax {
         }
       }, opts.waitPromptTime);
     }
+    /*模拟开始*/
+    if (opts.mock === true) {
+      setTimeout(() => {
+        $parser.parse(this.mockData);
+      }, opts.mockTimeout);
+      return $parser;
+    }
+    /*模拟结束*/
     this._axios.get(url, opts).then(res => {
       status = 'resolved';
       if (opts.showWaitPrompt) {
@@ -95,6 +103,14 @@ export class Axios extends Ajax {
     if (isObject(params)) {
       params = this._qs.stringify(params);
     }
+    /*模拟开始*/
+    if (opts.mock === true) {
+      setTimeout(() => {
+        $parser.parse(this.mockData);
+      }, opts.mockTimeout);
+      return $parser;
+    }
+    /*模拟结束*/
     this._axios.post(url, params, opts).then(res => {
       status = 'resolved';
       if (opts.showWaitPrompt) {
@@ -147,6 +163,14 @@ export class Axios extends Ajax {
     if (isObject(params)) {
       params = this._qs.stringify(params);
     }
+    /*模拟开始*/
+    if (opts.mock === true) {
+      setTimeout(() => {
+        $parser.parse(this.mockData);
+      }, opts.mockTimeout);
+      return $parser;
+    }
+    /*模拟结束*/
     this._axios.put(url, params, opts).then(res => {
       status = 'resolved';
       if (opts.showWaitPrompt) {
@@ -197,6 +221,14 @@ export class Axios extends Ajax {
       }, opts.waitPromptTime);
     }
     opts.params = merge(params, opts.params);
+    /*模拟开始*/
+    if (opts.mock === true) {
+      setTimeout(() => {
+        $parser.parse(this.mockData);
+      }, opts.mockTimeout);
+      return $parser;
+    }
+    /*模拟结束*/
     this._axios.delete(url, opts).then(res => {
       status = 'resolved';
       if (opts.showWaitPrompt) {
