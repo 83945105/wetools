@@ -45,7 +45,7 @@ Vue.use(wetools, {
     // use: Ajax.Axios,//使用axios发送ajax
     options: {
       mock: true,
-      mockTimeout: 5000,
+      mockTimeout: 0,
       baseURL: '/api',//URL默认前缀
       withCredentials:true,//允许跨域携带cookie
       showWaitPrompt: true,

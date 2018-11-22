@@ -175,20 +175,7 @@
 
     created() {
       this.$Ajax
-        .mock({
-          "code": 0,
-          "resultInfo": {
-            "resultCode": "FAIL",
-            "messageCode": 0,
-            "message": "没有可以删除的角色资源关系",
-            "exceptionMessage": null,
-            "resultDetails": null,
-            "error": false,
-            "type": 0,
-            "success": false,
-            "fail": true
-          }
-        })
+        .mock(require('./AjaxTest.json'))
         .get('dms/sysConfType/get/list/confType2')
         .before(data => {
         })

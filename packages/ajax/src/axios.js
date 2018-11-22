@@ -46,6 +46,10 @@ export class Axios extends Ajax {
     /*模拟开始*/
     if (opts.mock === true) {
       setTimeout(() => {
+        if (opts.showWaitPrompt) {
+          clearTimeout(waitId);
+          $Message.close(instance);
+        }
         $parser.parse(this.mockData);
       }, opts.mockTimeout);
       return $parser;
@@ -106,6 +110,10 @@ export class Axios extends Ajax {
     /*模拟开始*/
     if (opts.mock === true) {
       setTimeout(() => {
+        if (opts.showWaitPrompt) {
+          clearTimeout(waitId);
+          $Message.close(instance);
+        }
         $parser.parse(this.mockData);
       }, opts.mockTimeout);
       return $parser;
@@ -166,6 +174,10 @@ export class Axios extends Ajax {
     /*模拟开始*/
     if (opts.mock === true) {
       setTimeout(() => {
+        if (opts.showWaitPrompt) {
+          clearTimeout(waitId);
+          $Message.close(instance);
+        }
         $parser.parse(this.mockData);
       }, opts.mockTimeout);
       return $parser;
@@ -224,6 +236,10 @@ export class Axios extends Ajax {
     /*模拟开始*/
     if (opts.mock === true) {
       setTimeout(() => {
+        if (opts.showWaitPrompt) {
+          clearTimeout(waitId);
+          $Message.close(instance);
+        }
         $parser.parse(this.mockData);
       }, opts.mockTimeout);
       return $parser;

@@ -35,6 +35,7 @@ export const AjaxOptions = {
 export class Ajax {
 
   mock(mockData) {
+    console.log(mockData)
     this.mockData = mockData;
     return this;
   };
